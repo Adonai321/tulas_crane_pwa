@@ -1,0 +1,142 @@
+﻿/* ==================================
+   CONTENEDOR PRINCIPAL
+================================== */
+.admin-layout-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #080808; /* Color base oscuro */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.admin-main-content {
+    flex: 1; /* Ocupa el espacio restante */
+}
+
+/* ==================================
+   HEADER ADMINISTRATIVO
+================================== */
+.admin-header,
+.admin-header * {
+    box-sizing: border-box;
+}
+
+.admin-header {
+    width: 100%;
+    min-height: 82px;
+    padding: 14px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    position: relative;
+    z-index: 100;
+    background: #191a1c; /* Color de panel según tu diseño anterior */
+    color: #ffffff;
+    border-bottom: 1px solid #e3b969; /* Línea dorada sutil */
+}
+
+.admin-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+    .admin-brand img {
+        width: 52px;
+        height: 52px;
+        object-fit: contain;
+    }
+
+.admin-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.admin-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 15px;
+    color: #d5d5d5;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+    .admin-nav-link i {
+        font-size: 20px;
+    }
+
+    /* Estado activo y hover */
+    .admin-nav-link:hover,
+    .admin-nav-link.active {
+        color: #e3b969; /* Dorado Tula's Crane */
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+.admin-menu-toggle {
+    display: none;
+    padding: 4px;
+    border: 0;
+    background: transparent;
+    color: #e3b969;
+    font-size: 34px;
+    cursor: pointer;
+}
+
+/* ==================================
+   RESPONSIVE (Móviles)
+================================== */
+@media (max-width: 900px) {
+    .admin-header {
+        min-height: 70px;
+        padding: 10px 20px;
+    }
+
+    .admin-brand {
+        font-size: 18px;
+    }
+
+        .admin-brand img {
+            width: 45px;
+            height: 45px;
+        }
+
+    .admin-menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .admin-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 5px;
+        padding: 15px 20px;
+        background: #191a1c;
+        border-top: 1px solid #333;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    }
+
+        .admin-nav.open {
+            display: flex;
+        }
+
+    .admin-nav-link {
+        padding: 15px;
+        font-size: 1.1rem;
+    }
+}

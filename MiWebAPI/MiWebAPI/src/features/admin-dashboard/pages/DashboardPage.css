@@ -1,0 +1,267 @@
+﻿/* ==================================
+   CONTENEDOR GLOBAL DEL DASHBOARD
+================================== */
+.dashboard-wrapper {
+    padding: 2.5rem 5%;
+    color: #ffffff;
+    background-color: #0a0a0a;
+    min-height: 100vh;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* ==================================
+   ENCABEZADO (Perfil Administrador)
+================================== */
+.dashboard-header {
+    margin-bottom: 2.5rem;
+}
+
+.admin-profile {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.profile-icon {
+    font-size: 3.5rem;
+    color: #e3b969; /* Tono dorado institucional */
+}
+
+.admin-greeting {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 0.2rem 0;
+    letter-spacing: 0.5px;
+}
+
+.admin-date {
+    font-size: 0.95rem;
+    margin: 0;
+    color: #e3b969;
+    text-transform: capitalize;
+}
+
+/* ==================================
+   GRID PRINCIPAL (2 Columnas)
+================================== */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1.2fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+/* ==================================
+   COLUMNA IZQUIERDA: Métricas (2x2)
+================================== */
+.metrics-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.metric-card {
+    background-color: #161616;
+    border: 1px solid #222222;
+    border-radius: 14px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.25s ease;
+}
+
+    .metric-card:hover {
+        border-color: #e3b969;
+        transform: translateY(-2px);
+    }
+
+.metric-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0 0 1rem 0;
+    color: #ffffff;
+}
+
+.metric-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.metric-icon {
+    font-size: 3rem;
+    color: #e3b969;
+    line-height: 1;
+}
+
+.metric-data {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.metric-value {
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #ffffff;
+}
+
+.metric-label {
+    font-size: 0.9rem;
+    color: #999999;
+    margin-top: 4px;
+}
+
+/* ==================================
+   COLUMNA DERECHA: Alertas y Acciones
+================================== */
+.actions-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* --- Panel de Alertas Importantes (Tono Crema) --- */
+.alerts-card {
+    background-color: #f6efd5;
+    border-radius: 14px;
+    padding: 1.8rem;
+    color: #121212;
+}
+
+.alerts-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+}
+
+.alerts-title {
+    color: #b57c1e;
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+.btn-view-all {
+    background: transparent;
+    border: none;
+    color: #333333;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 0;
+}
+
+    .btn-view-all:hover {
+        color: #000000;
+        text-decoration: underline;
+    }
+
+.alerts-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.alerts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    flex: 1;
+}
+
+.alert-item {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+}
+
+    .alert-item strong {
+        font-weight: 700;
+        color: #1a1a1a;
+    }
+
+    .alert-item span {
+        color: #555555;
+        font-size: 0.85rem;
+    }
+
+.alerts-icon-wrapper {
+    font-size: 4.5rem;
+    color: #222222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 1rem;
+}
+
+/* --- Acciones Rápidas --- */
+.quick-actions-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 0.8rem 0;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+.quick-actions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.action-btn {
+    background-color: #1e1f22;
+    border: 1px solid #e3b969;
+    color: #ffffff;
+    padding: 1.1rem 1rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+    .action-btn:hover {
+        background-color: #e3b969;
+        color: #000000;
+    }
+
+/* ==================================
+   DISEÑO RESPONSIVO (Breakpoints)
+================================== */
+@media (max-width: 1024px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .dashboard-wrapper {
+        padding: 1.5rem 1rem;
+    }
+
+    .metrics-section {
+        grid-template-columns: 1fr;
+    }
+
+    .quick-actions-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .alerts-body {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+    }
+
+    .alerts-icon-wrapper {
+        align-self: center;
+        padding-left: 0;
+    }
+}

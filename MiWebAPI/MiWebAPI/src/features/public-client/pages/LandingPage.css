@@ -1,0 +1,328 @@
+﻿/* =======================================
+   VARIABLES DE TU DISEÑO ORIGINAL
+   ======================================= */
+:root {
+    --tc-black: #080808;
+    --tc-panel: #141518; /* Gris grafito: destaca del negro sin ser demasiado claro */
+    --tc-gold: #e3b969;
+    --tc-cream: #fff1d0;
+    --tc-white: #ffffff;
+    --tc-gray: #d5d5d5;
+}
+
+/* =======================================
+   LAYOUT GENERAL (Pantalla Completa)
+   ======================================= */
+.landing-wrapper {
+    width: 100%;
+    margin: 0;
+    padding: 10px 30px 15px 30px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: 20px;
+    background-color: var(--tc-black);
+    height: calc(100vh - 80px);
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =======================================
+   PANEL IZQUIERDO (PORTADA)
+   ======================================= */
+.hero-panel {
+    background-image: linear-gradient( 180deg, rgb(0 0 0 / 12%) 0%, rgb(0 0 0 / 35%) 35%, rgb(0 0 0 / 94%) 100% ), linear-gradient( 90deg, rgb(0 0 0 / 48%) 0%, rgb(0 0 0 / 12%) 100% ), url('/ImagenFondo.jpeg');
+    background-color: #202020;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    padding: 30px clamp(15px, 2vw, 30px);
+}
+
+.hero-content {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.hero-title {
+    max-width: 540px;
+    margin: 0 0 12px;
+    color: var(--tc-white) !important;
+    font-size: clamp(2.5rem, 3.8vw, 3.8rem);
+    font-weight: 800;
+    line-height: 0.99;
+    letter-spacing: -1.8px;
+    text-wrap: balance;
+}
+
+.hero-subtitle {
+    color: var(--tc-white) !important;
+    font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+    line-height: 1.45;
+    margin: 0 0 25px;
+}
+
+/* =======================================
+   BOTONES
+   ======================================= */
+.hero-actions {
+    width: min(100%, 460px);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+}
+
+.tc-btn {
+    min-height: 46px;
+    padding: 11px 20px;
+    border-radius: 30px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s;
+}
+
+.tc-btn-primary {
+    color: var(--tc-black);
+    background: var(--tc-gold);
+    border: 2px solid var(--tc-gold);
+}
+
+    .tc-btn-primary:hover {
+        color: var(--tc-black);
+        background: #f0ce88;
+        border-color: #f0ce88;
+        transform: translateY(-2px);
+    }
+
+.tc-btn-outline {
+    color: var(--tc-white);
+    background: rgb(0 0 0 / 50%);
+    border: 2px solid var(--tc-gold);
+}
+
+    .tc-btn-outline:hover {
+        color: var(--tc-black);
+        background: var(--tc-gold);
+        transform: translateY(-2px);
+    }
+
+/* =======================================
+   PANEL DERECHO
+   ======================================= */
+.right-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 100%;
+}
+
+/* Tarjetas Oscuras Superiores (Bloques Interactivos) */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.feature-card {
+    background: var(--tc-panel);
+    border: 1px solid #222222; /* Borde sutil para darle volumen frente al negro */
+    border-radius: 20px;
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--tc-white);
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+    .feature-card:hover {
+        border-color: var(--tc-gold);
+        background-color: #1e1f23; /* Aclara al interactuar */
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
+        }
+
+.feature-icon {
+    color: var(--tc-gold);
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.feature-card span {
+    font-size: clamp(0.85rem, 1.1vw, 1rem);
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+/* Tarjeta Dorada "Nosotros" */
+.about-card {
+    background: var(--tc-gold);
+    border-radius: 18px;
+    padding: 15px 18px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.about-title-main {
+    margin: 0 0 10px;
+    color: var(--tc-black);
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+/* Experiencia (Fondo Arena) */
+.about-content {
+    background: #f8e9c8;
+    border-radius: 12px;
+    padding: 12px 18px;
+    margin-bottom: 12px;
+}
+
+.section-eyebrow {
+    display: block;
+    margin-bottom: 4px;
+    color: #7b5b24;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.about-heading {
+    margin: 0 0 8px;
+    color: #171717;
+    font-size: clamp(1.1rem, 1.4vw, 1.3rem);
+    font-weight: 800;
+    line-height: 1.15;
+}
+
+.about-text {
+    margin: 0 0 10px;
+    color: #343434;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    text-align: justify;
+}
+
+.about-certifications {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.cert-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+    .cert-item i {
+        flex-shrink: 0;
+        color: #9a7029;
+        font-size: 1.4rem;
+        line-height: 1;
+    }
+
+    .cert-item h4 {
+        margin: 0 0 3px;
+        color: #171717;
+        font-size: 0.8rem;
+        font-weight: 800;
+    }
+
+    .cert-item p {
+        margin: 0;
+        color: #454545;
+        font-size: 0.75rem;
+        line-height: 1.3;
+        text-align: justify;
+    }
+
+/* Cajas Claras: Misión, Visión y Valores */
+.about-boxes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    flex-grow: 1;
+}
+
+.info-box {
+    background: var(--tc-cream);
+    border-radius: 12px;
+    padding: 15px 12px;
+    display: flex;
+    flex-direction: column;
+    color: #171717;
+    height: 100%;
+}
+
+.info-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 12px;
+    display: grid;
+    place-items: center;
+    background: var(--tc-gold);
+    border-radius: 50%;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.info-box h6 {
+    margin: 0 0 8px;
+    font-size: 1.5rem; /* Textos dominantes */
+    font-weight: 900; /* Extra negrita */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.info-box p {
+    margin: 0;
+    color: #383838;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    text-align: justify;
+}
+
+.info-box ul {
+    margin: 0;
+    padding-left: 15px;
+    color: #383838;
+    font-size: 0.75rem;
+    line-height: 1.4;
+}
+
+/* =======================================
+   RESPONSIVIDAD
+   ======================================= */
+@media (max-width: 1050px) {
+    .landing-wrapper {
+        grid-template-columns: 1fr;
+        height: auto;
+        overflow: visible;
+    }
+
+    .hero-panel {
+        min-height: 450px;
+    }
+}
