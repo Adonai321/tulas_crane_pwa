@@ -3,12 +3,76 @@
   "WorkspaceRootPath": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\js\\maquinaria.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\js\\maquinaria.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\registrarempleado.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\registrarempleado.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\registrarmaquinaria.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\registrarmaquinaria.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\maquinaria.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\maquinaria.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\expedientemaquinaria.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\expedientemaquinaria.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\expedienteempleado.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\expedienteempleado.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\empleados.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\empleados.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\js\\expedientemaquinaria.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\js\\expedientemaquinaria.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\css\\expedientemaquinaria.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\css\\expedientemaquinaria.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\css\\empleados.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\css\\empleados.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\js\\empleados.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\js\\empleados.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\dashboard.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\dashboard.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\css\\dashboard.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\css\\dashboard.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\css\\expedienteempleado.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\css\\expedienteempleado.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\css\\index.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\css\\index.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\js\\layout.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\js\\layout.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\js\\empleadodetalle.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\js\\empleadodetalle.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\css\\dise\u00F1ogeneral.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
@@ -39,20 +103,8 @@
       "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\dise\u00F1oadmin.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\js\\maquinaria.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\js\\maquinaria.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\css\\registrarmaquinaria.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\css\\registrarmaquinaria.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\registrarmaquinaria.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\registrarmaquinaria.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\maquinaria.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\maquinaria.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\login.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -61,26 +113,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\dise\u00F1ogeneral.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\dise\u00F1ogeneral.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\js\\layout.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\js\\layout.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\registrarempleado.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\registrarempleado.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\css\\index.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\css\\index.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\css\\empleados.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\css\\empleados.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\empleados.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\empleados.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\css\\empleados.css||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -99,16 +131,8 @@
       "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\css\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\css\\dashboard.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\css\\dashboard.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\controllers\\empleadocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\controllers\\empleadocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\estef\\onedrive\\escritorio\\tula\u00B4s crane gestor\\crud_net8_html_javascript\\miwebapi\\miwebapi\\wwwroot\\tiposrenta.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\tiposrenta.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -118,7 +142,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 26,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -126,7 +150,98 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ExpedienteMaquinaria.js",
+              "DocumentMoniker": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\js\\ExpedienteMaquinaria.js",
+              "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\js\\ExpedienteMaquinaria.js",
+              "ToolTip": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\js\\ExpedienteMaquinaria.js",
+              "RelativeToolTip": "MiWebAPI\\wwwroot\\js\\ExpedienteMaquinaria.js",
+              "ViewState": "AgIAAA0BAAAAAAAAAAAYwCoBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-11-06T05:44:28.307Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ExpedienteMaquinaria.css",
+              "DocumentMoniker": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\css\\ExpedienteMaquinaria.css",
+              "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\css\\ExpedienteMaquinaria.css",
+              "ToolTip": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\css\\ExpedienteMaquinaria.css",
+              "RelativeToolTip": "MiWebAPI\\wwwroot\\css\\ExpedienteMaquinaria.css",
+              "ViewState": "AgIAAA4CAAAAAAAAAADwvywCAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-11-06T05:43:55.356Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ExpedienteMaquinaria.html",
+              "DocumentMoniker": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\ExpedienteMaquinaria.html",
+              "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\ExpedienteMaquinaria.html",
+              "ToolTip": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\ExpedienteMaquinaria.html",
+              "RelativeToolTip": "MiWebAPI\\wwwroot\\ExpedienteMaquinaria.html",
+              "ViewState": "AgIAAB8BAAAAAAAAAADwvz0BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-11-06T05:43:18.156Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 10,
+              "Title": "Empleados.js",
+              "DocumentMoniker": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\js\\Empleados.js",
+              "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\js\\Empleados.js",
+              "ToolTip": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\js\\Empleados.js",
+              "RelativeToolTip": "MiWebAPI\\wwwroot\\js\\Empleados.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-11-06T04:50:17.355Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "EmpleadoDetalle.js",
+              "DocumentMoniker": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\js\\EmpleadoDetalle.js",
+              "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\js\\EmpleadoDetalle.js",
+              "ToolTip": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\js\\EmpleadoDetalle.js",
+              "RelativeToolTip": "MiWebAPI\\wwwroot\\js\\EmpleadoDetalle.js",
+              "ViewState": "AgIAAFEDAAAAAAAAAAAuwG4DAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-11-06T04:44:19.855Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ExpedienteEmpleado.css",
+              "DocumentMoniker": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\css\\ExpedienteEmpleado.css",
+              "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\css\\ExpedienteEmpleado.css",
+              "ToolTip": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\css\\ExpedienteEmpleado.css",
+              "RelativeToolTip": "MiWebAPI\\wwwroot\\css\\ExpedienteEmpleado.css",
+              "ViewState": "AgIAAHEBAAAAAAAAAADwv8oCAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-11-06T04:43:33.878Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ExpedienteEmpleado.html",
+              "DocumentMoniker": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\ExpedienteEmpleado.html",
+              "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\ExpedienteEmpleado.html",
+              "ToolTip": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\ExpedienteEmpleado.html",
+              "RelativeToolTip": "MiWebAPI\\wwwroot\\ExpedienteEmpleado.html",
+              "ViewState": "AgIAADkBAAAAAAAAAAAAAEcBAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-11-06T04:42:19.684Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
               "Title": "RegistrarMaquinaria.css",
               "DocumentMoniker": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\css\\RegistrarMaquinaria.css",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\css\\RegistrarMaquinaria.css",
@@ -138,31 +253,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 2,
               "Title": "RegistrarMaquinaria.html",
               "DocumentMoniker": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\RegistrarMaquinaria.html",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\RegistrarMaquinaria.html",
               "ToolTip": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\RegistrarMaquinaria.html",
               "RelativeToolTip": "MiWebAPI\\wwwroot\\RegistrarMaquinaria.html",
-              "ViewState": "AgIAACgBAAAAAAAAAADwv0YBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2026-11-05T18:51:52.448Z"
+              "WhenOpened": "2026-11-05T18:51:52.448Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 0,
               "Title": "Maquinaria.js",
               "DocumentMoniker": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\js\\Maquinaria.js",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\js\\Maquinaria.js",
               "ToolTip": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\js\\Maquinaria.js",
               "RelativeToolTip": "MiWebAPI\\wwwroot\\js\\Maquinaria.js",
-              "ViewState": "AgIAACEBAAAAAAAAAAAYwDEBAAAHAAAAAAAAAA==",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAAwMoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2026-11-05T18:46:33.187Z"
+              "WhenOpened": "2026-11-05T18:46:33.187Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 19,
               "Title": "Maquinaria.css",
               "DocumentMoniker": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\css\\Maquinaria.css",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\css\\Maquinaria.css",
@@ -174,7 +291,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 3,
               "Title": "Maquinaria.html",
               "DocumentMoniker": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\Maquinaria.html",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\Maquinaria.html",
@@ -182,11 +299,12 @@
               "RelativeToolTip": "MiWebAPI\\wwwroot\\Maquinaria.html",
               "ViewState": "AgIAAGgAAAAAAAAAAADwv4YAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2026-11-05T18:45:51.915Z"
+              "WhenOpened": "2026-11-05T18:45:51.915Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 1,
               "Title": "RegistrarEmpleado.html",
               "DocumentMoniker": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\RegistrarEmpleado.html",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\RegistrarEmpleado.html",
@@ -194,11 +312,12 @@
               "RelativeToolTip": "MiWebAPI\\wwwroot\\RegistrarEmpleado.html",
               "ViewState": "AgIAANcBAAAAAAAAAADwv/UBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2026-11-05T18:10:09.161Z"
+              "WhenOpened": "2026-11-05T18:10:09.161Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 22,
               "Title": "RegistrarEmpleado.css",
               "DocumentMoniker": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\css\\RegistrarEmpleado.css",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\css\\RegistrarEmpleado.css",
@@ -210,31 +329,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 9,
               "Title": "Empleados.css",
               "DocumentMoniker": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\css\\Empleados.css",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\css\\Empleados.css",
               "ToolTip": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\css\\Empleados.css",
               "RelativeToolTip": "MiWebAPI\\wwwroot\\css\\Empleados.css",
-              "ViewState": "AgIAADoCAAAAAAAAAAAIwFICAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAK0CAAAAAAAAAAAAAK0CAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-11-05T18:02:11.301Z"
+              "WhenOpened": "2026-11-05T18:02:11.301Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 6,
               "Title": "empleados.html",
               "DocumentMoniker": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\empleados.html",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\empleados.html",
               "ToolTip": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\empleados.html",
               "RelativeToolTip": "MiWebAPI\\wwwroot\\empleados.html",
-              "ViewState": "AgIAAEABAAAAAAAAAAAIwFgBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAB8BAAAAAAAAAAAAADcBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2026-11-05T18:01:36.274Z"
+              "WhenOpened": "2026-11-05T18:01:36.274Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 28,
               "Title": "Empleados.css",
               "DocumentMoniker": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\css\\Empleados.css",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\css\\Empleados.css",
@@ -246,31 +367,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 12,
               "Title": "Dashboard.css",
               "DocumentMoniker": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\css\\Dashboard.css",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\css\\Dashboard.css",
               "ToolTip": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\css\\Dashboard.css",
               "RelativeToolTip": "MiWebAPI\\wwwroot\\css\\Dashboard.css",
-              "ViewState": "AgIAACYDAAAAAAAAAAAIwD4DAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACADAAAAAAAAAAAAADcDAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-11-05T03:48:22.491Z"
+              "WhenOpened": "2026-11-05T03:48:22.491Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 11,
               "Title": "Dashboard.html",
               "DocumentMoniker": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\Dashboard.html",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\Dashboard.html",
               "ToolTip": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\Dashboard.html",
               "RelativeToolTip": "MiWebAPI\\wwwroot\\Dashboard.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAOUBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAM0BAAAAAAAAAADwv+sBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2026-11-05T03:45:06.148Z"
+              "WhenOpened": "2026-11-05T03:45:06.148Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 32,
               "Title": "EmpleadoController.cs",
               "DocumentMoniker": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\Controllers\\EmpleadoController.cs",
               "RelativeDocumentMoniker": "MiWebAPI\\Controllers\\EmpleadoController.cs",
@@ -282,7 +405,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 21,
               "Title": "TiposRenta.css",
               "DocumentMoniker": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\css\\TiposRenta.css",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\css\\TiposRenta.css",
@@ -294,19 +417,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "TiposRenta.html",
-              "DocumentMoniker": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\TiposRenta.html",
-              "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\TiposRenta.html",
-              "ToolTip": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\TiposRenta.html",
-              "RelativeToolTip": "MiWebAPI\\wwwroot\\TiposRenta.html",
-              "ViewState": "AgIAAJcBAAAAAAAAAADwv7UBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2026-10-29T01:10:50.795Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 30,
               "Title": "login.js",
               "DocumentMoniker": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\js\\login.js",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\js\\login.js",
@@ -318,7 +429,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 31,
               "Title": "login.css",
               "DocumentMoniker": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\css\\login.css",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\css\\login.css",
@@ -330,7 +441,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 26,
               "Title": "login.html",
               "DocumentMoniker": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\login.html",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\login.html",
@@ -342,7 +453,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 24,
               "Title": "Dise\u00F1oAdmin.html",
               "DocumentMoniker": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\Dise\u00F1oAdmin.html",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\Dise\u00F1oAdmin.html",
@@ -354,7 +465,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 20,
               "Title": "Layout_Admin.js",
               "DocumentMoniker": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\js\\Layout_Admin.js",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\js\\Layout_Admin.js",
@@ -366,7 +477,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 23,
               "Title": "Dise\u00F1oAdmin.css",
               "DocumentMoniker": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\css\\Dise\u00F1oAdmin.css",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\css\\Dise\u00F1oAdmin.css",
@@ -386,11 +497,12 @@
               "RelativeToolTip": "MiWebAPI\\wwwroot\\js\\Layout.js",
               "ViewState": "AgIAAK0AAAAAAAAAAAAYwMoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2026-10-27T21:03:29.288Z"
+              "WhenOpened": "2026-10-27T21:03:29.288Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 27,
               "Title": "Dise\u00F1oGeneral.html",
               "DocumentMoniker": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\Dise\u00F1oGeneral.html",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\Dise\u00F1oGeneral.html",
@@ -402,7 +514,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 18,
               "Title": "Dise\u00F1oGeneral.css",
               "DocumentMoniker": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\css\\Dise\u00F1oGeneral.css",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\css\\Dise\u00F1oGeneral.css",
@@ -414,7 +526,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 29,
               "Title": "styles.css",
               "DocumentMoniker": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\css\\styles.css",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\css\\styles.css",
@@ -426,20 +538,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 17,
               "Title": "index.html",
               "DocumentMoniker": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\index.html",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\index.html",
               "ToolTip": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\index.html",
               "RelativeToolTip": "MiWebAPI\\wwwroot\\index.html",
-              "ViewState": "AgIAAAEBAAAAAAAAAAAAABUAAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2026-10-27T19:59:08.1Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 14,
               "Title": "Index.css",
               "DocumentMoniker": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula\u00B4s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\wwwroot\\css\\Index.css",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\css\\Index.css",
@@ -447,7 +559,8 @@
               "RelativeToolTip": "MiWebAPI\\wwwroot\\css\\Index.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAJACAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-10-27T19:46:36.663Z"
+              "WhenOpened": "2026-10-27T19:46:36.663Z",
+              "EditorCaption": ""
             }
           ]
         }

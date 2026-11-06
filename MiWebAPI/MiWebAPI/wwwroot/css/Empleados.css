@@ -592,3 +592,101 @@
         height: 30px;
     }
 }
+/* Barra inferior de navegación */
+
+.mobile-bottom-nav {
+    position: fixed;
+    z-index: 150;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    min-height: 66px;
+    padding: 7px 4px max(7px, env(safe-area-inset-bottom));
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 2px;
+    border-top: 1px solid #383838;
+    background: #111;
+}
+
+.mobile-nav-item {
+    min-width: 0;
+    padding: 4px 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+    color: #c2c2c2;
+    text-decoration: none;
+    border-radius: 7px;
+}
+
+    .mobile-nav-item i {
+        font-size: 21px;
+        line-height: 1.1;
+    }
+
+    .mobile-nav-item span {
+        font-size: 9px;
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    .mobile-nav-item.active {
+        color: var(--gold);
+    }
+
+    .mobile-nav-item:focus-visible {
+        outline: 2px solid var(--gold);
+        outline-offset: -2px;
+    }
+
+/* Espacio para que el footer no quede
+       tapado por la barra inferior */
+
+.dashboard-page #admin-footer-placeholder {
+    padding-bottom: 76px;
+}
+
+}
+
+/* ==========================================
+   CELULARES MUY PEQUEÑOS
+========================================== */
+
+@media (max-width: 360px) {
+    .dashboard-container {
+        width: calc(100% - 20px);
+    }
+
+    .dashboard-stats {
+        gap: 8px;
+    }
+
+    .stat-card {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .section-tag {
+        font-size: 9px;
+    }
+
+    .mobile-nav-item i {
+        font-size: 19px;
+    }
+
+    .mobile-nav-item span {
+        font-size: 8px;
+    }
+}
+
+
+
+
+    /* Evita que la barra tape las tarjetas */
+    body.empleados-page {
+        padding-bottom: 90px;
+    }
+}

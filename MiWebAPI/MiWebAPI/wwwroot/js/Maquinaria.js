@@ -198,10 +198,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // La tarjeta y su flecha realizan la misma acción.
         function consultarMaquinaria() {
-            alert(
-                "La ficha individual de maquinaria " +
-                "se conectará cuando creemos esa pantalla."
-            );
+            window.location.href =
+                `ExpedienteMaquinaria.html?id=${maquina.id}`;
         }
 
         tarjeta.addEventListener("click", consultarMaquinaria);

@@ -1,0 +1,317 @@
+﻿
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Expediente de maquinaria | Tula's Crane</title>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Estilos compartidos del administrador -->
+    <link rel="stylesheet" href="css/DiseñoAdmin.css">
+
+    <!-- Estilos exclusivos del expediente -->
+    <link rel="stylesheet" href="css/ExpedienteMaquinaria.css">
+</head>
+
+<body class="expediente-maquinaria-page">
+
+    <!-- ENCABEZADO ADMINISTRATIVO COMPARTIDO -->
+    <div id="admin-header-placeholder"></div>
+
+    <main class="expediente-container">
+
+        <!-- ENCABEZADO DE LA MAQUINARIA -->
+        <section class="expediente-heading">
+
+            <a href="Maquinaria.html"
+               class="expediente-back"
+               aria-label="Regresar a maquinaria"
+               title="Regresar a maquinaria">
+                <i class="bi bi-chevron-left"></i>
+            </a>
+
+            <div class="maquinaria-titulo">
+                <h1 id="nombreMaquinaria">Grúa Linkbelt</h1>
+
+                <p id="capacidadMaquinaria">30 toneladas</p>
+            </div>
+
+            <div class="maquinaria-estados">
+                <span class="estado-disponible" id="estadoMaquinaria">
+                    <i class="bi bi-check-circle-fill"></i>
+                    Disponible
+                </span>
+
+                <span class="estado-documentacion" id="estadoDocumentacion">
+                    <i class="bi bi-check-circle-fill"></i>
+                    Documentación completa
+                </span>
+            </div>
+
+        </section>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <section class="expediente-layout">
+
+            <!-- GALERÍA DE IMÁGENES -->
+            <section class="galeria-maquinaria">
+
+                <div class="imagen-principal-container">
+
+                    <img src="IMG/maquinaria/grua-linkbelt.jpg"
+                         alt="Fotografía principal de la grúa Linkbelt"
+                         id="imagenPrincipal"
+                         class="imagen-principal">
+
+                    <button type="button"
+                            class="btn-agregar-imagen"
+                            id="btnAgregarImagen"
+                            aria-label="Agregar fotografía"
+                            title="Agregar fotografía">
+                        <i class="bi bi-plus-lg"></i>
+                    </button>
+
+                    <input type="file"
+                           id="inputImagen"
+                           accept="image/*"
+                           multiple
+                           hidden>
+                </div>
+
+                <div class="miniaturas" id="miniaturas">
+
+                    <button type="button"
+                            class="miniatura activa"
+                            data-imagen="IMG/maquinaria/grua-linkbelt.jpg"
+                            aria-label="Ver imagen principal">
+                        <img src="IMG/maquinaria/grua-linkbelt.jpg"
+                             alt="Grúa Linkbelt vista principal">
+                    </button>
+
+                    <button type="button"
+                            class="miniatura"
+                            data-imagen="IMG/maquinaria/grua-linkbelt-2.jpg"
+                            aria-label="Ver segunda fotografía">
+                        <img src="IMG/maquinaria/grua-linkbelt-2.jpg"
+                             alt="Grúa Linkbelt en operación">
+                    </button>
+
+                    <button type="button"
+                            class="miniatura"
+                            data-imagen="IMG/maquinaria/grua-linkbelt-3.jpg"
+                            aria-label="Ver tercera fotografía">
+                        <img src="IMG/maquinaria/grua-linkbelt-3.jpg"
+                             alt="Grúa Linkbelt lateral">
+                    </button>
+
+                </div>
+
+                <p class="aviso-galeria" id="avisoGaleria" hidden></p>
+
+            </section>
+
+            <!-- INFORMACIÓN Y DOCUMENTACIÓN -->
+            <section class="expediente-detalles">
+
+                <!-- PESTAÑAS -->
+                <div class="expediente-tabs" role="tablist">
+
+                    <button type="button"
+                            class="expediente-tab activa"
+                            id="tabInformacion"
+                            data-tab="informacion"
+                            role="tab"
+                            aria-selected="true">
+                        Información
+                    </button>
+
+                    <button type="button"
+                            class="expediente-tab"
+                            id="tabDocumentacion"
+                            data-tab="documentacion"
+                            role="tab"
+                            aria-selected="false">
+                        Documentación
+                    </button>
+
+                    <button type="button"
+                            class="expediente-tab"
+                            id="tabHistorial"
+                            data-tab="historial"
+                            role="tab"
+                            aria-selected="false">
+                        Historial
+                    </button>
+
+                </div>
+
+                <!-- PANEL INFORMACIÓN -->
+                <section class="expediente-panel activo"
+                         id="panelInformacion"
+                         role="tabpanel"
+                         aria-labelledby="tabInformacion">
+
+                    <div class="panel-heading">
+                        <h2>Información general</h2>
+
+                        <button type="button"
+                                class="btn-editar"
+                                id="btnEditar">
+                            Editar
+                        </button>
+                    </div>
+
+                    <form id="formInformacion">
+
+                        <div class="tabla-informacion">
+
+                            <div class="fila-informacion">
+                                <label for="marca">MARCA</label>
+                                <input id="marca"
+                                       name="marca"
+                                       value="Linkbelt"
+                                       readonly>
+                            </div>
+
+                            <div class="fila-informacion">
+                                <label for="modelo">MODELO</label>
+                                <input id="modelo"
+                                       name="modelo"
+                                       value="Por registrar"
+                                       readonly>
+                            </div>
+
+                            <div class="fila-informacion">
+                                <label for="capacidad">CAPACIDAD DE CARGA</label>
+                                <input id="capacidad"
+                                       name="capacidad"
+                                       value="30 toneladas"
+                                       readonly>
+                            </div>
+
+                            <div class="fila-informacion">
+                                <label for="alcance">ALCANCE MÁXIMO</label>
+                                <input id="alcance"
+                                       name="alcance"
+                                       value="Por registrar"
+                                       readonly>
+                            </div>
+
+                            <div class="fila-informacion">
+                                <label for="tipo">TIPO</label>
+                                <input id="tipo"
+                                       name="tipo"
+                                       value="Grúa"
+                                       readonly>
+                            </div>
+
+                            <div class="fila-informacion">
+                                <label for="anio">AÑO</label>
+                                <input id="anio"
+                                       name="anio"
+                                       value="Por registrar"
+                                       readonly>
+                            </div>
+
+                        </div>
+
+                        <div class="acciones-edicion" id="accionesEdicion" hidden>
+                            <button type="button"
+                                    class="btn-cancelar"
+                                    id="btnCancelar">
+                                Cancelar
+                            </button>
+
+                            <button type="submit"
+                                    class="btn-guardar">
+                                Guardar cambios
+                            </button>
+                        </div>
+
+                    </form>
+
+                </section>
+
+                <!-- PANEL DOCUMENTACIÓN -->
+                <section class="expediente-panel"
+                         id="panelDocumentacion"
+                         role="tabpanel"
+                         aria-labelledby="tabDocumentacion"
+                         hidden>
+
+                    <div class="panel-heading">
+                        <h2>Documentación</h2>
+
+                        <button type="button"
+                                class="btn-editar"
+                                id="btnAgregarDocumento">
+                            <i class="bi bi-plus-lg"></i> Agregar
+                        </button>
+                    </div>
+
+                    <p class="panel-descripcion">
+                        Consulta los documentos asociados a esta maquinaria.
+                    </p>
+
+                    <input type="file"
+                           id="inputDocumento"
+                           accept=".pdf,.jpg,.jpeg,.png"
+                           hidden>
+
+                    <div class="lista-documentos" id="listaDocumentos">
+
+                        <div class="documento-vacio">
+                            <i class="bi bi-file-earmark-text"></i>
+                            <p>Aún no hay documentos cargados en esta vista.</p>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- PANEL HISTORIAL -->
+                <section class="expediente-panel"
+                         id="panelHistorial"
+                         role="tabpanel"
+                         aria-labelledby="tabHistorial"
+                         hidden>
+
+                    <div class="panel-heading">
+                        <h2>Historial</h2>
+                    </div>
+
+                    <p class="panel-descripcion">
+                        Consulta los movimientos y actividades registrados
+                        para esta maquinaria.
+                    </p>
+
+                    <div class="historial-lista" id="listaHistorial">
+
+                        <div class="historial-vacio">
+                            <i class="bi bi-clock-history"></i>
+                            <p>No hay movimientos registrados en esta vista.</p>
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+        </section>
+
+    </main>
+
+    <!-- LAYOUT COMPARTIDO -->
+    <script src="js/Layout_Admin.js"></script>
+
+    <!-- FUNCIONES DEL EXPEDIENTE -->
+    <script src="js/ExpedienteMaquinaria.js"></script>
+
+</body>
+</html>
