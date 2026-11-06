@@ -1,0 +1,157 @@
+﻿
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Header administrativo | Tula's Crane</title>
+
+    <!-- CSS DEL HEADER -->
+    <link rel="stylesheet" href="/css/DiseñoAdmin.css">
+
+    <!-- ICONOS -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body class="admin-layout-preview">
+
+    <!-- ======================================
+         HEADER ADMINISTRATIVO COMPARTIDO
+    ======================================= -->
+
+    <header class="admin-header">
+
+        <!-- LOGOTIPO Y NOMBRE DE LA EMPRESA -->
+        <a href="/Dashboard.html"
+           class="admin-brand"
+           aria-label="Ir al inicio de Tula's Crane">
+
+            <img src="/IMG/Copia%20de%20Tula's%20Crane%20Logo.png"
+                 alt="Logotipo de Tula's Crane"
+                 class="admin-brand-logo">
+
+            <div class="admin-brand-text">
+                <span class="admin-brand-name">TULA'S CRANE</span>
+
+                <span class="admin-brand-slogan">
+                    Fuerza en cada proyecto
+                </span>
+            </div>
+
+        </a>
+
+        <!-- NAVEGACIÓN PRINCIPAL -->
+        <nav class="admin-navigation"
+             id="adminNavigation"
+             aria-label="Navegación administrativa">
+
+            <!-- INICIO -->
+            <a href="/Dashboard.html"
+               class="admin-nav-item"
+               data-page="inicio">
+
+                <i class="bi bi-house-door-fill" aria-hidden="true"></i>
+                <span>Inicio</span>
+
+            </a>
+
+            <!-- MAQUINARIA -->
+            <a href="/TiposRenta.html"
+               class="admin-nav-item"
+               data-page="maquinaria">
+
+                <i class="bi bi-truck" aria-hidden="true"></i>
+                <span>Maquinaria</span>
+
+            </a>
+
+            <!-- EMPLEADOS -->
+            <a href="/empleados.html"
+               class="admin-nav-item"
+               data-page="empleados">
+
+                <i class="bi bi-person-workspace" aria-hidden="true"></i>
+                <span>Empleados</span>
+
+            </a>
+
+            <!-- CALENDARIO -->
+            <a href="/Calendario.html"
+               class="admin-nav-item"
+               data-page="calendario">
+
+                <i class="bi bi-calendar3" aria-hidden="true"></i>
+                <span>Calendario</span>
+
+            </a>
+
+            <!-- FINANZAS -->
+            <a href="/Finanzas.html"
+               class="admin-nav-item"
+               data-page="finanzas">
+
+                <i class="bi bi-cash-coin" aria-hidden="true"></i>
+                <span>Finanzas</span>
+
+            </a>
+
+        </nav>
+
+        <!-- BOTÓN HAMBURGUESA -->
+        <button type="button"
+                class="admin-menu-toggle"
+                id="adminMenuToggle"
+                aria-label="Abrir menú"
+                aria-expanded="false"
+                aria-controls="adminExtraMenu">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+        <!-- MENÚ COMPLEMENTARIO -->
+        <div class="admin-extra-menu" id="adminExtraMenu" hidden>
+
+            <a href="/Dashboard.html">
+                <i class="bi bi-house-door-fill" aria-hidden="true"></i>
+                <span>Inicio</span>
+            </a>
+
+            <a href="/TiposRenta.html">
+                <i class="bi bi-truck" aria-hidden="true"></i>
+                <span>Maquinaria</span>
+            </a>
+
+            <a href="/empleados.html">
+                <i class="bi bi-person-workspace" aria-hidden="true"></i>
+                <span>Empleados</span>
+            </a>
+
+            <a href="/Calendario.html">
+                <i class="bi bi-calendar3" aria-hidden="true"></i>
+                <span>Calendario</span>
+            </a>
+
+            <a href="/Finanzas.html">
+                <i class="bi bi-cash-coin" aria-hidden="true"></i>
+                <span>Finanzas</span>
+            </a>
+
+            <a href="/index.html#contacto">
+                <i class="bi bi-file-earmark-text" aria-hidden="true"></i>
+                <span>Solicitar cotización</span>
+            </a>
+
+        </div>
+
+    </header>
+
+    <!-- SCRIPT DEL HEADER COMPARTIDO -->
+    <script src="/js/Layout_Admin.js"></script>
+
+</body>
+</html>

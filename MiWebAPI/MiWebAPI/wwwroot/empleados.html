@@ -1,0 +1,344 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Empleados | Tula's Crane</title>
+
+    <!-- Iconos compartidos -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Diseño administrativo compartido -->
+    <link rel="stylesheet" href="css/DiseñoAdmin.css">
+
+    <!-- Estilos exclusivos de Empleados -->
+    <link rel="stylesheet" href="css/Empleados.css">
+</head>
+
+<body class="empleados-page">
+
+    <!-- HEADER ADMINISTRATIVO COMPARTIDO -->
+    <div id="admin-header-placeholder"></div>
+
+    <main class="empleados-container">
+
+        <!-- TÍTULO -->
+        <section class="empleados-heading">
+            <h1>EMPLEADOS</h1>
+        </section>
+
+        <!-- BUSCADOR -->
+        <section class="empleados-toolbar">
+
+            <div class="empleados-search">
+                <i class="bi bi-search search-icon"></i>
+
+                <input type="search"
+                       id="buscarEmpleado"
+                       placeholder="Buscar empleados"
+                       aria-label="Buscar empleados por nombre o puesto">
+
+                <i class="bi bi-search search-icon-right"></i>
+            </div>
+
+            <!-- FILTROS Y BOTÓN AGREGAR -->
+            <div class="empleados-actions">
+
+                <div class="empleados-filtros" role="group"
+                     aria-label="Filtrar empleados">
+
+                    <button type="button"
+                            class="filtro-btn activo"
+                            data-filtro="todos">
+                        Todos
+                    </button>
+
+                    <button type="button"
+                            class="filtro-btn"
+                            data-filtro="operadores">
+                        Operadores
+                    </button>
+
+                    <button type="button"
+                            class="filtro-btn"
+                            data-filtro="maniobrista">
+                        Maniobrista
+                    </button>
+
+                    <button type="button"
+                            class="filtro-btn"
+                            data-filtro="admin">
+                        Admin
+                    </button>
+
+                </div>
+
+                <a href="RegistrarEmpleado.html"
+                   class="btn-agregar-empleado">
+                    <i class="bi bi-plus-lg"></i>
+                    Agregar
+                </a>
+
+            </div>
+        </section>
+
+        <!-- LISTA DE EMPLEADOS -->
+        <section class="empleados-grid" id="listaEmpleados"
+                 aria-label="Listado de empleados">
+
+            <!-- EMPLEADO 1 -->
+            <article class="empleado-card"
+                     data-categoria="operadores"
+                     data-busqueda="juan pérez operador disponible">
+
+                <div class="empleado-foto">
+                    <img src="IMG/empleados/juan-perez.png"
+                         alt="Fotografía de Juan Pérez"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+
+                    <div class="empleado-avatar-fallback">JP</div>
+                </div>
+
+                <div class="empleado-info">
+                    <h2>Juan Pérez</h2>
+                    <p class="empleado-puesto">Operador</p>
+
+                    <div class="empleado-estados">
+                        <p class="estado disponible">
+                            <i class="bi bi-check-circle-fill"></i>
+                            Disponible
+                        </p>
+
+                        <p class="estado documentacion-ok">
+                            <i class="bi bi-check-circle-fill"></i>
+                            Documentación completa
+                        </p>
+                    </div>
+                </div>
+
+                <a href="ExpedienteEmpleado.html?id=1"
+                   class="empleado-detalle"
+                   aria-label="Ver expediente de Juan Pérez">
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+            </article>
+
+            <!-- EMPLEADO 2 -->
+            <article class="empleado-card"
+                     data-categoria="admin"
+                     data-busqueda="ana torres administración disponible">
+
+                <div class="empleado-foto">
+                    <img src="IMG/empleados/ana-torres.png"
+                         alt="Fotografía de Ana Torres"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+
+                    <div class="empleado-avatar-fallback">AT</div>
+                </div>
+
+                <div class="empleado-info">
+                    <h2>Ana Torres</h2>
+                    <p class="empleado-puesto">Administración</p>
+
+                    <div class="empleado-estados">
+                        <p class="estado disponible">
+                            <i class="bi bi-check-circle-fill"></i>
+                            Disponible
+                        </p>
+
+                        <p class="estado documentacion-ok">
+                            <i class="bi bi-check-circle-fill"></i>
+                            Documentación completa
+                        </p>
+                    </div>
+                </div>
+
+                <a href="ExpedienteEmpleado.html?id=2"
+                   class="empleado-detalle"
+                   aria-label="Ver expediente de Ana Torres">
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+            </article>
+
+            <!-- EMPLEADO 3 -->
+            <article class="empleado-card"
+                     data-categoria="operadores"
+                     data-busqueda="carlos hernandez operador en maniobra documento vencer">
+
+                <div class="empleado-foto">
+                    <img src="IMG/empleados/carlos-hernandez.png"
+                         alt="Fotografía de Carlos Hernández"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+
+                    <div class="empleado-avatar-fallback">CH</div>
+                </div>
+
+                <div class="empleado-info">
+                    <h2>Carlos Hernández</h2>
+                    <p class="empleado-puesto">Operador</p>
+
+                    <div class="empleado-estados">
+                        <p class="estado en-maniobra">
+                            <i class="bi bi-check-circle-fill"></i>
+                            En maniobra
+                        </p>
+
+                        <p class="estado documentacion-ok">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>1 documento por vencer</span>
+                        </p>
+                    </div>
+                </div>
+
+                <a href="ExpedienteEmpleado.html?id=3"
+                   class="empleado-detalle"
+                   aria-label="Ver expediente de Carlos Hernández">
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+            </article>
+
+            <!-- EMPLEADO 4 -->
+            <article class="empleado-card"
+                     data-categoria="maniobrista"
+                     data-busqueda="jorge estrada maniobrista">
+
+                <div class="empleado-foto">
+                    <img src="IMG/empleados/jorge-estrada.png"
+                         alt="Fotografía de Jorge Estrada"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+
+                    <div class="empleado-avatar-fallback">JE</div>
+                </div>
+
+                <div class="empleado-info">
+                    <h2>Jorge Estrada</h2>
+                    <p class="empleado-puesto">Maniobrista</p>
+                </div>
+
+                <a href="ExpedienteEmpleado.html?id=4"
+                   class="empleado-detalle"
+                   aria-label="Ver expediente de Jorge Estrada">
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+            </article>
+
+            <!-- MENSAJE CUANDO NO HAY RESULTADOS -->
+            <div class="empleados-vacio" id="empleadosVacio" hidden>
+                <i class="bi bi-person-exclamation"></i>
+                <h2>No se encontraron empleados</h2>
+                <p>Intenta cambiar la búsqueda o el filtro.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- NAVEGACIÓN INFERIOR PARA MÓVILES -->
+    <nav class="mobile-bottom-nav" aria-label="Navegación móvil">
+
+        <a href="Dashboard.html" class="mobile-nav-item">
+            <i class="bi bi-house-fill"></i>
+            <span>Inicio</span>
+        </a>
+
+        <a href="TiposRenta.html" class="mobile-nav-item">
+            <i class="bi bi-truck-front"></i>
+            <span>Maquinaria</span>
+        </a>
+
+        <a href="Empleados.html"
+           class="mobile-nav-item active"
+           aria-current="page">
+            <i class="bi bi-people-fill"></i>
+            <span>Empleados</span>
+        </a>
+
+        <a href="Calendario.html" class="mobile-nav-item">
+            <i class="bi bi-calendar3"></i>
+            <span>Calendario</span>
+        </a>
+
+        <a href="Finanzas.html" class="mobile-nav-item">
+            <i class="bi bi-cash-coin"></i>
+            <span>Finanzas</span>
+        </a>
+
+    </nav>
+
+    <!-- CARGA DEL HEADER COMPARTIDO -->
+    <script src="js/Layout_Admin.js"></script>
+
+    <!-- BÚSQUEDA Y FILTROS -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const buscador = document.getElementById("buscarEmpleado");
+            const filtros = document.querySelectorAll(".filtro-btn");
+            const tarjetas = document.querySelectorAll(".empleado-card");
+            const mensajeVacio = document.getElementById("empleadosVacio");
+
+            let filtroActual = "todos";
+
+            function normalizarTexto(texto) {
+                return texto
+                    .toLocaleLowerCase("es")
+                    .normalize("NFD")
+                    .replace(/[\u0300-\u036f]/g, "");
+            }
+
+            function filtrarEmpleados() {
+
+                const busqueda = normalizarTexto(buscador.value.trim());
+                let resultados = 0;
+
+                tarjetas.forEach(function (tarjeta) {
+
+                    const categoria = tarjeta.dataset.categoria;
+                    const texto = normalizarTexto(
+                        tarjeta.dataset.busqueda + " " +
+                        tarjeta.innerText
+                    );
+
+                    const coincideCategoria =
+                        filtroActual === "todos" ||
+                        categoria === filtroActual;
+
+                    const coincideBusqueda = texto.includes(busqueda);
+                    const mostrar = coincideCategoria && coincideBusqueda;
+
+                    tarjeta.hidden = !mostrar;
+
+                    if (mostrar) {
+                        resultados++;
+                    }
+                });
+
+                mensajeVacio.hidden = resultados !== 0;
+            }
+
+            buscador.addEventListener("input", filtrarEmpleados);
+
+            filtros.forEach(function (boton) {
+
+                boton.addEventListener("click", function () {
+
+                    filtros.forEach(function (filtro) {
+                        filtro.classList.remove("activo");
+                    });
+
+                    boton.classList.add("activo");
+                    filtroActual = boton.dataset.filtro;
+
+                    filtrarEmpleados();
+                });
+            });
+
+            filtrarEmpleados();
+        });
+    </script>
+
+</body>
+</html>

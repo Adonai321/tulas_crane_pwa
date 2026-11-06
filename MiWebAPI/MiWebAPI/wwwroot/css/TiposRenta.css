@@ -1,0 +1,137 @@
+﻿
+/* ========================================
+   IDENTIDAD VISUAL TULA'S CRANE
+======================================== */
+
+.renta-page {
+    background: #080808;
+    color: #f5f5f5;
+}
+
+.renta-hero {
+    background: linear-gradient( 110deg, #080808 0%, #171717 70%, #242016 100% );
+    border-bottom: 1px solid #6f572d;
+}
+
+    .renta-hero::after {
+        background: #e8bd68;
+    }
+
+.renta-introduccion h2,
+.renta-texto h3,
+.renta-texto h4,
+.renta-titulo strong {
+    color: #e8bd68;
+}
+
+.renta-introduccion > p,
+.renta-titulo small,
+.renta-texto p,
+.renta-texto li {
+    color: #e4e4e4;
+}
+
+.renta-item {
+    background: #171717;
+    border: 1px solid #37322a;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.2);
+}
+
+    .renta-item:hover,
+    .renta-item[open] {
+        border-color: #e8bd68;
+    }
+
+        .renta-resumen:hover,
+        .renta-item[open] .renta-resumen {
+            background: #222018;
+        }
+
+.renta-numero {
+    background: #e8bd68;
+    color: #080808;
+}
+
+.renta-flecha {
+    background: #080808;
+    border-color: #e8bd68;
+}
+
+    .renta-flecha::before {
+        border-color: #e8bd68;
+    }
+
+.renta-item[open] .renta-flecha {
+    background: #e8bd68;
+}
+
+    .renta-item[open] .renta-flecha::before {
+        border-color: #080808;
+    }
+
+.renta-detalle {
+    background: #111111;
+    border-top-color: #37322a;
+}
+
+.renta-texto .renta-nota {
+    background: #211f19;
+    border-left-color: #e8bd68;
+    color: #e5dfd2;
+}
+
+.renta-imagen {
+    background: #1b1b1b;
+    border-color: #62512e;
+    color: #e8bd68;
+}
+
+.renta-cierre {
+    background: #171717;
+    border: 1px solid #6f572d;
+    border-radius: 10px;
+}
+
+    .renta-cierre h2 {
+        color: #e8bd68;
+    }
+
+    .renta-cierre > p {
+        color: #ededed;
+    }
+
+    .renta-cierre .renta-cierre-frase {
+        color: #e8bd68;
+        font-weight: 700;
+    }
+
+.renta-boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 10px 0 25px;
+    padding: 14px 25px;
+    border: 1px solid #e8bd68;
+    border-radius: 5px;
+    background: #e8bd68;
+    color: #080808;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+    .renta-boton:hover {
+        background: transparent;
+        color: #e8bd68;
+    }
+
+@media (max-width: 768px) {
+    .renta-detalle {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .renta-boton {
+        max-width: 100%;
+    }
+}

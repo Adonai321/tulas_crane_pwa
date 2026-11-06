@@ -1,0 +1,491 @@
+﻿
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | Tula's Crane</title>
+
+    <!-- ICONOS -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <div id="admin-header-placeholder"></div>
+
+    <!-- ESTILOS EXCLUSIVOS DEL DASHBOARD -->
+    <link rel="stylesheet" href="css/Dashboard.css">
+</head>
+
+<body class="dashboard-page">
+
+    <!-- HEADER COMPARTIDO -->
+    <div id="admin-header-placeholder"></div>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="dashboard-container">
+
+        <!-- BIENVENIDA -->
+        <section class="dashboard-welcome">
+
+            <div class="welcome-text">
+
+                <span class="dashboard-eyebrow">
+                    PANEL ADMINISTRATIVO
+                </span>
+
+                <h1>¡Bienvenido de nuevo!</h1>
+
+                <p>
+                    Aquí tienes el resumen general de Tula's Crane.
+                </p>
+
+            </div>
+
+            <div class="welcome-date">
+                <i class="bi bi-calendar3"></i>
+                <span>Resumen general</span>
+            </div>
+
+        </section>
+
+
+        <!-- INDICADORES PRINCIPALES -->
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Resumen general</h2>
+                    <p>Indicadores de la empresa</p>
+                </div>
+
+                <span class="section-tag">
+                    <i class="bi bi-grid-1x2"></i>
+                    Vista general
+                </span>
+
+            </div>
+
+
+            <div class="dashboard-stats">
+
+                <!-- COTIZACIONES -->
+                <article class="stat-card">
+
+                    <div class="stat-card-top">
+
+                        <div class="stat-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+
+                        <span class="stat-label">
+                            Comercial
+                        </span>
+
+                    </div>
+
+                    <p class="stat-title">Cotizaciones</p>
+
+                    <h3 class="stat-number">12</h3>
+
+                    <p class="stat-description">
+                        Solicitudes registradas
+                    </p>
+
+                    <div class="stat-card-footer">
+                        <span>Consultar solicitudes</span>
+                        <i class="bi bi-arrow-up-right"></i>
+                    </div>
+
+                </article>
+
+
+                <!-- MANIOBRAS -->
+                <article class="stat-card">
+
+                    <div class="stat-card-top">
+
+                        <div class="stat-icon">
+                            <i class="bi bi-cone-striped"></i>
+                        </div>
+
+                        <span class="stat-label">
+                            Operaciones
+                        </span>
+
+                    </div>
+
+                    <p class="stat-title">Maniobras</p>
+
+                    <h3 class="stat-number">08</h3>
+
+                    <p class="stat-description">
+                        Servicios programados
+                    </p>
+
+                    <div class="stat-card-footer">
+                        <span>Revisar programación</span>
+                        <i class="bi bi-arrow-up-right"></i>
+                    </div>
+
+                </article>
+
+
+                <!-- MAQUINARIA -->
+                <article class="stat-card">
+
+                    <div class="stat-card-top">
+
+                        <div class="stat-icon">
+                            <i class="bi bi-truck-front"></i>
+                        </div>
+
+                        <span class="stat-label">
+                            Inventario
+                        </span>
+
+                    </div>
+
+                    <p class="stat-title">Maquinaria</p>
+
+                    <h3 class="stat-number">15</h3>
+
+                    <p class="stat-description">
+                        Equipos registrados
+                    </p>
+
+                    <div class="stat-card-footer">
+                        <span>Consultar maquinaria</span>
+                        <i class="bi bi-arrow-up-right"></i>
+                    </div>
+
+                </article>
+
+
+                <!-- EMPLEADOS -->
+                <article class="stat-card">
+
+                    <div class="stat-card-top">
+
+                        <div class="stat-icon">
+                            <i class="bi bi-people"></i>
+                        </div>
+
+                        <span class="stat-label">
+                            Personal
+                        </span>
+
+                    </div>
+
+                    <p class="stat-title">Empleados</p>
+
+                    <h3 class="stat-number">24</h3>
+
+                    <p class="stat-description">
+                        Colaboradores registrados
+                    </p>
+
+                    <div class="stat-card-footer">
+                        <span>Consultar personal</span>
+                        <i class="bi bi-arrow-up-right"></i>
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTENIDO INFERIOR -->
+        <section class="dashboard-lower-grid">
+
+
+            <!-- ALERTAS IMPORTANTES -->
+            <section class="dashboard-panel alerts-panel">
+
+                <div class="panel-heading">
+
+                    <div class="panel-title-icon">
+                        <i class="bi bi-bell"></i>
+                    </div>
+
+                    <div>
+                        <h2>Alertas importantes</h2>
+                        <p>Información que requiere atención</p>
+                    </div>
+
+                </div>
+
+
+                <div class="alert-list">
+
+                    <!-- DOCUMENTOS VENCIDOS -->
+                    <article class="alert-item alert-danger">
+
+                        <div class="alert-icon">
+                            <i class="bi bi-file-earmark-x"></i>
+                        </div>
+
+                        <div class="alert-content">
+                            <h3>Documentos vencidos</h3>
+
+                            <p>
+                                Hay documentos que requieren renovación.
+                            </p>
+                        </div>
+
+                        <span class="alert-count">03</span>
+
+                    </article>
+
+
+                    <!-- PRÓXIMOS VENCIMIENTOS -->
+                    <article class="alert-item alert-warning">
+
+                        <div class="alert-icon">
+                            <i class="bi bi-clock-history"></i>
+                        </div>
+
+                        <div class="alert-content">
+                            <h3>Próximos vencimientos</h3>
+
+                            <p>
+                                Revisa los documentos próximos a vencer.
+                            </p>
+                        </div>
+
+                        <span class="alert-count">05</span>
+
+                    </article>
+
+
+                    <!-- MANIOBRAS PRÓXIMAS -->
+                    <article class="alert-item alert-info">
+
+                        <div class="alert-icon">
+                            <i class="bi bi-calendar-event"></i>
+                        </div>
+
+                        <div class="alert-content">
+                            <h3>Maniobras próximas</h3>
+
+                            <p>
+                                Hay servicios pendientes de atención.
+                            </p>
+                        </div>
+
+                        <span class="alert-count">02</span>
+
+                    </article>
+
+                </div>
+
+
+                <div class="panel-note">
+
+                    <i class="bi bi-info-circle"></i>
+
+                    <span>
+                        Los datos mostrados son ilustrativos.
+                    </span>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ACCIONES RÁPIDAS -->
+            <section class="dashboard-panel actions-panel">
+
+                <div class="panel-heading">
+
+                    <div class="panel-title-icon">
+                        <i class="bi bi-lightning-charge"></i>
+                    </div>
+
+                    <div>
+                        <h2>Acciones rápidas</h2>
+                        <p>Accesos directos del administrador</p>
+                    </div>
+
+                </div>
+
+
+                <div class="quick-actions">
+
+                    <!-- MAQUINARIA -->
+                    <a href="TiposRenta.html" class="quick-action">
+
+                        <div class="quick-action-icon">
+                            <i class="bi bi-truck-front"></i>
+                        </div>
+
+                        <div class="quick-action-text">
+                            <h3>Maquinaria</h3>
+                            <p>Consultar equipos</p>
+                        </div>
+
+                        <i class="bi bi-chevron-right action-arrow"></i>
+
+                    </a>
+
+
+                    <!-- EMPLEADOS -->
+                    <a href="Empleados.html" class="quick-action">
+
+                        <div class="quick-action-icon">
+                            <i class="bi bi-person-plus"></i>
+                        </div>
+
+                        <div class="quick-action-text">
+                            <h3>Empleados</h3>
+                            <p>Consultar personal</p>
+                        </div>
+
+                        <i class="bi bi-chevron-right action-arrow"></i>
+
+                    </a>
+
+
+                    <!-- CALENDARIO -->
+                    <a href="Calendario.html" class="quick-action">
+
+                        <div class="quick-action-icon">
+                            <i class="bi bi-calendar3"></i>
+                        </div>
+
+                        <div class="quick-action-text">
+                            <h3>Calendario</h3>
+                            <p>Ver programación</p>
+                        </div>
+
+                        <i class="bi bi-chevron-right action-arrow"></i>
+
+                    </a>
+
+
+                    <!-- FINANZAS -->
+                    <a href="Finanzas.html" class="quick-action">
+
+                        <div class="quick-action-icon">
+                            <i class="bi bi-cash-stack"></i>
+                        </div>
+
+                        <div class="quick-action-text">
+                            <h3>Finanzas</h3>
+                            <p>Consultar movimientos</p>
+                        </div>
+
+                        <i class="bi bi-chevron-right action-arrow"></i>
+
+                    </a>
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+
+        <!-- MENSAJE INSTITUCIONAL -->
+        <section class="dashboard-brand-banner">
+
+            <div class="brand-banner-icon">
+                <i class="bi bi-buildings"></i>
+            </div>
+
+            <div>
+                <h2>Tula's Crane</h2>
+
+                <p>
+                    Organización, control y fuerza en cada proyecto.
+                </p>
+            </div>
+
+            <i class="bi bi-gear-wide-connected banner-decoration"></i>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- NAVEGACIÓN INFERIOR PARA CELULAR -->
+    <nav class="mobile-bottom-nav" aria-label="Navegación móvil">
+
+        <a href="Dashboard.html"
+           class="mobile-nav-item active"
+           aria-label="Inicio">
+            <i class="bi bi-house-fill"></i>
+            <span>Inicio</span>
+        </a>
+
+
+        <a href="TiposRenta.html"
+           class="mobile-nav-item"
+           aria-label="Maquinaria">
+            <i class="bi bi-truck-front"></i>
+            <span>Maquinaria</span>
+        </a>
+
+
+        <a href="Empleados.html"
+           class="mobile-nav-item"
+           aria-label="Empleados">
+            <i class="bi bi-people"></i>
+            <span>Personal</span>
+        </a>
+
+
+        <a href="Calendario.html"
+           class="mobile-nav-item"
+           aria-label="Calendario">
+            <i class="bi bi-calendar3"></i>
+            <span>Agenda</span>
+        </a>
+
+
+        <a href="Finanzas.html"
+           class="mobile-nav-item"
+           aria-label="Finanzas">
+            <i class="bi bi-cash-coin"></i>
+            <span>Finanzas</span>
+        </a>
+
+    </nav>
+
+
+
+    <!-- AUTENTICACIÓN -->
+    <script src="js/auth.js"></script>
+
+    <!-- PROTECCIÓN DEL DASHBOARD -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            if (typeof protegerPagina === "function") {
+                protegerPagina();
+            } else {
+                console.error(
+                    "No se encontró la función protegerPagina() en auth.js"
+                );
+            }
+
+            if (typeof mostrarUsuario === "function") {
+                mostrarUsuario("nombreUsuario");
+            }
+
+        });
+    </script>
+
+    <!-- CARGA DEL HEADER COMPARTIDO -->
+    <script src="js/Layout_Admin.js"></script>
+
+</body>
+</html>
