@@ -1,0 +1,501 @@
+﻿
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registrar empleado | Tula's Crane</title>
+
+    <!-- Iconos -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Estilos del administrador -->
+    <link rel="stylesheet" href="css/DiseñoAdmin.css">
+
+    <!-- Estilos exclusivos de esta página -->
+    <link rel="stylesheet" href="css/RegistrarEmpleado.css">
+</head>
+
+<body class="registrar-empleado-page">
+
+    <!-- HEADER ADMINISTRATIVO COMPARTIDO -->
+    <div id="admin-header-placeholder"></div>
+
+    <main class="registro-container">
+
+        <!-- TÍTULO -->
+        <header class="registro-titulo">
+            <a href="Empleados.html"
+               class="registro-regresar"
+               aria-label="Regresar a empleados">
+                <i class="bi bi-chevron-left"></i>
+            </a>
+
+            <h1>Registrar Empleado</h1>
+        </header>
+
+        <form id="formRegistrarEmpleado"
+              enctype="multipart/form-data"
+              novalidate>
+
+            <!-- INDICADORES DE PASOS -->
+            <div class="registro-pasos">
+
+                <div class="paso-indicador activo" id="indicadorPaso1">
+                    <span class="paso-numero">1</span>
+                    <span>Datos personales</span>
+                </div>
+
+                <div class="paso-indicador" id="indicadorPaso2">
+                    <span class="paso-numero">2</span>
+                    <span>Cargar archivos</span>
+                </div>
+
+            </div>
+
+            <!-- =====================================
+                 PASO 1: DATOS PERSONALES
+            ====================================== -->
+            <section class="registro-panel activo"
+                     id="paso1"
+                     aria-label="Datos personales">
+
+                <div class="registro-campos">
+
+                    <!-- NOMBRE -->
+                    <div class="campo campo-completo">
+                        <label for="nombre">Nombre completo</label>
+
+                        <input type="text"
+                               id="nombre"
+                               name="nombre"
+                               placeholder="Nombre completo"
+                               autocomplete="name"
+                               required>
+                    </div>
+
+                    <!-- PUESTO -->
+                    <div class="campo campo-completo">
+                        <label for="puesto">Puesto</label>
+
+                        <select id="puesto" name="puesto" required>
+                            <option value="" disabled selected>
+                                Selecciona el puesto
+                            </option>
+
+                            <option value="Operador">Operador</option>
+                            <option value="Maniobrista">Maniobrista</option>
+                            <option value="Administración">Administración</option>
+                        </select>
+                    </div>
+
+                    <!-- SALARIO -->
+                    <div class="campo">
+                        <label for="salarioBase">Salario base</label>
+
+                        <input type="number"
+                               id="salarioBase"
+                               name="salarioBase"
+                               placeholder="Salario base"
+                               min="0"
+                               step="0.01"
+                               required>
+                    </div>
+
+                    <!-- TELÉFONO -->
+                    <div class="campo">
+                        <label for="telefono">Teléfono</label>
+
+                        <input type="tel"
+                               id="telefono"
+                               name="telefono"
+                               placeholder="Teléfono"
+                               autocomplete="tel"
+                               maxlength="15"
+                               required>
+                    </div>
+
+                    <!-- CORREO -->
+                    <div class="campo campo-completo">
+                        <label for="correo">Correo electrónico</label>
+
+                        <input type="email"
+                               id="correo"
+                               name="correo"
+                               placeholder="Correo electrónico"
+                               autocomplete="email"
+                               required>
+                    </div>
+
+                    <!-- DOMICILIO -->
+                    <div class="campo campo-completo">
+                        <label for="domicilio">Domicilio</label>
+
+                        <input type="text"
+                               id="domicilio"
+                               name="domicilio"
+                               placeholder="Domicilio completo"
+                               autocomplete="street-address"
+                               required>
+                    </div>
+
+                    <!-- RFC: SOLO TEXTO -->
+                    <div class="campo campo-completo">
+                        <label for="rfc">RFC</label>
+
+                        <input type="text"
+                               id="rfc"
+                               name="rfc"
+                               placeholder="RFC del empleado"
+                               maxlength="13"
+                               pattern="[A-Za-zÑñ&]{3,4}[0-9]{6}[A-Za-z0-9]{3}"
+                               title="Introduce un RFC válido."
+                               style="text-transform: uppercase"
+                               required>
+                    </div>
+
+                </div>
+
+                <div class="registro-botones">
+                    <button type="button"
+                            class="btn-registro"
+                            id="btnContinuar">
+
+                        Continuar
+                        <i class="bi bi-arrow-right"></i>
+                    </button>
+                </div>
+
+            </section>
+
+            <!-- =====================================
+                 PASO 2: CARGA DE DOCUMENTOS
+            ====================================== -->
+            <section class="registro-panel"
+                     id="paso2"
+                     aria-label="Documentos del empleado"
+                     hidden>
+
+                <p class="registro-instruccion">
+                    Selecciona el archivo correspondiente a cada documento.
+                </p>
+
+                <div class="registro-campos">
+
+                    <!-- ACTA DE NACIMIENTO -->
+                    <div class="campo campo-completo">
+                        <label for="actaNacimiento">
+                            Acta de nacimiento
+                        </label>
+
+                        <input type="file"
+                               id="actaNacimiento"
+                               name="actaNacimiento"
+                               accept=".pdf,.jpg,.jpeg,.png"
+                               required>
+                    </div>
+
+                    <!-- TIPO DE LICENCIA -->
+                    <div class="campo campo-completo">
+                        <label for="tipoLicencia">
+                            Licencia de conducir: tipo
+                        </label>
+
+                        <select id="tipoLicencia" name="tipoLicencia">
+                            <option value="" selected>
+                                Selecciona el tipo de licencia
+                            </option>
+
+                            <option value="Tipo A">Tipo A</option>
+                            <option value="Tipo B">Tipo B</option>
+                            <option value="Tipo C">Tipo C</option>
+                            <option value="Tipo D">Tipo D</option>
+                            <option value="Tipo E">Tipo E</option>
+                            <option value="No aplica">No aplica</option>
+                        </select>
+                    </div>
+
+                    <!-- DOCUMENTO DE LICENCIA -->
+                    <div class="campo campo-completo">
+                        <label for="licencia">
+                            Documento de licencia de conducir
+                        </label>
+
+                        <input type="file"
+                               id="licencia"
+                               name="licencia"
+                               accept=".pdf,.jpg,.jpeg,.png">
+                    </div>
+
+                    <!-- INE -->
+                    <div class="campo">
+                        <label for="ine">
+                            Identificación oficial (INE)
+                        </label>
+
+                        <input type="file"
+                               id="ine"
+                               name="ine"
+                               accept=".pdf,.jpg,.jpeg,.png"
+                               required>
+                    </div>
+
+                    <!-- FOTOGRAFÍA -->
+                    <div class="campo">
+                        <label for="fotografia">
+                            Fotografía del empleado
+                        </label>
+
+                        <input type="file"
+                               id="fotografia"
+                               name="fotografia"
+                               accept="image/jpeg,image/png,image/webp"
+                               required>
+                    </div>
+
+                    <!-- CERTIFICADO -->
+                    <div class="campo campo-completo">
+                        <label for="certificado">Certificado</label>
+
+                        <input type="file"
+                               id="certificado"
+                               name="certificado"
+                               accept=".pdf,.jpg,.jpeg,.png"
+                               required>
+                    </div>
+
+                    <!-- FECHA DE VENCIMIENTO DEL CERTIFICADO -->
+                    <div class="campo campo-completo">
+                        <label for="fechaVencimientoCertificado">
+                            Fecha de vencimiento del certificado
+                        </label>
+
+                        <input type="date"
+                               id="fechaVencimientoCertificado"
+                               name="fechaVencimientoCertificado"
+                               required>
+                    </div>
+
+                    <!-- SEGURO SOCIAL -->
+                    <div class="campo campo-completo">
+                        <label for="seguroSocial">
+                            Documento del seguro social (NSS)
+                        </label>
+
+                        <input type="file"
+                               id="seguroSocial"
+                               name="seguroSocial"
+                               accept=".pdf,.jpg,.jpeg,.png"
+                               required>
+                    </div>
+
+                </div>
+
+                <!-- BOTONES -->
+                <div class="registro-botones registro-botones-doble">
+
+                    <button type="button"
+                            class="btn-registro btn-secundario"
+                            id="btnRegresar">
+
+                        <i class="bi bi-arrow-left"></i>
+                        Regresar
+                    </button>
+
+                    <button type="submit"
+                            class="btn-registro"
+                            id="btnFinalizar">
+
+                        Listo
+                        <i class="bi bi-arrow-right"></i>
+                    </button>
+
+                </div>
+
+            </section>
+
+        </form>
+
+        <!-- MENSAJE DE ESTADO -->
+        <div class="registro-mensaje"
+             id="mensajeRegistro"
+             role="status"
+             aria-live="polite"
+             hidden></div>
+
+        <!-- LOGO TEMPORAL DE LA EMPRESA -->
+        <div class="registro-mascota registro-logo"
+             aria-hidden="true">
+
+            <img src="IMG/Copia de Tula's Crane Logo.png"
+                 alt="">
+        </div>
+
+    </main>
+
+    <!-- HEADER COMPARTIDO -->
+    <script src="js/Layout_Admin.js"></script>
+
+    <!-- FUNCIONALIDAD DEL FORMULARIO -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const formulario =
+                document.getElementById("formRegistrarEmpleado");
+
+            const paso1 = document.getElementById("paso1");
+            const paso2 = document.getElementById("paso2");
+
+            const indicador1 =
+                document.getElementById("indicadorPaso1");
+
+            const indicador2 =
+                document.getElementById("indicadorPaso2");
+
+            const mensaje =
+                document.getElementById("mensajeRegistro");
+
+            const tipoLicencia =
+                document.getElementById("tipoLicencia");
+
+            const documentoLicencia =
+                document.getElementById("licencia");
+
+            function mostrarPaso(numero) {
+
+                const esPaso1 = numero === 1;
+
+                paso1.hidden = !esPaso1;
+                paso2.hidden = esPaso1;
+
+                paso1.classList.toggle("activo", esPaso1);
+                paso2.classList.toggle("activo", !esPaso1);
+
+                indicador1.classList.toggle("activo", esPaso1);
+                indicador2.classList.toggle("activo", !esPaso1);
+
+                mensaje.hidden = true;
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            }
+
+            function validarPaso(panel) {
+
+                const campos = panel.querySelectorAll(
+                    "input, select, textarea"
+                );
+
+                for (const campo of campos) {
+
+                    if (!campo.checkValidity()) {
+                        campo.reportValidity();
+                        campo.focus();
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+
+            // LICENCIA: EL DOCUMENTO ES OBLIGATORIO
+            // CUANDO SE SELECCIONA UN TIPO DE LICENCIA.
+            function actualizarRequisitoLicencia() {
+
+                const noAplica =
+                    tipoLicencia.value === "No aplica";
+
+                documentoLicencia.required =
+                    tipoLicencia.value !== "" && !noAplica;
+
+                if (noAplica) {
+                    documentoLicencia.value = "";
+                }
+
+                if (tipoLicencia.value === "") {
+                    documentoLicencia.setCustomValidity(
+                        documentoLicencia.files.length > 0
+                            ? "Selecciona el tipo de licencia."
+                            : ""
+                    );
+                } else {
+                    documentoLicencia.setCustomValidity("");
+                }
+            }
+
+            tipoLicencia.addEventListener(
+                "change",
+                actualizarRequisitoLicencia
+            );
+
+            documentoLicencia.addEventListener(
+                "change",
+                function () {
+
+                    if (
+                        documentoLicencia.files.length > 0 &&
+                        tipoLicencia.value === ""
+                    ) {
+                        tipoLicencia.setCustomValidity(
+                            "Selecciona el tipo de licencia."
+                        );
+                    } else {
+                        tipoLicencia.setCustomValidity("");
+                    }
+                }
+            );
+
+            // PASO 1: CONTINUAR
+            document.getElementById("btnContinuar")
+                .addEventListener("click", function () {
+
+                    if (validarPaso(paso1)) {
+                        mostrarPaso(2);
+                    }
+                });
+
+            // PASO 2: REGRESAR
+            document.getElementById("btnRegresar")
+                .addEventListener("click", function () {
+                    mostrarPaso(1);
+                });
+
+            // VALIDAR FORMULARIO COMPLETO
+            formulario.addEventListener(
+                "submit",
+                function (evento) {
+
+                    evento.preventDefault();
+
+                    if (!validarPaso(paso1)) {
+                        mostrarPaso(1);
+                        validarPaso(paso1);
+                        return;
+                    }
+
+                    actualizarRequisitoLicencia();
+
+                    if (!validarPaso(paso2)) {
+                        mostrarPaso(2);
+                        validarPaso(paso2);
+                        return;
+                    }
+
+                    mensaje.textContent =
+                        "Los campos se validaron correctamente. " +
+                        "El registro todavía necesita conectarse " +
+                        "con la API para guardar al empleado y sus documentos.";
+
+                    mensaje.hidden = false;
+                }
+            );
+
+        });
+    </script>
+
+</body>
+</html>

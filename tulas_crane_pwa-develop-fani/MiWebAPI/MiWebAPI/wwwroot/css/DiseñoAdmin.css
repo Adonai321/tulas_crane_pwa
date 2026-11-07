@@ -1,0 +1,333 @@
+﻿
+/* =========================================
+   HEADER ADMINISTRATIVO - TULA'S CRANE
+========================================= */
+
+:root {
+    --tc-gold: #f4c542;
+    --tc-black: #050505;
+    --tc-white: #f8f8f8;
+    --tc-muted: #d9d9d9;
+}
+
+.admin-header,
+.admin-header * {
+    box-sizing: border-box;
+}
+
+/* CONTENEDOR PRINCIPAL */
+
+.admin-header {
+    position: relative;
+    z-index: 1000;
+    width: 100%;
+    min-height: 104px;
+    padding: 12px 22px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    background: var(--tc-black);
+    color: var(--tc-white);
+    font-family: Arial, Helvetica, sans-serif;
+    border-bottom: 1px solid #242424;
+}
+
+/* LOGOTIPO Y MARCA */
+
+.admin-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex: 0 0 auto;
+    min-width: 0;
+    color: inherit;
+    text-decoration: none;
+}
+
+.admin-brand-logo {
+    display: block;
+    width: 82px;
+    height: 82px;
+    object-fit: contain;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.admin-brand-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    white-space: nowrap;
+}
+
+.admin-brand-name {
+    font-size: clamp(1.6rem, 2.6vw, 2.75rem);
+    line-height: 1.05;
+    font-weight: 800;
+    letter-spacing: -1.2px;
+}
+
+.admin-brand-slogan {
+    padding-left: 5px;
+    font-size: clamp(.78rem, 1.15vw, 1.08rem);
+    line-height: 1.25;
+    color: var(--tc-white);
+}
+
+/* MENÚ PRINCIPAL */
+
+.admin-nav {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-end;
+    gap: clamp(16px, 2.4vw, 38px);
+    margin-left: auto;
+}
+
+.admin-nav-link {
+    min-width: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 4px 0;
+    color: var(--tc-white);
+    text-decoration: none;
+    font-size: .96rem;
+    line-height: 1.15;
+    transition: color .18s ease, transform .18s ease;
+}
+
+    /* ICONOS */
+
+    .admin-nav-link svg {
+        width: 40px;
+        height: 40px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.65;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    /* ICONO DE INICIO */
+
+    .admin-nav-link[data-page="dashboard"] svg {
+        fill: currentColor;
+        stroke-width: 1.3;
+    }
+
+    /* HOVER Y SECCIÓN ACTIVA */
+
+    .admin-nav-link:hover,
+    .admin-nav-link.is-active {
+        color: var(--tc-gold);
+    }
+
+    .admin-nav-link:hover {
+        transform: translateY(-2px);
+    }
+
+/* BOTÓN HAMBURGUESA */
+
+.admin-menu-wrap {
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.admin-menu-toggle {
+    width: 40px;
+    height: 46px;
+    padding: 7px 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 7px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+    .admin-menu-toggle span {
+        display: block;
+        width: 36px;
+        height: 4px;
+        border-radius: 3px;
+        background: var(--tc-white);
+        transition: background .18s ease;
+    }
+
+    .admin-menu-toggle:hover span {
+        background: var(--tc-gold);
+    }
+
+/* MENÚ DESPLEGABLE */
+
+.admin-extra-menu {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    min-width: 210px;
+    padding: 8px;
+    background: #171717;
+    border: 1px solid #383838;
+    border-radius: 10px;
+    box-shadow: 0 12px 28px #0008;
+}
+
+    .admin-extra-menu[hidden] {
+        display: none;
+    }
+
+    .admin-extra-menu a,
+    .admin-extra-menu button {
+        display: block;
+        width: 100%;
+        padding: 12px 13px;
+        color: var(--tc-white);
+        text-align: left;
+        text-decoration: none;
+        font: inherit;
+        font-size: .92rem;
+        background: transparent;
+        border: 0;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+        .admin-extra-menu a:hover,
+        .admin-extra-menu button:hover {
+            color: var(--tc-gold);
+            background: #292929;
+        }
+
+/* =========================================
+   TABLETAS Y VENTANAS MEDIANAS
+========================================= */
+
+@media (max-width: 1150px) {
+    .admin-header {
+        gap: 18px;
+        padding-inline: 16px;
+    }
+
+    .admin-brand-logo {
+        width: 68px;
+        height: 68px;
+    }
+
+    .admin-nav {
+        gap: 15px;
+    }
+
+    .admin-nav-link {
+        min-width: 60px;
+        font-size: .82rem;
+    }
+
+        .admin-nav-link svg {
+            width: 34px;
+            height: 34px;
+        }
+}
+
+/* =========================================
+   CELULARES Y PANTALLAS PEQUEÑAS
+========================================= */
+
+@media (max-width: 850px) {
+    .admin-header {
+        min-height: 84px;
+        padding: 10px 14px;
+        gap: 12px;
+    }
+
+    .admin-brand {
+        gap: 10px;
+    }
+
+    .admin-brand-logo {
+        width: 58px;
+        height: 58px;
+    }
+
+    .admin-brand-name {
+        font-size: clamp(1.2rem, 4vw, 1.8rem);
+        letter-spacing: -.6px;
+    }
+
+    .admin-brand-slogan {
+        font-size: .78rem;
+        padding-left: 1px;
+    }
+
+    /* Navegación desplegable */
+
+    .admin-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        margin: 0;
+        padding: 14px;
+        background: #080808;
+        border-top: 1px solid #292929;
+        box-shadow: 0 12px 20px #0006;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px 8px;
+    }
+
+        .admin-nav.is-open {
+            display: grid;
+        }
+
+    .admin-nav-link {
+        min-height: 76px;
+        min-width: 0;
+        font-size: .84rem;
+    }
+
+        .admin-nav-link svg {
+            width: 32px;
+            height: 32px;
+        }
+
+    .admin-menu-wrap {
+        margin-left: auto;
+    }
+
+    .admin-menu-toggle {
+        width: 36px;
+    }
+
+        .admin-menu-toggle span {
+            width: 31px;
+        }
+}
+
+/* CELULARES MUY PEQUEÑOS */
+
+@media (max-width: 420px) {
+    .admin-header {
+        padding-inline: 10px;
+    }
+
+    .admin-brand-logo {
+        width: 48px;
+        height: 48px;
+    }
+
+    .admin-brand-name {
+        font-size: 1.18rem;
+    }
+
+    .admin-brand-slogan {
+        font-size: .7rem;
+    }
+
+    .admin-nav {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}

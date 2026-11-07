@@ -1,0 +1,134 @@
+﻿
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Maquinaria | Tula's Crane</title>
+
+    <!-- Iconos -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Estilos del header compartido -->
+    <link rel="stylesheet" href="css/DiseñoAdmin.css">
+
+    <!-- Estilos exclusivos de esta página -->
+    <link rel="stylesheet" href="css/Maquinaria.css">
+</head>
+
+<body class="maquinaria-page">
+
+    <!-- HEADER ADMINISTRATIVO COMPARTIDO -->
+    <div id="admin-header-placeholder"></div>
+
+    <main class="maquinaria-main">
+
+        <!-- ENCABEZADO -->
+        <div class="maquinaria-heading">
+            <a href="Dashboard.html"
+               class="maquinaria-back"
+               aria-label="Regresar al inicio">
+                <i class="bi bi-chevron-left"></i>
+            </a>
+
+            <h1>MAQUINARIA</h1>
+        </div>
+
+        <!-- BUSCADOR -->
+        <div class="maquinaria-search">
+            <i class="bi bi-search search-icon-left"></i>
+
+            <input type="search"
+                   id="buscarMaquinaria"
+                   placeholder="Buscar maquinaria..."
+                   autocomplete="off"
+                   aria-label="Buscar maquinaria">
+
+            <button type="button"
+                    id="btnBuscarMaquinaria"
+                    aria-label="Buscar">
+                <i class="bi bi-search"></i>
+            </button>
+        </div>
+
+        <!-- FILTROS Y BOTÓN AGREGAR -->
+        <section class="maquinaria-toolbar">
+
+            <div class="maquinaria-filters"
+                 aria-label="Filtrar por categoría">
+
+                <button class="filter-btn active"
+                        type="button"
+                        data-filter="todos"
+                        aria-pressed="true">
+                    Todos
+                </button>
+
+                <button class="filter-btn"
+                        type="button"
+                        data-filter="gruas"
+                        aria-pressed="false">
+                    Grúas
+                </button>
+
+                <button class="filter-btn"
+                        type="button"
+                        data-filter="plataformas"
+                        aria-pressed="false">
+                    Plataformas
+                </button>
+
+                <button class="filter-btn"
+                        type="button"
+                        data-filter="titan"
+                        aria-pressed="false">
+                    Titán
+                </button>
+
+                <button class="filter-btn"
+                        type="button"
+                        data-filter="otros"
+                        aria-pressed="false">
+                    Otros
+                </button>
+
+            </div>
+
+            <button type="button"
+                    class="btn-agregar-maquinaria"
+                    id="btnAgregarMaquinaria">
+                <i class="bi bi-plus-lg"></i>
+                Agregar
+            </button>
+
+        </section>
+
+        <!-- LISTADO DE MAQUINARIA -->
+        <section class="maquinaria-grid"
+                 id="maquinariaGrid"
+                 aria-label="Listado de maquinaria">
+
+            <!-- Las tarjetas se generan con Maquinaria.js -->
+
+        </section>
+
+        <!-- MENSAJE CUANDO NO HAY RESULTADOS -->
+        <div class="maquinaria-empty"
+             id="maquinariaEmpty"
+             hidden>
+            <i class="bi bi-search"></i>
+            <p>No se encontró maquinaria con esos criterios.</p>
+        </div>
+
+    </main>
+
+    <!-- LAYOUT DEL HEADER COMPARTIDO -->
+    <script src="js/Layout_Admin.js"></script>
+
+    <!-- FUNCIONES DE ESTA PÁGINA -->
+    <script src="js/Maquinaria.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,329 @@
+﻿
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registrar maquinaria | Tula's Crane</title>
+
+    <!-- Estilos del formulario -->
+    <link rel="stylesheet" href="css/RegistrarMaquinaria.css">
+
+    <!-- Iconos -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+
+    <!-- HEADER ADMINISTRATIVO COMPARTIDO -->
+    <div id="admin-header-placeholder"></div>
+
+    <main class="rm-container">
+
+
+        <div class="rm-title-container">
+            <a href="/Maquinaria.html"
+               class="rm-back"
+               aria-label="Regresar a maquinaria"
+               onclick="window.location.href='/Maquinaria.html'; return false;">
+                <i class="bi bi-chevron-left"></i>
+            </a>
+
+            <h1>Registrar Maquinaria</h1>
+        </div>
+
+
+
+        <div class="rm-content">
+
+            <!-- COLUMNA IZQUIERDA: FORMULARIOS -->
+            <section class="rm-form-section">
+
+                <!-- INDICADORES DE PASOS -->
+                <div class="rm-steps">
+
+                    <div class="rm-step active" id="step-indicator-1">
+                        <span class="rm-step-number">1</span>
+                        <span>Datos de la máquina</span>
+                    </div>
+
+                    <div class="rm-step" id="step-indicator-2">
+                        <span class="rm-step-number">2</span>
+                        <span>Cargar archivos</span>
+                    </div>
+
+                </div>
+
+                <form id="registrarMaquinariaForm"
+                      enctype="multipart/form-data">
+
+                    <!-- =================================
+                     PASO 1: DATOS DE LA MAQUINARIA
+                ================================== -->
+                    <div class="rm-form-step active" id="step-1">
+
+                        <div class="rm-field">
+                            <label for="marca">Marca</label>
+                            <input type="text"
+                                   id="marca"
+                                   name="marca"
+                                   placeholder="Ej. Grove, Terex, Manitowoc"
+                                   required>
+                        </div>
+
+                        <div class="rm-field">
+                            <label for="modelo">Modelo</label>
+                            <select id="modelo" name="modelo" required>
+                                <option value="" disabled selected>
+                                    Selecciona el modelo
+                                </option>
+                                <option value="Grúa telescópica">
+                                    Grúa telescópica
+                                </option>
+                                <option value="Grúa hidráulica">
+                                    Grúa hidráulica
+                                </option>
+                                <option value="Grúa todo terreno">
+                                    Grúa todo terreno
+                                </option>
+                                <option value="Plataforma">
+                                    Plataforma
+                                </option>
+                                <option value="Titán">
+                                    Titán
+                                </option>
+                                <option value="Otro">
+                                    Otro
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="rm-field-row">
+
+                            <div class="rm-field">
+                                <label for="capacidad">Capacidad</label>
+                                <input type="text"
+                                       id="capacidad"
+                                       name="capacidad"
+                                       placeholder="Ej. 30 toneladas"
+                                       required>
+                            </div>
+
+                            <div class="rm-field">
+                                <label for="alcance">Alcance</label>
+                                <input type="text"
+                                       id="alcance"
+                                       name="alcance"
+                                       placeholder="Ej. 42 m"
+                                       required>
+                            </div>
+
+                        </div>
+
+                        <div class="rm-field">
+                            <label for="tipo">Tipo de maquinaria</label>
+                            <select id="tipo" name="tipo" required>
+                                <option value="" disabled selected>
+                                    Selecciona el tipo
+                                </option>
+                                <option value="Grúas">Grúas</option>
+                                <option value="Plataformas">Plataformas</option>
+                                <option value="Titán">Titán</option>
+                                <option value="Otros">Otros</option>
+                            </select>
+                        </div>
+
+                        <div class="rm-field">
+                            <label for="anio">Año</label>
+                            <input type="number"
+                                   id="anio"
+                                   name="anio"
+                                   placeholder="Ej. 2024"
+                                   min="1900"
+                                   max="2100"
+                                   required>
+                        </div>
+
+                        <div class="rm-field">
+                            <label for="placas">Placas</label>
+                            <input type="text"
+                                   id="placas"
+                                   name="placas"
+                                   placeholder="Número de placas"
+                                   required>
+                        </div>
+
+                        <div class="rm-actions rm-actions-single">
+                            <button type="button"
+                                    class="rm-button rm-button-primary"
+                                    id="btnContinuar">
+                                Guardar
+                                <i class="bi bi-arrow-right"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <!-- =================================
+                     PASO 2: DOCUMENTACIÓN
+                ================================== -->
+                    <div class="rm-form-step" id="step-2">
+
+                        <p class="rm-instructions">
+                            Adjunta los documentos correspondientes a la
+                            maquinaria. Los archivos se pueden cargar en
+                            formato PDF o imagen.
+                        </p>
+
+                        <div class="rm-field">
+                            <label for="certificado">Certificado</label>
+                            <input type="file"
+                                   id="certificado"
+                                   name="certificado"
+                                   accept=".pdf,.jpg,.jpeg,.png,.webp">
+                        </div>
+
+                        <div class="rm-field">
+                            <label for="tarjetaCirculacion">
+                                Tarjeta de circulación
+                            </label>
+                            <input type="file"
+                                   id="tarjetaCirculacion"
+                                   name="tarjetaCirculacion"
+                                   accept=".pdf,.jpg,.jpeg,.png,.webp">
+                        </div>
+
+                        <div class="rm-field-row">
+
+                            <div class="rm-field">
+                                <label for="tenencia">Tenencia</label>
+                                <input type="file"
+                                       id="tenencia"
+                                       name="tenencia"
+                                       accept=".pdf,.jpg,.jpeg,.png,.webp">
+                            </div>
+
+                            <div class="rm-field">
+                                <label for="otros">Otros documentos</label>
+                                <input type="file"
+                                       id="otros"
+                                       name="otros"
+                                       accept=".pdf,.jpg,.jpeg,.png,.webp">
+                            </div>
+
+                        </div>
+
+                        <div class="rm-actions">
+
+                            <button type="button"
+                                    class="rm-button rm-button-secondary"
+                                    id="btnRegresar">
+                                <i class="bi bi-arrow-left"></i>
+                                Regresar
+                            </button>
+
+                            <button type="submit"
+                                    class="rm-button rm-button-primary">
+                                Listo
+                                <i class="bi bi-arrow-right"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+            <!-- COLUMNA DERECHA: LOGOTIPO -->
+            <aside class="rm-image-section">
+                <img src="IMG/Copia%20de%20Tula's%20Crane%20Logo.png"
+                     alt="Logotipo de Tula's Crane"
+                     class="rm-company-logo">
+            </aside>
+
+        </div>
+
+    </main>
+
+    <!-- LAYOUT ADMINISTRATIVO COMPARTIDO -->
+    <script src="js/Layout_Admin.js"></script>
+
+    <!-- NAVEGACIÓN ENTRE PASOS -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const form = document.getElementById(
+                "registrarMaquinariaForm"
+            );
+
+            const paso1 = document.getElementById("step-1");
+            const paso2 = document.getElementById("step-2");
+
+            const indicador1 = document.getElementById(
+                "step-indicator-1"
+            );
+
+            const indicador2 = document.getElementById(
+                "step-indicator-2"
+            );
+
+            const btnContinuar = document.getElementById(
+                "btnContinuar"
+            );
+
+            const btnRegresar = document.getElementById(
+                "btnRegresar"
+            );
+
+            function mostrarPaso(numero) {
+
+                const mostrarDatos = numero === 1;
+
+                paso1.classList.toggle("active", mostrarDatos);
+                paso2.classList.toggle("active", !mostrarDatos);
+
+                indicador1.classList.toggle("active", mostrarDatos);
+                indicador2.classList.toggle("active", !mostrarDatos);
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            }
+
+            btnContinuar.addEventListener("click", function () {
+
+                if (!paso1.querySelector(":invalid")) {
+                    mostrarPaso(2);
+                    return;
+                }
+
+                form.reportValidity();
+            });
+
+            btnRegresar.addEventListener("click", function () {
+                mostrarPaso(1);
+            });
+
+            form.addEventListener("submit", function (evento) {
+
+                evento.preventDefault();
+
+                alert(
+                    "Formulario completado visualmente. " +
+                    "Para registrar la maquinaria de forma permanente, " +
+                    "falta conectar el formulario con la API y la base de datos."
+                );
+
+            });
+
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+﻿<!-- HEADER ADMINISTRATIVO DE TULA'S CRANE -->
+<header class="admin-header" id="adminHeader">
+
+    <!-- LOGOTIPO Y NOMBRE -->
+    <a class="admin-brand" href="Dashboard.html" aria-label="Tula's Crane, inicio">
+
+        <img class="admin-brand-logo"
+             src="IMG/Copia%20de%20Tula's%20Crane%20Logo.png"
+             alt="Logotipo de Tula's Crane">
+
+        <span class="admin-brand-copy">
+            <span class="admin-brand-name">TULA'S CRANE</span>
+            <span class="admin-brand-slogan">
+                Pasión en cada proyecto
+            </span>
+        </span>
+
+    </a>
+
+    <!-- NAVEGACIÓN PRINCIPAL -->
+    <nav class="admin-nav" id="adminNav" aria-label="Navegación administrativa">
+
+        <!-- INICIO -->
+        <a class="admin-nav-link" href="Dashboard.html" data-page="dashboard">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m3 10 9-7 9 7" />
+                <path d="M5 9v12h5v-7h4v7h5V9" />
+            </svg>
+            <span>Inicio</span>
+        </a>
+
+        <!-- MAQUINARIA -->
+        <a class="admin-nav-link" href="Maquinaria.html" data-page="maquinaria">
+            <svg viewBox="0 0 32 24" aria-hidden="true">
+                <path d="M2 15h4l2-5h8l3 5h5V5h4l3 6v4h-3" />
+                <path d="M2 15v3h3m5 0h11m5 0h4v-3" />
+                <circle cx="7" cy="18" r="3" />
+                <circle cx="23" cy="18" r="3" />
+                <path d="M16 10h5m-5 0V6h5" />
+            </svg>
+            <span>Maquinaria</span>
+        </a>
+
+        <!-- EMPLEADOS -->
+        <a class="admin-nav-link" href="Empleados.html" data-page="empleados">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7 8a5 5 0 0 1 10 0v2H7z" />
+                <path d="M4 21v-4a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v4" />
+                <path d="M9 12v3m6-3v3M9 4V2h6v2M5 7H3m18 0h-2" />
+            </svg>
+            <span>Empleados</span>
+        </a>
+
+        <!-- CALENDARIO -->
+        <a class="admin-nav-link" href="Calendario.html" data-page="calendario">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="16" rx="2" />
+                <path d="M7 3v4m10-4v4M3 10h18" />
+                <path d="M7 14h2m3 0h2m3 0h1M7 17h2m3 0h2" />
+            </svg>
+            <span>Calendario</span>
+        </a>
+
+        <!-- FINANZAS -->
+        <a class="admin-nav-link" href="Finanzas.html" data-page="finanzas">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <ellipse cx="16" cy="4" rx="5" ry="2" />
+                <path d="M11 4v4c0 1.1 2.2 2 5 2s5-.9 5-2V4" />
+                <path d="M11 8v4c0 1.1 2.2 2 5 2 1.2 0 2.3-.2 3.2-.5" />
+                <path d="M11 12v4c0 1.1 2.2 2 5 2 .7 0 1.4-.1 2-.2" />
+                <path d="M2 15.5c1.5-1.5 3-2 4.5-1.5l4 1.5h3a2 2 0 0 1 0 4H8l-3-1" />
+                <path d="m2 15.5 1 5h5" />
+            </svg>
+            <span>Finanzas</span>
+        </a>
+
+    </nav>
+
+    <!-- MENÚ HAMBURGUESA -->
+    <div class="admin-menu-wrap">
+
+        <button class="admin-menu-toggle"
+                id="adminMenuToggle"
+                type="button"
+                aria-label="Abrir menú de opciones"
+                aria-expanded="false"
+                aria-controls="adminExtraMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- OPCIONES ADICIONALES -->
+        <div class="admin-extra-menu" id="adminExtraMenu" hidden>
+
+            <a href="Cotizaciones.html">
+                Solicitar cotización
+            </a>
+
+            <a href="Documentacion.html">
+                Documentación
+            </a>
+
+            <button type="button" id="adminLogoutButton">
+                Cerrar sesión
+            </button>
+
+        </div>
+
+    </div>
+
+</header>

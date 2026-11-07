@@ -1,0 +1,692 @@
+﻿
+/* ==========================================
+   EMPLEADOS - TULA'S CRANE
+   Diseño oscuro con detalles dorados
+========================================== */
+
+.empleados-page {
+    --emp-black: #000000;
+    --emp-card: #191919;
+    --emp-gold: #e9bd68;
+    --emp-gold-light: #f1c65f;
+    --emp-white: #ffffff;
+    --emp-border: #414141;
+    --emp-green: #21c331;
+    --emp-yellow: #efbd4d;
+
+    margin: 0;
+    min-height: 100vh;
+    background: var(--emp-black);
+    color: var(--emp-white);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.empleados-page *,
+.empleados-page *::before,
+.empleados-page *::after {
+    box-sizing: border-box;
+}
+
+.empleados-page a {
+    text-decoration: none;
+}
+
+/* CONTENEDOR PRINCIPAL */
+
+.empleados-container {
+    width: 100%;
+    padding: 0 35px 35px;
+    margin: 0 auto;
+}
+
+/* TÍTULO */
+
+.empleados-heading {
+    margin: 0 0 7px;
+    padding-left: 90px;
+}
+
+.empleados-heading h1 {
+    margin: 0;
+    color: var(--emp-white);
+    font-size: clamp(28px, 3.6vw, 43px);
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -1.2px;
+}
+
+/* BUSCADOR */
+
+.empleados-toolbar {
+    width: 100%;
+}
+
+.empleados-search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 42px;
+    margin-bottom: 8px;
+    padding: 0 20px;
+    border-radius: 30px;
+    background: #fff2d0;
+    color: #1a1a1a;
+}
+
+.empleados-search input {
+    width: 100%;
+    height: 100%;
+    padding: 0 35px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #222;
+    font: inherit;
+    font-size: 20px;
+}
+
+.empleados-search input::placeholder {
+    color: #a9a394;
+    opacity: 1;
+}
+
+.empleados-search input::-webkit-search-cancel-button {
+    cursor: pointer;
+}
+
+.search-icon {
+    position: absolute;
+    left: 52px;
+    color: #aaa28f;
+    font-size: 16px;
+    pointer-events: none;
+}
+
+.search-icon-right {
+    position: absolute;
+    right: 17px;
+    color: #111;
+    font-size: 25px;
+    pointer-events: none;
+}
+
+/* FILTROS Y BOTÓN AGREGAR */
+
+.empleados-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 35px;
+    min-height: 60px;
+    margin: 0 8.5% 14px 0;
+}
+
+.empleados-filtros {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.filtro-btn {
+    min-height: 33px;
+    padding: 5px 14px;
+    border: 2px solid var(--emp-gold);
+    border-radius: 22px;
+    background: transparent;
+    color: var(--emp-white);
+    font-size: 15px;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.filtro-btn:hover {
+    background: rgba(233, 189, 104, 0.15);
+}
+
+.filtro-btn.activo {
+    background: var(--emp-gold);
+    border-color: var(--emp-gold);
+    color: #000;
+    font-weight: 700;
+}
+
+.btn-agregar-empleado {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-width: 240px;
+    min-height: 52px;
+    padding: 8px 24px;
+    border: 2px solid #8d7038;
+    border-radius: 35px;
+    background: #edbd4e;
+    color: #000;
+    font-size: 27px;
+    font-weight: 400;
+    white-space: nowrap;
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.btn-agregar-empleado:hover {
+    background: #f5ce70;
+    transform: translateY(-1px);
+}
+
+.btn-agregar-empleado i {
+    font-size: 22px;
+}
+
+/* CUADRÍCULA DE TARJETAS */
+
+.empleados-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 5.7%;
+    row-gap: 12px;
+    align-items: stretch;
+}
+
+/* TARJETA DE EMPLEADO */
+
+.empleado-card {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    min-width: 0;
+    min-height: 164px;
+    overflow: hidden;
+    border: 2px solid var(--emp-border);
+    border-radius: 14px;
+    background: var(--emp-card);
+    transition: border-color 0.2s ease;
+}
+
+.empleado-card:hover {
+    border-color: var(--emp-gold);
+}
+
+.empleado-card[hidden] {
+    display: none !important;
+}
+
+/* FOTO */
+
+.empleado-foto {
+    position: relative;
+    display: flex;
+    flex: 0 0 150px;
+    align-items: flex-end;
+    justify-content: center;
+    min-width: 0;
+    min-height: 100%;
+    overflow: hidden;
+    background: #252525;
+    border-radius: 10px 10px 0 0;
+}
+
+.empleado-foto img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.empleado-avatar-fallback {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    min-height: 160px;
+    background: linear-gradient(145deg, #393939, #171717);
+    color: var(--emp-gold);
+    font-size: 36px;
+    font-weight: 700;
+}
+
+/* INFORMACIÓN DEL EMPLEADO */
+
+.empleado-info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+    padding: 14px 45px 12px 24px;
+}
+
+.empleado-info h2 {
+    margin: 0 0 4px;
+    color: var(--emp-white);
+    font-size: clamp(18px, 2vw, 25px);
+    font-weight: 700;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+}
+
+.empleado-puesto {
+    margin: 0 0 9px;
+    color: #eeeeee;
+    font-size: clamp(17px, 1.9vw, 24px);
+    line-height: 1.2;
+}
+
+.empleado-estados {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.estado {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    color: #ededed;
+    font-size: clamp(13px, 1.5vw, 18px);
+    line-height: 1.25;
+}
+
+.estado i {
+    flex-shrink: 0;
+    font-size: 20px;
+}
+
+.estado.disponible {
+    color: #a9f14f;
+}
+
+.estado.disponible i,
+.estado.documentacion-ok i {
+    color: var(--emp-green);
+}
+
+.estado.en-maniobra {
+    color: var(--emp-yellow);
+}
+
+.estado.en-maniobra i {
+    color: var(--emp-yellow);
+}
+
+/* BOTÓN DE DETALLE */
+
+.empleado-detalle {
+    position: absolute;
+    top: 50%;
+    right: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 53px;
+    height: 53px;
+    border-radius: 50%;
+    background: var(--emp-gold);
+    color: #000;
+    font-size: 26px;
+    transform: translateY(-50%);
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.empleado-detalle:hover {
+    background: #f5cf7b;
+    transform: translateY(-50%) scale(1.06);
+}
+
+/* SIN RESULTADOS */
+
+.empleados-vacio {
+    grid-column: 1 / -1;
+    padding: 45px 20px;
+    color: #d6d6d6;
+    text-align: center;
+}
+
+.empleados-vacio[hidden] {
+    display: none !important;
+}
+
+.empleados-vacio > i {
+    color: var(--emp-gold);
+    font-size: 42px;
+}
+
+.empleados-vacio h2 {
+    margin: 12px 0 5px;
+    font-size: 22px;
+}
+
+.empleados-vacio p {
+    margin: 0;
+    color: #aaa;
+    font-size: 15px;
+}
+
+/* NAVEGACIÓN MÓVIL
+   Se conserva la clase compartida del Dashboard. */
+
+.empleados-page .mobile-bottom-nav {
+    display: none;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1050px) {
+
+    .empleados-container {
+        padding-right: 24px;
+        padding-left: 24px;
+    }
+
+    .empleados-heading {
+        padding-left: 0;
+    }
+
+    .empleados-actions {
+        gap: 18px;
+        margin-right: 0;
+    }
+
+    .empleados-grid {
+        column-gap: 20px;
+    }
+
+    .empleado-foto {
+        flex-basis: 115px;
+    }
+
+    .empleado-info {
+        padding-left: 15px;
+        padding-right: 42px;
+    }
+
+    .empleado-detalle {
+        right: 7px;
+        width: 43px;
+        height: 43px;
+        font-size: 22px;
+    }
+
+    .btn-agregar-empleado {
+        min-width: 185px;
+        font-size: 23px;
+    }
+}
+
+/* ==========================================
+   MÓVIL
+========================================== */
+
+@media (max-width: 700px) {
+
+    .empleados-container {
+        padding: 12px 15px 95px;
+    }
+
+    .empleados-heading {
+        margin-bottom: 14px;
+    }
+
+    .empleados-heading h1 {
+        font-size: 30px;
+        letter-spacing: -0.5px;
+    }
+
+    .empleados-search {
+        height: 43px;
+        padding: 0 12px;
+    }
+
+    .empleados-search input {
+        padding: 0 30px;
+        font-size: 16px;
+    }
+
+    .search-icon {
+        left: 18px;
+        font-size: 14px;
+    }
+
+    .search-icon-right {
+        right: 13px;
+        font-size: 21px;
+    }
+
+    .empleados-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        margin: 12px 0 18px;
+    }
+
+    .empleados-filtros {
+        justify-content: flex-start;
+        gap: 7px;
+    }
+
+    .filtro-btn {
+        min-height: 32px;
+        padding: 5px 11px;
+        font-size: 13px;
+    }
+
+    .btn-agregar-empleado {
+        align-self: flex-end;
+        min-width: 155px;
+        min-height: 43px;
+        padding: 7px 18px;
+        font-size: 20px;
+    }
+
+    .btn-agregar-empleado i {
+        font-size: 18px;
+    }
+
+    .empleados-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .empleado-card {
+        min-height: 125px;
+        border-radius: 12px;
+    }
+
+    .empleado-foto {
+        flex-basis: 100px;
+    }
+
+    .empleado-avatar-fallback {
+        min-height: 125px;
+        font-size: 28px;
+    }
+
+    .empleado-info {
+        padding: 12px 42px 12px 13px;
+    }
+
+    .empleado-info h2 {
+        margin-bottom: 3px;
+        font-size: 18px;
+    }
+
+    .empleado-puesto {
+        margin-bottom: 7px;
+        font-size: 16px;
+    }
+
+    .empleado-estados {
+        gap: 5px;
+    }
+
+    .estado {
+        gap: 5px;
+        font-size: 12px;
+    }
+
+    .estado i {
+        font-size: 16px;
+    }
+
+    .empleado-detalle {
+        right: 6px;
+        width: 34px;
+        height: 34px;
+        font-size: 19px;
+    }
+
+    .empleados-page .mobile-bottom-nav {
+        display: flex;
+    }
+}
+
+/* MÓVILES MUY PEQUEÑOS */
+
+@media (max-width: 380px) {
+
+    .empleados-container {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .empleado-foto {
+        flex-basis: 82px;
+    }
+
+    .empleado-info {
+        padding-left: 10px;
+        padding-right: 37px;
+    }
+
+    .empleado-info h2 {
+        font-size: 16px;
+    }
+
+    .empleado-puesto {
+        font-size: 14px;
+    }
+
+    .estado {
+        font-size: 11px;
+    }
+
+    .empleado-detalle {
+        width: 30px;
+        height: 30px;
+    }
+}
+/* Barra inferior de navegación */
+
+.mobile-bottom-nav {
+    position: fixed;
+    z-index: 150;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    min-height: 66px;
+    padding: 7px 4px max(7px, env(safe-area-inset-bottom));
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 2px;
+    border-top: 1px solid #383838;
+    background: #111;
+}
+
+.mobile-nav-item {
+    min-width: 0;
+    padding: 4px 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+    color: #c2c2c2;
+    text-decoration: none;
+    border-radius: 7px;
+}
+
+    .mobile-nav-item i {
+        font-size: 21px;
+        line-height: 1.1;
+    }
+
+    .mobile-nav-item span {
+        font-size: 9px;
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    .mobile-nav-item.active {
+        color: var(--gold);
+    }
+
+    .mobile-nav-item:focus-visible {
+        outline: 2px solid var(--gold);
+        outline-offset: -2px;
+    }
+
+/* Espacio para que el footer no quede
+       tapado por la barra inferior */
+
+.dashboard-page #admin-footer-placeholder {
+    padding-bottom: 76px;
+}
+
+}
+
+/* ==========================================
+   CELULARES MUY PEQUEÑOS
+========================================== */
+
+@media (max-width: 360px) {
+    .dashboard-container {
+        width: calc(100% - 20px);
+    }
+
+    .dashboard-stats {
+        gap: 8px;
+    }
+
+    .stat-card {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .section-tag {
+        font-size: 9px;
+    }
+
+    .mobile-nav-item i {
+        font-size: 19px;
+    }
+
+    .mobile-nav-item span {
+        font-size: 8px;
+    }
+}
+
+
+
+
+    /* Evita que la barra tape las tarjetas */
+    body.empleados-page {
+        padding-bottom: 90px;
+    }
+}
