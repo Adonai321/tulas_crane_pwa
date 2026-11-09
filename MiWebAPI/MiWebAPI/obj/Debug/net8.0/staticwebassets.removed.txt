@@ -1,0 +1,3 @@
+C:\Users\estef\OneDrive\Escritorio\tulas_crane_pwa-develop\MiWebAPI\MiWebAPI\wwwroot\css\DiseñoGeneral.css
+C:\Users\estef\OneDrive\Escritorio\tulas_crane_pwa-develop\MiWebAPI\MiWebAPI\wwwroot\DiseñoGeneral.html
+C:\Users\estef\OneDrive\Escritorio\tulas_crane_pwa-develop\MiWebAPI\MiWebAPI\wwwroot\js\Layout.js

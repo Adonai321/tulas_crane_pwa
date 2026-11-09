@@ -893,11 +893,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula´s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\MiWebAPI.csproj",
+      "projectUniqueName": "C:\\Users\\estef\\OneDrive\\Escritorio\\tulas_crane_pwa-develop\\MiWebAPI\\MiWebAPI\\MiWebAPI.csproj",
       "projectName": "MiWebAPI",
-      "projectPath": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula´s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\MiWebAPI.csproj",
+      "projectPath": "C:\\Users\\estef\\OneDrive\\Escritorio\\tulas_crane_pwa-develop\\MiWebAPI\\MiWebAPI\\MiWebAPI.csproj",
       "packagesPath": "C:\\Users\\estef\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\estef\\OneDrive\\Escritorio\\Tula´s Crane Gestor\\CRUD_NET8_HTML_JAVASCRIPT\\MiWebAPI\\MiWebAPI\\obj\\",
+      "outputPath": "C:\\Users\\estef\\OneDrive\\Escritorio\\tulas_crane_pwa-develop\\MiWebAPI\\MiWebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
