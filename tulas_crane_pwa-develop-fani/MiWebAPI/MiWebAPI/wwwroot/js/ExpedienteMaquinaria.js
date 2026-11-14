@@ -1,6 +1,61 @@
 ﻿
 "use strict";
 
+// =========================================
+// CARGAR DATOS DESDE LA API
+// =========================================
+async function cargarDatosExpediente() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const idMaquina = urlParams.get('id');
+
+    if (!idMaquina) {
+        console.error("No se proporcionó un ID de maquinaria.");
+        document.getElementById("nombreMaquinaria").textContent = "Máquina no seleccionada";
+        return;
+    }
+
+    try {
+        const respuesta = await fetch(`/api/ExpedienteMaquina/${idMaquina}`);
+
+        if (!respuesta.ok) {
+            throw new Error("No se pudo cargar la información del servidor.");
+        }
+
+        const maquina = await respuesta.json();
+
+        // Llenar el encabezado
+        document.getElementById("nombreMaquinaria").textContent = `${maquina.tipo} ${maquina.marca}`;
+        document.getElementById("capacidadMaquinaria").textContent = maquina.capacidad;
+
+        // Actualizar el estado visual
+        const estadoSpan = document.getElementById("estadoMaquinaria");
+
+        if (maquina.estadoActividad) {
+            estadoSpan.className = "estado-disponible";
+            estadoSpan.innerHTML = '<i class="bi bi-check-circle-fill"></i> Disponible';
+        } else {
+            estadoSpan.className = "estado-documentacion";
+            estadoSpan.innerHTML = '<i class="bi bi-cone-striped"></i> En maniobra';
+            estadoSpan.style.color = "#edb83f";
+        }
+
+        // Llenar los inputs del formulario
+        document.getElementById("marca").value = maquina.marca;
+        document.getElementById("modelo").value = maquina.modelo;
+        document.getElementById("capacidad").value = maquina.capacidad;
+        document.getElementById("alcance").value = maquina.alcance || "N/A";
+        document.getElementById("tipo").value = maquina.tipo;
+        document.getElementById("anio").value = maquina.anio;
+
+    } catch (error) {
+        console.error("Error al cargar expediente:", error);
+        document.getElementById("nombreMaquinaria").textContent = "Error al cargar datos";
+    }
+}
+
+// Ejecutar al cargar la página
+cargarDatosExpediente();
+
 document.addEventListener("DOMContentLoaded", function () {
 
     // =========================================
@@ -11,7 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const panels = document.querySelectorAll(".expediente-panel");
 
     tabs.forEach(function (tab) {
-
         tab.addEventListener("click", function () {
 
             const nombrePanel = tab.dataset.tab;
@@ -45,11 +99,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // CAMBIAR IMAGEN PRINCIPAL
     // =========================================
 
-    const imagenPrincipal =
-        document.getElementById("imagenPrincipal");
-
-    const miniaturas =
-        document.getElementById("miniaturas");
+    const imagenPrincipal = document.getElementById("imagenPrincipal");
+    const miniaturas = document.getElementById("miniaturas");
 
     if (miniaturas && imagenPrincipal) {
 
@@ -74,43 +125,32 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // =========================================
-    // AGREGAR FOTOGRAFÍAS
+    // AGREGAR FOTOGRAFÍAS (VISTA LOCAL)
     // =========================================
 
-    const btnAgregarImagen =
-        document.getElementById("btnAgregarImagen");
+    const btnAgregarImagen = document.getElementById("btnAgregarImagen");
+    const inputImagen = document.getElementById("inputImagen");
 
-    const inputImagen =
-        document.getElementById("inputImagen");
-
-    const avisoGaleria =
-        document.getElementById("avisoGaleria");
-
-    if (btnAgregarImagen && inputImagen) {
+    if (btnAgregarImagen && inputImagen && miniaturas && imagenPrincipal) {
 
         btnAgregarImagen.addEventListener("click", function () {
             inputImagen.click();
         });
 
         inputImagen.addEventListener("change", function () {
-
             const archivos = Array.from(inputImagen.files || []);
-
             if (!archivos.length) return;
 
-            archivos.forEach(function (archivo) {
+            for (const archivo of archivos) {
+                if (!archivo.type.startsWith("image/")) continue;
 
-                if (!archivo.type.startsWith("image/")) return;
-
+                // Crear una vista previa local de la imagen.
                 const urlTemporal = URL.createObjectURL(archivo);
 
                 const boton = document.createElement("button");
                 boton.type = "button";
                 boton.className = "miniatura";
-                boton.setAttribute(
-                    "aria-label",
-                    "Ver " + archivo.name
-                );
+                boton.setAttribute("aria-label", "Ver " + archivo.name);
 
                 const imagen = document.createElement("img");
                 imagen.src = urlTemporal;
@@ -120,27 +160,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 miniaturas.appendChild(boton);
 
                 boton.addEventListener("click", function () {
-
                     imagenPrincipal.src = urlTemporal;
 
-                    miniaturas.querySelectorAll(".miniatura")
-                        .forEach(function (item) {
-                            item.classList.remove("activa");
-                        });
+                    miniaturas.querySelectorAll(".miniatura").forEach(function (item) {
+                        item.classList.remove("activa");
+                    });
 
                     boton.classList.add("activa");
                 });
-
-            });
-
-            if (avisoGaleria) {
-                avisoGaleria.hidden = false;
-                avisoGaleria.textContent =
-                    "Las fotografías se muestran temporalmente. " +
-                    "Para conservarlas, será necesario conectarlas " +
-                    "al servidor.";
             }
 
+            // Permitir volver a seleccionar el mismo archivo.
             inputImagen.value = "";
         });
     }
@@ -149,17 +179,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // EDITAR INFORMACIÓN
     // =========================================
 
-    const formInformacion =
-        document.getElementById("formInformacion");
-
-    const btnEditar =
-        document.getElementById("btnEditar");
-
-    const btnCancelar =
-        document.getElementById("btnCancelar");
-
-    const accionesEdicion =
-        document.getElementById("accionesEdicion");
+    const formInformacion = document.getElementById("formInformacion");
+    const btnEditar = document.getElementById("btnEditar");
+    const btnCancelar = document.getElementById("btnCancelar");
+    const accionesEdicion = document.getElementById("accionesEdicion");
 
     const campos = formInformacion
         ? Array.from(formInformacion.querySelectorAll("input"))
@@ -205,93 +228,66 @@ document.addEventListener("DOMContentLoaded", function () {
             activarEdicion(false);
         });
 
-        formInformacion.addEventListener("submit", function (evento) {
-
+        formInformacion.addEventListener("submit", async function (evento) {
             evento.preventDefault();
 
+            const urlParams = new URLSearchParams(window.location.search);
+            const idMaquina = urlParams.get('id');
+
+            if (!idMaquina) return;
+
             const marca = document.getElementById("marca").value.trim();
+            const modelo = document.getElementById("modelo").value.trim();
             const capacidad = document.getElementById("capacidad").value.trim();
+            const alcance = document.getElementById("alcance").value.trim();
+            const tipo = document.getElementById("tipo").value.trim();
+            const anio = parseInt(document.getElementById("anio").value.trim()) || new Date().getFullYear();
 
-            document.getElementById("nombreMaquinaria").textContent =
-                "Grúa " + (marca || "Sin marca registrada");
+            const datosActualizados = {
+                id: parseInt(idMaquina),
+                marca: marca,
+                modelo: modelo,
+                capacidad: capacidad,
+                alcance: alcance,
+                tipo: tipo,
+                anio: anio
+            };
 
-            document.getElementById("capacidadMaquinaria").textContent =
-                capacidad || "Capacidad por registrar";
+            const btnGuardar = formInformacion.querySelector(".btn-guardar");
+            const textoOriginal = btnGuardar.textContent;
 
-            activarEdicion(false);
+            try {
+                btnGuardar.disabled = true;
+                btnGuardar.textContent = "Guardando...";
 
-            alert(
-                "Los cambios se muestran en esta página. " +
-                "Para conservarlos después de recargar, " +
-                "será necesario conectarlos a la API."
-            );
-        });
-    }
+                const respuesta = await fetch(`/api/ExpedienteMaquina/${idMaquina}`, {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(datosActualizados)
+                });
 
-    // =========================================
-    // DOCUMENTACIÓN
-    // =========================================
+                if (respuesta.ok) {
 
-    const btnAgregarDocumento =
-        document.getElementById("btnAgregarDocumento");
+                    document.getElementById("nombreMaquinaria").textContent = `${tipo} ${marca}`;
+                    document.getElementById("capacidadMaquinaria").textContent = capacidad || "Capacidad por registrar";
 
-    const inputDocumento =
-        document.getElementById("inputDocumento");
+                    activarEdicion(false);
+                    alert("Los cambios se han guardado en la base de datos.");
 
-    const listaDocumentos =
-        document.getElementById("listaDocumentos");
+                } else {
+                    const errorData = await respuesta.json();
+                    const errorReal = errorData.mensaje || errorData.title || JSON.stringify(errorData.errors) || "Desconocido";
+                    alert("Error al guardar: " + errorReal);
+                }
 
-    if (btnAgregarDocumento && inputDocumento) {
+            } catch (error) {
+                console.error("Fallo la conexión:", error);
+                alert("Ocurrió un error de conexión al servidor.");
 
-        btnAgregarDocumento.addEventListener("click", function () {
-            inputDocumento.click();
-        });
-
-        inputDocumento.addEventListener("change", function () {
-
-            const archivos = Array.from(inputDocumento.files || []);
-
-            if (!archivos.length) return;
-
-            const mensajeVacio =
-                listaDocumentos.querySelector(".documento-vacio");
-
-            if (mensajeVacio) {
-                mensajeVacio.remove();
+            } finally {
+                btnGuardar.disabled = false;
+                btnGuardar.textContent = textoOriginal;
             }
-
-            archivos.forEach(function (archivo) {
-
-                const urlTemporal = URL.createObjectURL(archivo);
-
-                const elemento = document.createElement("div");
-                elemento.className = "documento-item";
-
-                const icono = document.createElement("i");
-                icono.className = "bi bi-file-earmark-text";
-
-                const enlace = document.createElement("a");
-                enlace.href = urlTemporal;
-                enlace.target = "_blank";
-                enlace.rel = "noopener noreferrer";
-                enlace.textContent = archivo.name;
-
-                const detalle = document.createElement("div");
-                const tamano = document.createElement("small");
-
-                tamano.textContent =
-                    (archivo.size / 1024).toFixed(1) + " KB";
-
-                detalle.appendChild(enlace);
-                detalle.appendChild(tamano);
-
-                elemento.appendChild(icono);
-                elemento.appendChild(detalle);
-
-                listaDocumentos.appendChild(elemento);
-            });
-
-            inputDocumento.value = "";
         });
     }
 

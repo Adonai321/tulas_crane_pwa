@@ -1,18 +1,21 @@
-
+using Microsoft.Extensions.FileProviders;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using MiWebAPI.Data;
+using System.IO;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // CONTROLADORES
 builder.Services.AddControllers();
-
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // INYECCIÓN DE DEPENDENCIAS
 builder.Services.AddScoped<AuthData>();
 builder.Services.AddScoped<DashboardData>();
+builder.Services.AddScoped<MaquinariaData>();
+builder.Services.AddScoped<ExpedienteMaquinaData>();
+builder.Services.AddScoped<EmpleadoData>();
 
 // AUTENTICACIÓN POR COOKIES
 builder.Services.AddAuthentication(
@@ -41,6 +44,16 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+var rutaUploads = Path.Combine(builder.Environment.ContentRootPath, "Uploads");
+if (!Directory.Exists(rutaUploads))
+    Directory.CreateDirectory(rutaUploads);
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(rutaUploads),
+    RequestPath = "/ArchivosUsuario" // Esta será la ruta pública en la web
+});
+
 // SWAGGER
 if (app.Environment.IsDevelopment())
 {
@@ -48,12 +61,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// ARCHIVOS ESTÁTICOS
+// 1. CORS DEBE IR ANTES de UseStaticFiles
+app.UseCors("NuevaPolitica");
+
+// 2. ARCHIVOS ESTÁTICOS
 app.UseDefaultFiles();
 app.UseStaticFiles();
-
-// CORS
-app.UseCors("NuevaPolitica");
 
 // AUTENTICACIÓN Y AUTORIZACIÓN
 app.UseAuthentication();

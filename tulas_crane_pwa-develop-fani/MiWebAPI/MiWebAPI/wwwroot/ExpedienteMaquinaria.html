@@ -245,29 +245,59 @@
                          hidden>
 
                     <div class="panel-heading">
-                        <h2>Documentación</h2>
-
-                        <button type="button"
-                                class="btn-editar"
-                                id="btnAgregarDocumento">
-                            <i class="bi bi-plus-lg"></i> Agregar
-                        </button>
+                        <h2>Documentación Obligatoria</h2>
                     </div>
 
                     <p class="panel-descripcion">
-                        Consulta los documentos asociados a esta maquinaria.
+                        Adjunta los 4 documentos requeridos para la operación de la maquinaria.
                     </p>
 
+                    <!-- Input genérico oculto que usaremos dinámicamente -->
                     <input type="file"
-                           id="inputDocumento"
+                           id="inputDocumentoEspecial"
                            accept=".pdf,.jpg,.jpeg,.png"
                            hidden>
 
-                    <div class="lista-documentos" id="listaDocumentos">
+                    <div class="lista-documentos" id="listaDocumentosRequeridos">
 
-                        <div class="documento-vacio">
-                            <i class="bi bi-file-earmark-text"></i>
-                            <p>Aún no hay documentos cargados en esta vista.</p>
+                        <!-- 1. Permiso y Seguro -->
+                        <div class="documento-item req-item" data-tipo="Permiso_Seguro">
+                            <i class="bi bi-shield-check"></i>
+                            <div class="doc-info">
+                                <strong>Permiso de circulación y seguro</strong>
+                                <small class="estado-doc text-warning" id="estado_Permiso_Seguro">Falta subir archivo</small>
+                            </div>
+                            <button type="button" class="btn-subir-req" data-target="Permiso_Seguro">Subir</button>
+                        </div>
+
+                        <!-- 2. Licencia -->
+                        <div class="documento-item req-item" data-tipo="Licencia">
+                            <i class="bi bi-person-vcard"></i>
+                            <div class="doc-info">
+                                <strong>Licencia de conducir específica</strong>
+                                <small class="estado-doc text-warning" id="estado_Licencia">Falta subir archivo</small>
+                            </div>
+                            <button type="button" class="btn-subir-req" data-target="Licencia">Subir</button>
+                        </div>
+
+                        <!-- 3. Capacitación -->
+                        <div class="documento-item req-item" data-tipo="Capacitacion">
+                            <i class="bi bi-award"></i>
+                            <div class="doc-info">
+                                <strong>Certificado de capacitación</strong>
+                                <small class="estado-doc text-warning" id="estado_Capacitacion">Falta subir archivo</small>
+                            </div>
+                            <button type="button" class="btn-subir-req" data-target="Capacitacion">Subir</button>
+                        </div>
+
+                        <!-- 4. ITV -->
+                        <div class="documento-item req-item" data-tipo="ITV">
+                            <i class="bi bi-tools"></i>
+                            <div class="doc-info">
+                                <strong>Certificado de inspección técnica (ITV)</strong>
+                                <small class="estado-doc text-warning" id="estado_ITV">Falta subir archivo</small>
+                            </div>
+                            <button type="button" class="btn-subir-req" data-target="ITV">Subir</button>
                         </div>
 
                     </div>

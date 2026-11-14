@@ -1,21 +1,31 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="wwwroot\IMG\NewFolder\**" />
-    <Content Remove="wwwroot\IMG\NewFolder\**" />
-    <EmbeddedResource Remove="wwwroot\IMG\NewFolder\**" />
-    <None Remove="wwwroot\IMG\NewFolder\**" />
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Remove="wwwroot\IMG\NewFolder\**" />
+		<Content Remove="wwwroot\IMG\NewFolder\**" />
+		<EmbeddedResource Remove="wwwroot\IMG\NewFolder\**" />
+		<None Remove="wwwroot\IMG\NewFolder\**" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+		<PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="wwwroot\uploads\empleados\" />
+		<Folder Include="wwwroot\uploads\maquinaria\imagenes\" />
+		<Folder Include="wwwroot\uploads\maquinaria\documentos\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Update="wwwroot\**\*" Watch="false" />
+	</ItemGroup>
 
 </Project>

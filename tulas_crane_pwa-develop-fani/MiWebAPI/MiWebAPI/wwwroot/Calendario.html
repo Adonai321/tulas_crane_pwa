@@ -1,0 +1,395 @@
+﻿
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Calendario | Tula's Crane</title>
+
+    <!-- Iconos -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/DiseñoAdmin.css">
+    <link rel="stylesheet" href="css/Calendario.css">
+</head>
+
+<body>
+
+    <!-- HEADER ADMINISTRATIVO COMPARTIDO -->
+    <div id="admin-header-placeholder"></div>
+
+    <main class="calendar-page">
+
+        <!-- ENCABEZADO DEL CALENDARIO -->
+        <section class="calendar-layout">
+
+            <div class="calendar-left">
+
+                <div class="calendar-navigation">
+                    <button id="previousPeriod"
+                            class="navigation-button"
+                            aria-label="Periodo anterior">
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+
+                    <div class="calendar-heading">
+                        <h1 id="calendarTitle">ENERO</h1>
+                        <span id="calendarYear"></span>
+                    </div>
+
+                    <button id="nextPeriod"
+                            class="navigation-button"
+                            aria-label="Periodo siguiente">
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- VISTAS -->
+                <div class="calendar-view-selector">
+                    <button class="view-button active"
+                            data-view="month">
+                        Mes
+                    </button>
+
+                    <button class="view-button"
+                            data-view="week">
+                        Semana
+                    </button>
+
+                    <button class="view-button"
+                            data-view="day">
+                        Día
+                    </button>
+                </div>
+
+                <!-- REGRESAR AL DÍA ACTUAL -->
+                <div class="calendar-toolbar">
+                    <button id="todayButton" class="today-button">
+                        <i class="bi bi-calendar-check"></i>
+                        Hoy
+                    </button>
+
+                    <span id="selectedDateLabel"></span>
+                </div>
+
+                <!-- CALENDARIO GENERADO CON JAVASCRIPT -->
+                <div id="calendarContainer"
+                     class="calendar-container"
+                     aria-label="Calendario de eventos">
+
+                    <p class="calendar-loading">
+                        Cargando calendario...
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- PANEL LATERAL -->
+            <aside class="calendar-sidebar">
+
+                <div class="event-categories">
+                    <button class="category-filter active" data-category="maniobra">
+                        <span class="category-icon maniobra-color"><i class="bi bi-cone-striped"></i></span>
+                        <span>MANIOBRAS</span>
+                    </button>
+
+                    <button class="category-filter active" data-category="pago">
+                        <span class="category-icon pago-color"><i class="bi bi-currency-dollar"></i></span>
+                        <span>PAGOS</span>
+                    </button>
+
+                    <button class="category-filter active" data-category="cotizacion">
+                        <span class="category-icon cotizacion-color"><i class="bi bi-file-earmark-text"></i></span>
+                        <span>COTIZACIONES</span>
+                    </button>
+
+                    <button class="category-filter active" data-category="mantenimiento">
+                        <span class="category-icon mantenimiento-color"><i class="bi bi-wrench-adjustable"></i></span>
+                        <span>MANTENIMIENTO</span>
+                    </button>
+
+                    <button class="category-filter active" data-category="personal">
+                        <span class="category-icon personal-color"><i class="bi bi-people-fill"></i></span>
+                        <span>PERSONAL</span>
+                    </button>
+
+                    <button class="category-filter active" data-category="reunion">
+                        <span class="category-icon reunion-color"><i class="bi bi-people"></i></span>
+                        <span>REUNIONES Y VISITAS</span>
+                    </button>
+
+                    <button class="category-filter active" data-category="otro">
+                        <span class="category-icon otro-color"><i class="bi bi-calendar-event"></i></span>
+                        <span>OTRO EVENTO</span>
+                    </button>
+                </div>
+
+                <div class="events-heading">
+                    <h2>Eventos</h2>
+                    <span id="eventCount">0</span>
+                </div>
+
+                <p id="eventsDateHeading" class="events-date-heading">
+                    Eventos del periodo
+                </p>
+
+                <div id="eventsList" class="events-list">
+                    <div class="empty-events">
+                        <i class="bi bi-calendar2-x"></i>
+                        <p>No hay eventos registrados.</p>
+                    </div>
+                </div>
+
+            </aside>
+
+        </section>
+
+        <!-- BOTÓN FLOTANTE -->
+        <button id="addEventButton"
+                class="add-event-button"
+                aria-label="Registrar nuevo evento"
+                title="Registrar evento">
+            <i class="bi bi-plus-lg"></i>
+        </button>
+
+    </main>
+
+    <!-- MODAL PARA REGISTRAR EVENTOS -->
+    <div id="eventModal"
+         class="modal-overlay"
+         aria-hidden="true">
+
+        <section class="event-modal"
+                 role="dialog"
+                 aria-modal="true"
+                 aria-labelledby="modalTitle">
+
+            <button id="closeModal"
+                    class="close-modal"
+                    type="button"
+                    aria-label="Cerrar formulario">
+                <i class="bi bi-x-lg"></i>
+            </button>
+
+            <div class="modal-intro">
+                <i class="bi bi-calendar2-plus"></i>
+                <h2 id="modalTitle">Registrar <span>evento</span></h2>
+                <p>Programa y organiza las actividades de Tula's Crane.</p>
+            </div>
+
+            <form id="eventForm">
+
+                <label for="eventType">Tipo de evento *</label>
+
+                <div class="event-type-selector">
+                    <button type="button" class="event-type-option selected" data-type="maniobra">
+                        <i class="bi bi-cone-striped"></i><span>Maniobra</span>
+                    </button>
+                    <button type="button" class="event-type-option" data-type="mantenimiento">
+                        <i class="bi bi-wrench-adjustable"></i><span>Mantenimiento</span>
+                    </button>
+                    <button type="button" class="event-type-option" data-type="personal">
+                        <i class="bi bi-people-fill"></i><span>Personal</span>
+                    </button>
+                    <button type="button" class="event-type-option" data-type="reunion">
+                        <i class="bi bi-people"></i><span>Reuniones y visitas</span>
+                    </button>
+                    <button type="button" class="event-type-option" data-type="otro">
+                        <i class="bi bi-calendar-event"></i><span>Otro evento</span>
+                    </button>
+                </div>
+
+                <p class="form-note">
+                    Los pagos y las cotizaciones se incorporarán automáticamente desde sus respectivos apartados.
+                </p>
+
+                <input type="hidden"
+                       id="eventType"
+                       name="eventType"
+                       value="maniobra">
+
+                <div class="form-field">
+                    <label for="eventTitle">Título del evento *</label>
+                    <input type="text"
+                           id="eventTitle"
+                           name="eventTitle"
+                           placeholder="Ej. Maniobra - Proyecto Tula"
+                           maxlength="120"
+                           required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="eventDate">Fecha *</label>
+                        <input type="date"
+                               id="eventDate"
+                               name="eventDate"
+                               required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="eventTime">Hora *</label>
+                        <input type="time"
+                               id="eventTime"
+                               name="eventTime"
+                               required>
+                    </div>
+                </div>
+
+                <section class="conditional-field maniobra-financials" id="maniobraFinancialsField" hidden aria-label="Información económica de la maniobra">
+                    <h3 class="conditional-section-title">Información económica de la maniobra</h3>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="maniobraTotal">Importe a cobrar al cliente (MXN) *</label>
+                            <input type="number" id="maniobraTotal" name="maniobraTotal"
+                                   min="0" step="0.01" inputmode="decimal" placeholder="Ej. 15000">
+                        </div>
+                        <div class="form-field">
+                            <label for="maniobraAdvance">Anticipo recibido (MXN) *</label>
+                            <input type="number" id="maniobraAdvance" name="maniobraAdvance"
+                                   min="0" step="0.01" inputmode="decimal" value="0" placeholder="Ej. 5000">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="maniobraTransport">Presupuesto para gastos de traslado (MXN) *</label>
+                            <input type="number" id="maniobraTransport" name="maniobraTransport"
+                                   min="0" step="0.01" inputmode="decimal" value="0" placeholder="Ej. 1800">
+                        </div>
+                        <div class="form-field">
+                            <label for="maniobraOperatorPay">Pago al operador (MXN) *</label>
+                            <input type="number" id="maniobraOperatorPay" name="maniobraOperatorPay"
+                                   min="0" step="0.01" inputmode="decimal" value="0" placeholder="Ej. 1200">
+                        </div>
+                    </div>
+                    <p class="financial-help">Los importes se registran en pesos mexicanos. El anticipo forma parte del total cobrado, no es un ingreso adicional.</p>
+                </section>
+
+                <div class="form-field conditional-field" id="otherEventField" hidden>
+                    <label for="otherEventType">Especifica cuál es el evento *</label>
+                    <input type="text" id="otherEventType" name="otherEventType"
+                           maxlength="100" placeholder="Ej. Entrega de documentación">
+                </div>
+
+                <div class="form-field conditional-field" id="personalEventField" hidden>
+                    <label for="personalEventType">Tipo de evento de personal *</label>
+                    <select id="personalEventType" name="personalEventType">
+                        <option value="">Seleccionar tipo</option>
+                        <option value="Cumpleaños">Cumpleaños</option>
+                        <option value="Capacitación">Capacitación</option>
+                        <option value="Permiso o ausencia autorizada">Permiso o ausencia autorizada</option>
+                        <option value="Actividad de personal">Actividad de personal</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+
+                <div class="form-field conditional-field" id="maintenanceField" hidden>
+                    <label for="maintenanceType">Tipo de mantenimiento *</label>
+                    <select id="maintenanceType" name="maintenanceType">
+                        <option value="">Seleccionar tipo</option>
+                        <option value="Preventivo">Preventivo</option>
+                        <option value="Correctivo">Correctivo / reparación</option>
+                        <option value="Inspección técnica">Inspección técnica</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+
+                <div class="form-field conditional-field" id="machineryField" hidden>
+                    <label for="eventMachinery">Maquinaria relacionada</label>
+                    <input type="text" id="eventMachinery" name="eventMachinery"
+                           maxlength="120" placeholder="Ej. Grúa Titan 01">
+                </div>
+
+                <div class="form-row conditional-field" id="meetingDetailsField" hidden>
+                    <div class="form-field">
+                        <label for="meetingPlace">Lugar</label>
+                        <input type="text" id="meetingPlace" name="meetingPlace"
+                               maxlength="150" placeholder="Lugar de la reunión o visita">
+                    </div>
+                    <div class="form-field">
+                        <label for="meetingContact">Cliente o persona relacionada</label>
+                        <input type="text" id="meetingContact" name="meetingContact"
+                               maxlength="120" placeholder="Nombre del cliente o contacto">
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label for="eventDescription">Descripción</label>
+                    <textarea id="eventDescription"
+                              name="eventDescription"
+                              rows="3"
+                              maxlength="1000"
+                              placeholder="Detalles del evento, proyecto, cliente, etc."></textarea>
+                </div>
+
+                <div class="form-field">
+                    <label for="eventEmployee">
+                        Empleado responsable
+                        <span>(opcional)</span>
+                    </label>
+
+                    <select id="eventEmployee" name="eventEmployee">
+                        <option value="">Seleccionar empleado</option>
+                    </select>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button"
+                            id="cancelEvent"
+                            class="cancel-button">
+                        Cancelar
+                    </button>
+
+                    <button type="submit"
+                            class="save-button">
+                        <i class="bi bi-check-lg"></i>
+                        Guardar evento
+                    </button>
+                </div>
+
+                <p id="formMessage"
+                   class="form-message"
+                   role="status"></p>
+
+            </form>
+
+        </section>
+
+    </div>
+
+    <!-- MODAL PARA ACTUALIZAR SOLO EL ESTATUS -->
+    <div id="statusModal" class="modal-overlay" aria-hidden="true">
+        <section class="event-modal status-modal" role="dialog" aria-modal="true" aria-labelledby="statusModalTitle">
+            <button id="closeStatusModal" class="close-modal" type="button" aria-label="Cerrar">
+                <i class="bi bi-x-lg"></i>
+            </button>
+            <div class="modal-intro">
+                <i class="bi bi-arrow-repeat"></i>
+                <h2 id="statusModalTitle">Actualizar <span>estatus</span></h2>
+                <p id="statusEventTitle">Selecciona el nuevo estado del evento.</p>
+            </div>
+            <form id="statusForm">
+                <div class="form-field">
+                    <label for="eventStatusSelect">Estatus del evento *</label>
+                    <select id="eventStatusSelect" required></select>
+                    <small class="status-help">Solo se actualizará el estatus. Los datos del evento permanecerán sin cambios.</small>
+                </div>
+                <div class="form-actions">
+                    <button type="button" id="cancelStatusEdit" class="cancel-button">Cancelar</button>
+                    <button type="submit" class="save-button"><i class="bi bi-check-lg"></i> Guardar estatus</button>
+                </div>
+                <p id="statusFormMessage" class="form-message" role="status"></p>
+            </form>
+        </section>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="js/Layout_Admin.js"></script>
+    <script src="js/Calendario.js"></script>
+
+</body>
+</html>

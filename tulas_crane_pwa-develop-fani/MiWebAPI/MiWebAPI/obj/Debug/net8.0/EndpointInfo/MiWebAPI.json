@@ -47,10 +47,94 @@
           }
         }
       }
+    },
+    "/api/Maquinaria/Registrar": {
+      "post": {
+        "tags": [
+          "Maquinaria"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExpedienteMaquinaModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExpedienteMaquinaModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExpedienteMaquinaModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Maquinaria/Catalogo": {
+      "get": {
+        "tags": [
+          "Maquinaria"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "ExpedienteMaquinaModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "marca": {
+            "type": "string",
+            "nullable": true
+          },
+          "modelo": {
+            "type": "string",
+            "nullable": true
+          },
+          "capacidad": {
+            "type": "string",
+            "nullable": true
+          },
+          "alcance": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipo": {
+            "type": "string",
+            "nullable": true
+          },
+          "anio": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "placas": {
+            "type": "string",
+            "nullable": true
+          },
+          "estadoActividad": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
       "LoginRequestModel": {
         "type": "object",
         "properties": {

@@ -3,66 +3,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    // =========================================
-    // DATOS DE DEMOSTRACIÓN
-    // Después se podrán obtener desde la API.
-    // =========================================
-
-    const maquinaria = [
-        {
-            id: 1,
-            nombre: "Grúa Telescópica",
-            capacidad: "30 toneladas",
-            alcance: "",
-            categoria: "gruas",
-            disponibilidad: "Disponible",
-            estado: "disponible",
-            documentacion: "Documentación completa",
-            documentosCompletos: true,
-            imagen: "IMG/maquinaria/grua-telescopica.jpg"
-        },
-        {
-            id: 2,
-            nombre: "Grúa Telescópica",
-            capacidad: "30 toneladas",
-            alcance: "",
-            categoria: "gruas",
-            disponibilidad: "Disponible",
-            estado: "disponible",
-            documentacion: "Documentación completa",
-            documentosCompletos: true,
-            imagen: "IMG/maquinaria/grua-telescopica.jpg"
-        },
-        {
-            id: 3,
-            nombre: "Grúa Telescópica",
-            capacidad: "30 toneladas",
-            alcance: "Alcance: 42 m",
-            categoria: "gruas",
-            disponibilidad: "En maniobra",
-            estado: "maniobra",
-            documentacion: "Documentación completa",
-            documentosCompletos: true,
-            imagen: "IMG/maquinaria/grua-telescopica.jpg"
-        },
-        {
-            id: 4,
-            nombre: "Grúa Telescópica",
-            capacidad: "30 toneladas",
-            alcance: "Alcance: 42 m",
-            categoria: "gruas",
-            disponibilidad: "Disponible",
-            estado: "disponible",
-            documentacion: "Documentación completa",
-            documentosCompletos: true,
-            imagen: "IMG/maquinaria/grua-telescopica.jpg"
-        }
-    ];
-
-    // =========================================
-    // ELEMENTOS DE LA PÁGINA
-    // =========================================
-
+    let maquinaria = [];
     const contenedor = document.getElementById("maquinariaGrid");
     const buscador = document.getElementById("buscarMaquinaria");
     const botonBuscar = document.getElementById("btnBuscarMaquinaria");
@@ -70,24 +11,26 @@ document.addEventListener("DOMContentLoaded", function () {
     const mensajeVacio = document.getElementById("maquinariaEmpty");
     const botonesFiltro = document.querySelectorAll(".filter-btn");
 
-    if (
-        !contenedor ||
-        !buscador ||
-        !botonBuscar ||
-        !botonAgregar ||
-        !mensajeVacio
-    ) {
-        console.error(
-            "No se encontraron todos los elementos de Maquinaria.html."
-        );
-        return;
-    }
-
     let filtroActual = "todos";
 
-    // =========================================
-    // CREAR TARJETAS
-    // =========================================
+    async function cargarMaquinariaDesdeDB() {
+        try {
+            const respuesta = await fetch("/api/Maquinaria/Catalogo");
+
+            if (!respuesta.ok) {
+                throw new Error("Error al obtener los datos del servidor");
+            }
+
+            // Asignamos la respuesta a nuestro arreglo global
+            maquinaria = await respuesta.json();
+
+            // Renderizamos las tarjetas una vez obtenidos los datos
+            renderizarMaquinaria();
+        } catch (error) {
+            console.error("Fallo la conexión con la API:", error);
+            contenedor.innerHTML = `<p style="color: #ff7b7b;">Error al cargar la maquinaria. Verifica tu conexión.</p>`;
+        }
+    }
 
     function crearTarjeta(maquina) {
 
@@ -223,10 +166,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return tarjeta;
     }
 
-    // =========================================
-    // BUSCADOR Y FILTROS
-    // =========================================
-
     function renderizarMaquinaria() {
 
         const texto = buscador.value
@@ -264,7 +203,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     buscador.addEventListener("input", renderizarMaquinaria);
-
     botonBuscar.addEventListener("click", renderizarMaquinaria);
 
     buscador.addEventListener("keydown", function (evento) {
@@ -279,34 +217,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
             filtroActual = boton.dataset.filter;
 
-            botonesFiltro.forEach(function (otroBoton) {
-                const seleccionado = otroBoton === boton;
-
-                otroBoton.classList.toggle("active", seleccionado);
-
-                otroBoton.setAttribute(
-                    "aria-pressed",
-                    String(seleccionado)
-                );
-            });
-
+            botonesFiltro.forEach(otroBoton => otroBoton.classList.toggle("active", otroBoton === boton));
             renderizarMaquinaria();
         });
 
     });
 
-    // =========================================
-    // BOTÓN AGREGAR MAQUINARIA
-    // =========================================
 
     botonAgregar.addEventListener("click", function () {
         window.location.href = "RegistrarMaquinaria.html";
     });
 
-    // =========================================
-    // INICIALIZAR
-    // =========================================
-
-    renderizarMaquinaria();
+    cargarMaquinariaDesdeDB();
 
 });
