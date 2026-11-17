@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -224,19 +223,23 @@
 
                 <div class="form-row">
                     <div class="form-field">
-                        <label for="eventDate">Fecha *</label>
-                        <input type="date"
-                               id="eventDate"
-                               name="eventDate"
-                               required>
+                        <label for="eventDate">Fecha de inicio *</label>
+                        <input type="date" id="eventDate" name="eventDate" required>
                     </div>
-
                     <div class="form-field">
-                        <label for="eventTime">Hora *</label>
-                        <input type="time"
-                               id="eventTime"
-                               name="eventTime"
-                               required>
+                        <label for="eventTime">Hora de inicio *</label>
+                        <input type="time" id="eventTime" name="eventTime" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="eventEndDate">Fecha de término *</label>
+                        <input type="date" id="eventEndDate" name="eventEndDate" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="eventEndTime">Hora de término *</label>
+                        <input type="time" id="eventEndTime" name="eventEndTime" required>
                     </div>
                 </div>
 
@@ -300,8 +303,9 @@
 
                 <div class="form-field conditional-field" id="machineryField" hidden>
                     <label for="eventMachinery">Maquinaria relacionada</label>
-                    <input type="text" id="eventMachinery" name="eventMachinery"
-                           maxlength="120" placeholder="Ej. Grúa Titan 01">
+                    <select id="eventMachinery" name="eventMachinery">
+                        <option value="">Seleccionar maquinaria (opcional)</option>
+                    </select>
                 </div>
 
                 <div class="form-row conditional-field" id="meetingDetailsField" hidden>
@@ -383,6 +387,37 @@
                     <button type="submit" class="save-button"><i class="bi bi-check-lg"></i> Guardar estatus</button>
                 </div>
                 <p id="statusFormMessage" class="form-message" role="status"></p>
+            </form>
+        </section>
+    </div>
+
+    <!-- MODAL PARA EDITAR LAPSO DE TRABAJO -->
+    <div id="lapsoModal" class="modal-overlay" aria-hidden="true">
+        <section class="event-modal status-modal" role="dialog" aria-modal="true" aria-labelledby="lapsoModalTitle">
+            <button id="closeLapsoModal" class="close-modal" type="button" aria-label="Cerrar">
+                <i class="bi bi-x-lg"></i>
+            </button>
+            <div class="modal-intro">
+                <i class="bi bi-clock-history"></i>
+                <h2 id="lapsoModalTitle">Editar <span>lapso</span></h2>
+                <p id="lapsoEventTitle">Ajusta la fecha y hora de finalización del trabajo.</p>
+            </div>
+            <form id="lapsoForm">
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="editEndDate">Nueva fecha de término *</label>
+                        <input type="date" id="editEndDate" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="editEndTime">Nueva hora de término *</label>
+                        <input type="time" id="editEndTime" required>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" id="cancelLapsoEdit" class="cancel-button">Cancelar</button>
+                    <button type="submit" class="save-button"><i class="bi bi-check-lg"></i> Guardar lapso</button>
+                </div>
+                <p id="lapsoFormMessage" class="form-message" role="status"></p>
             </form>
         </section>
     </div>

@@ -1,0 +1,556 @@
+﻿
+/* ==========================================
+   EXPEDIENTE DE MAQUINARIA
+   TULA'S CRANE
+========================================== */
+
+.expediente-maquinaria-page {
+    --em-oro: #efbd50;
+    --em-oro-oscuro: #a87d25;
+    --em-fondo: #000000;
+    --em-tarjeta: #191919;
+    --em-borde: #343434;
+    --em-texto: #f5f5f5;
+    --em-texto-secundario: #c8c8c8;
+    background: var(--em-fondo);
+    color: var(--em-texto);
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+}
+
+    .expediente-maquinaria-page *,
+    .expediente-maquinaria-page *::before,
+    .expediente-maquinaria-page *::after {
+        box-sizing: border-box;
+    }
+
+.expediente-container {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+/* ENCABEZADO DE LA MÁQUINA */
+
+.expediente-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.expediente-back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 34px;
+    height: 48px;
+    color: var(--em-texto);
+    text-decoration: none;
+    font-size: 36px;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+    .expediente-back:hover {
+        color: var(--em-oro);
+    }
+
+.maquinaria-titulo {
+    min-width: 0;
+}
+
+    .maquinaria-titulo h1 {
+        margin: 0 0 5px;
+        font-size: clamp(22px, 2.5vw, 30px);
+        font-weight: 700;
+    }
+
+    .maquinaria-titulo p {
+        margin: 0;
+        color: var(--em-texto-secundario);
+        font-size: 15px;
+    }
+
+.maquinaria-estados {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-left: 10px;
+    padding-top: 4px;
+}
+
+.estado-disponible,
+.estado-documentacion {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 17px;
+}
+
+.estado-disponible {
+    color: #83ed62;
+}
+
+.estado-documentacion {
+    color: var(--em-texto);
+}
+
+    .estado-disponible i,
+    .estado-documentacion i {
+        color: #25c94c;
+    }
+
+/* DISTRIBUCIÓN PRINCIPAL */
+
+.expediente-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: clamp(28px, 5vw, 64px);
+    align-items: start;
+}
+
+/* GALERÍA */
+
+.galeria-maquinaria {
+    min-width: 0;
+}
+
+.imagen-principal-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1.48 / 1;
+    overflow: hidden;
+    border-radius: 10px;
+    background: var(--em-tarjeta);
+}
+
+.imagen-principal {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.btn-agregar-imagen {
+    position: absolute;
+    right: 16px;
+    bottom: 12px;
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--em-oro-oscuro);
+    border-radius: 50%;
+    background: var(--em-oro);
+    color: #111111;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+    .btn-agregar-imagen:hover {
+        transform: scale(1.05);
+        background: #ffd36b;
+    }
+
+.miniaturas {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.miniatura {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1.2 / 0.85;
+    overflow: hidden;
+    padding: 0;
+    border: 2px solid transparent;
+    border-radius: 9px;
+    background: var(--em-tarjeta);
+    cursor: pointer;
+}
+
+    .miniatura.activa {
+        border-color: var(--em-oro);
+    }
+
+    .miniatura img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+.aviso-galeria {
+    color: var(--em-oro);
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+/* PESTAÑAS */
+
+.expediente-detalles {
+    min-width: 0;
+}
+
+.expediente-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 3px;
+    margin: 20px 0 15px;
+    border: 1px solid var(--em-oro-oscuro);
+    border-radius: 30px;
+    background: #191919;
+}
+
+.expediente-tab {
+    min-width: 0;
+    padding: 9px 8px;
+    border: 0;
+    border-radius: 25px;
+    background: transparent;
+    color: var(--em-texto);
+    font-family: inherit;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+    .expediente-tab:hover {
+        color: var(--em-oro);
+    }
+
+    .expediente-tab.activa {
+        background: var(--em-oro);
+        color: #171717;
+        font-weight: 600;
+    }
+
+/* PANELES */
+
+.expediente-panel {
+    min-width: 0;
+}
+
+    .expediente-panel[hidden],
+    .acciones-edicion[hidden] {
+        display: none !important;
+    }
+
+.panel-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 14px;
+}
+
+    .panel-heading h2 {
+        margin: 0;
+        font-size: clamp(20px, 2vw, 25px);
+        font-weight: 700;
+    }
+
+.btn-editar {
+    flex-shrink: 0;
+    min-width: 112px;
+    padding: 7px 22px;
+    border: 2px solid var(--em-oro-oscuro);
+    border-radius: 28px;
+    background: var(--em-oro);
+    color: #111111;
+    font-family: inherit;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+    .btn-editar:hover {
+        background: #ffd36b;
+    }
+
+/* INFORMACIÓN GENERAL */
+
+.tabla-informacion {
+    width: 100%;
+}
+
+.fila-informacion {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.35fr);
+    align-items: center;
+    gap: 12px;
+    min-height: 31px;
+    padding: 4px 5px;
+    border-bottom: 1px solid var(--em-oro-oscuro);
+}
+
+    .fila-informacion label {
+        font-size: 15px;
+        overflow-wrap: anywhere;
+    }
+
+    .fila-informacion input {
+        width: 100%;
+        min-width: 0;
+        padding: 2px 0;
+        border: 0;
+        outline: none;
+        background: transparent;
+        color: var(--em-texto);
+        font-family: inherit;
+        font-size: 15px;
+    }
+
+        .fila-informacion input[readonly] {
+            cursor: default;
+        }
+
+        .fila-informacion input:not([readonly]) {
+            padding: 5px;
+            border: 1px solid var(--em-oro-oscuro);
+            border-radius: 5px;
+            background: #222222;
+        }
+
+.acciones-edicion {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-cancelar,
+.btn-guardar {
+    padding: 10px 16px;
+    border-radius: 24px;
+    font: inherit;
+    cursor: pointer;
+}
+
+.btn-cancelar {
+    border: 1px solid #777777;
+    background: transparent;
+    color: var(--em-texto);
+}
+
+.btn-guardar {
+    border: 1px solid var(--em-oro-oscuro);
+    background: var(--em-oro);
+    color: #111111;
+    font-weight: 600;
+}
+
+/* DOCUMENTACIÓN E HISTORIAL */
+
+.panel-descripcion {
+    margin: 0 0 18px;
+    color: var(--em-texto-secundario);
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.lista-documentos,
+.historial-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.documento-vacio,
+.historial-vacio {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    border: 1px solid var(--em-borde);
+    border-radius: 10px;
+    background: var(--em-tarjeta);
+    color: var(--em-texto-secundario);
+}
+
+    .documento-vacio i,
+    .historial-vacio i {
+        color: var(--em-oro);
+        font-size: 24px;
+    }
+
+    .documento-vacio p,
+    .historial-vacio p {
+        margin: 0;
+        line-height: 1.5;
+    }
+
+.documento-item,
+.historial-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    border: 1px solid var(--em-borde);
+    border-radius: 10px;
+    background: var(--em-tarjeta);
+    overflow-wrap: anywhere;
+}
+
+    .documento-item i,
+    .historial-item i {
+        color: var(--em-oro);
+        font-size: 23px;
+    }
+
+    .documento-item a {
+        color: var(--em-texto);
+        text-decoration: none;
+    }
+
+        .documento-item a:hover {
+            color: var(--em-oro);
+        }
+
+    .documento-item small,
+    .historial-item small {
+        display: block;
+        margin-top: 5px;
+        color: var(--em-texto-secundario);
+    }
+
+/* ACCESIBILIDAD */
+
+.expediente-maquinaria-page button:focus-visible,
+.expediente-maquinaria-page a:focus-visible,
+.expediente-maquinaria-page input:focus-visible {
+    outline: 2px solid var(--em-oro);
+    outline-offset: 3px;
+}
+
+/* TABLETS */
+
+@media (max-width: 900px) {
+    .expediente-container {
+        padding: 20px;
+    }
+
+    .expediente-layout {
+        grid-template-columns: 1fr;
+        gap: 26px;
+    }
+
+    .imagen-principal-container {
+        aspect-ratio: 1.6 / 1;
+    }
+
+    .expediente-tabs {
+        margin-top: 0;
+    }
+}
+
+/* CELULARES */
+
+@media (max-width: 600px) {
+    .expediente-container {
+        padding: 18px 14px 30px;
+    }
+
+    .expediente-heading {
+        display: grid;
+        grid-template-columns: 30px minmax(0, 1fr);
+        gap: 8px 10px;
+        margin-bottom: 22px;
+    }
+
+    .expediente-back {
+        width: 30px;
+        height: 40px;
+        font-size: 30px;
+    }
+
+    .maquinaria-titulo h1 {
+        font-size: 22px;
+    }
+
+    .maquinaria-titulo p {
+        font-size: 14px;
+    }
+
+    .maquinaria-estados {
+        grid-column: 2;
+        margin-left: 0;
+        padding-top: 0;
+    }
+
+    .estado-disponible,
+    .estado-documentacion {
+        font-size: 14px;
+    }
+
+    .expediente-layout {
+        gap: 24px;
+    }
+
+    .imagen-principal-container {
+        aspect-ratio: 1.25 / 1;
+    }
+
+    .btn-agregar-imagen {
+        width: 48px;
+        height: 48px;
+        right: 10px;
+        bottom: 10px;
+        font-size: 23px;
+    }
+
+    .miniaturas {
+        gap: 8px;
+        margin-top: 10px;
+    }
+
+    .expediente-tabs {
+        gap: 2px;
+        padding: 3px;
+        margin-bottom: 18px;
+    }
+
+    .expediente-tab {
+        padding: 10px 3px;
+        font-size: 12px;
+    }
+
+    .panel-heading {
+        gap: 10px;
+    }
+
+        .panel-heading h2 {
+            font-size: 19px;
+        }
+
+    .btn-editar {
+        min-width: auto;
+        padding: 7px 19px;
+        font-size: 17px;
+    }
+
+    .fila-informacion {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.55fr);
+        gap: 8px;
+        min-height: 38px;
+    }
+
+        .fila-informacion label,
+        .fila-informacion input {
+            font-size: 13px;
+        }
+
+    .documento-vacio,
+    .historial-vacio {
+        padding: 14px;
+    }
+}

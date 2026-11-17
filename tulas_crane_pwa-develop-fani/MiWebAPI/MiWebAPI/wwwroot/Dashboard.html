@@ -9,11 +9,14 @@
     <title>Dashboard | Tula's Crane</title>
 
     <!-- ICONOS -->
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- DISEÑO ADMINISTRATIVO COMPARTIDO -->
+    <link rel="stylesheet" href="css/DiseñoAdmin.css">
 
     <!-- ESTILOS EXCLUSIVOS DEL DASHBOARD -->
     <link rel="stylesheet" href="css/Dashboard.css">
+
 </head>
 
 <body class="dashboard-page">
@@ -75,10 +78,10 @@
                     <p class="stat-title">Cotizaciones</p>
                     <h3 class="stat-number" id="statCotizaciones">--</h3>
                     <p class="stat-description">Solicitudes registradas</p>
-                    <div class="stat-card-footer">
+                    <a href="Cotizaciones.html" class="stat-card-footer">
                         <span>Consultar solicitudes</span>
                         <i class="bi bi-arrow-up-right"></i>
-                    </div>
+                    </a>
                 </article>
 
                 <!-- MANIOBRAS -->
@@ -92,10 +95,10 @@
                     <p class="stat-title">Maniobras</p>
                     <h3 class="stat-number" id="statManiobras">--</h3>
                     <p class="stat-description">Servicios programados</p>
-                    <div class="stat-card-footer">
+                    <a href="Calendario.html" class="stat-card-footer">
                         <span>Revisar programación</span>
                         <i class="bi bi-arrow-up-right"></i>
-                    </div>
+                    </a>
                 </article>
 
                 <!-- MAQUINARIA -->
@@ -109,10 +112,10 @@
                     <p class="stat-title">Maquinaria</p>
                     <h3 class="stat-number" id="statMaquinaria">--</h3>
                     <p class="stat-description">Equipos registrados</p>
-                    <div class="stat-card-footer">
+                    <a href="Maquinaria.html" class="stat-card-footer">
                         <span>Consultar maquinaria</span>
                         <i class="bi bi-arrow-up-right"></i>
-                    </div>
+                    </a>
                 </article>
 
                 <!-- EMPLEADOS -->
@@ -126,10 +129,10 @@
                     <p class="stat-title">Empleados</p>
                     <h3 class="stat-number" id="statEmpleados">--</h3>
                     <p class="stat-description">Colaboradores registrados</p>
-                    <div class="stat-card-footer">
+                    <a href="Empleados.html" class="stat-card-footer">
                         <span>Consultar personal</span>
                         <i class="bi bi-arrow-up-right"></i>
-                    </div>
+                    </a>
                 </article>
             </div>
         </section>
@@ -253,71 +256,52 @@
 
                 <div class="quick-actions">
 
-                    <!-- MAQUINARIA -->
-                    <a href="TiposRenta.html" class="quick-action">
-
-                        <div class="quick-action-icon">
-                            <i class="bi bi-truck-front"></i>
-                        </div>
-
-                        <div class="quick-action-text">
-                            <h3>Maquinaria</h3>
-                            <p>Consultar equipos</p>
-                        </div>
-
-                        <i class="bi bi-chevron-right action-arrow"></i>
-
-                    </a>
-
-
-                    <!-- EMPLEADOS -->
-                    <a href="Empleados.html" class="quick-action">
-
+                    <!-- NUEVO EMPLEADO -->
+                    <a href="RegistrarEmpleado.html" class="quick-action">
                         <div class="quick-action-icon">
                             <i class="bi bi-person-plus"></i>
                         </div>
-
                         <div class="quick-action-text">
-                            <h3>Empleados</h3>
-                            <p>Consultar personal</p>
+                            <h3>Registrar empleado</h3>
+                            <p>Dar de alta nuevo personal</p>
                         </div>
-
                         <i class="bi bi-chevron-right action-arrow"></i>
-
                     </a>
 
+                    <!-- NUEVA MAQUINARIA -->
+                    <a href="RegistrarMaquinaria.html" class="quick-action">
+                        <div class="quick-action-icon">
+                            <i class="bi bi-truck-front"></i>
+                        </div>
+                        <div class="quick-action-text">
+                            <h3>Registrar maquinaria</h3>
+                            <p>Añadir unidad al inventario</p>
+                        </div>
+                        <i class="bi bi-chevron-right action-arrow"></i>
+                    </a>
 
-                    <!-- CALENDARIO -->
+                    <!-- PROGRAMAR MANIOBRA -->
                     <a href="Calendario.html" class="quick-action">
-
                         <div class="quick-action-icon">
-                            <i class="bi bi-calendar3"></i>
+                            <i class="bi bi-calendar-plus"></i>
                         </div>
-
                         <div class="quick-action-text">
-                            <h3>Calendario</h3>
-                            <p>Ver programación</p>
+                            <h3>Programar maniobra</h3>
+                            <p>Agendar servicio y asignar equipo</p>
                         </div>
-
                         <i class="bi bi-chevron-right action-arrow"></i>
-
                     </a>
 
-
-                    <!-- FINANZAS -->
+                    <!-- REGISTRAR MOVIMIENTO FINANCIERO -->
                     <a href="Finanzas.html" class="quick-action">
-
                         <div class="quick-action-icon">
-                            <i class="bi bi-cash-stack"></i>
+                            <i class="bi bi-cash-coin"></i>
                         </div>
-
                         <div class="quick-action-text">
-                            <h3>Finanzas</h3>
-                            <p>Consultar movimientos</p>
+                            <h3>Registrar movimiento</h3>
+                            <p>Capturar ingreso o gasto operativo</p>
                         </div>
-
                         <i class="bi bi-chevron-right action-arrow"></i>
-
                     </a>
 
                 </div>
@@ -348,54 +332,6 @@
         </section>
 
     </main>
-
-
-
-    <!-- NAVEGACIÓN INFERIOR PARA CELULAR -->
-    <nav class="mobile-bottom-nav" aria-label="Navegación móvil">
-
-        <a href="Dashboard.html"
-           class="mobile-nav-item active"
-           aria-label="Inicio">
-            <i class="bi bi-house-fill"></i>
-            <span>Inicio</span>
-        </a>
-
-
-        <a href="TiposRenta.html"
-           class="mobile-nav-item"
-           aria-label="Maquinaria">
-            <i class="bi bi-truck-front"></i>
-            <span>Maquinaria</span>
-        </a>
-
-
-        <a href="Empleados.html"
-           class="mobile-nav-item"
-           aria-label="Empleados">
-            <i class="bi bi-people"></i>
-            <span>Personal</span>
-        </a>
-
-
-        <a href="Calendario.html"
-           class="mobile-nav-item"
-           aria-label="Calendario">
-            <i class="bi bi-calendar3"></i>
-            <span>Agenda</span>
-        </a>
-
-
-        <a href="Finanzas.html"
-           class="mobile-nav-item"
-           aria-label="Finanzas">
-            <i class="bi bi-cash-coin"></i>
-            <span>Finanzas</span>
-        </a>
-
-    </nav>
-
-
 
     <!-- AUTENTICACIÓN -->
     <script src="js/auth.js"></script>

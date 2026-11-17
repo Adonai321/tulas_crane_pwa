@@ -19,12 +19,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="wwwroot\uploads\empleados\" />
-		<Folder Include="wwwroot\uploads\maquinaria\imagenes\" />
-		<Folder Include="wwwroot\uploads\maquinaria\documentos\" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<Content Update="wwwroot\**\*" Watch="false" />
 	</ItemGroup>
 

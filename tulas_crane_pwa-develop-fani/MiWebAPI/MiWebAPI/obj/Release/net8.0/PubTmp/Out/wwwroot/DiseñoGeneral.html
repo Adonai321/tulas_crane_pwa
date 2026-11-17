@@ -1,0 +1,74 @@
+﻿<!-- =========================================
+     HEADER PÚBLICO - TULA'S CRANE
+========================================= -->
+
+<header class="tc-header">
+    <div class="tc-header-container">
+
+        <!-- Marca / Logo: Envía al login según los requerimientos -->
+        <a href="login.html" class="tc-brand" aria-label="Tula's Crane - Acceso Administrativo">
+
+            <!-- Logotipo real de la empresa -->
+            <img src="IMG\Copia de Tula's Crane Logo.png"
+                 alt="Logo de Tula's Crane"
+                 class="tc-logo">
+
+            <div class="tc-brand-text">
+                <span class="tc-brand-name">TULA'S CRANE</span>
+            </div>
+        </a>
+
+        <!-- Navegación pública -->
+        <nav class="tc-navigation" id="tcNavigation" aria-label="Navegación principal">
+
+            <!-- Inicio (Landing principal) -->
+            <a href="index.html" class="tc-nav-link active">
+                <i class="bi bi-house-door" aria-hidden="true"></i>
+                <span>Inicio</span>
+            </a>
+
+            <!-- Demás secciones (Sin funcionalidad por ahora, apuntan a # o se desactivan visualmente) -->
+            <a href="javascript:void(0);" class="tc-nav-link" onclick="return false;" style="opacity: 0.6; cursor: default;" title="Próximamente">
+                <i class="bi bi-truck" aria-hidden="true"></i>
+                <span>Maquinaria</span>
+            </a>
+
+            <a href="javascript:void(0);" class="tc-nav-link" onclick="return false;" style="opacity: 0.6; cursor: default;" title="Próximamente">
+                <i class="bi bi-gear" aria-hidden="true"></i>
+                <span>Servicios</span>
+            </a>
+
+            <a href="javascript:void(0);" class="tc-nav-link" onclick="return false;" style="opacity: 0.6; cursor: default;" title="Próximamente">
+                <i class="bi bi-building" aria-hidden="true"></i>
+                <span>Nosotros</span>
+            </a>
+
+            <a href="javascript:void(0);" class="tc-nav-link" onclick="return false;" style="opacity: 0.6; cursor: default;" title="Próximamente">
+                <i class="bi bi-telephone" aria-hidden="true"></i>
+                <span>Contacto</span>
+            </a>
+
+            <!-- Cotización (Sin funcionalidad por ahora) -->
+            <a href="javascript:void(0);" class="tc-nav-link tc-nav-quote" onclick="return false;" style="opacity: 0.6; cursor: default;" title="Próximamente">
+                <i class="bi bi-file-earmark-text" aria-hidden="true"></i>
+                <span>Solicitar cotización</span>
+            </a>
+
+        </nav>
+
+        <!-- Botón de menú móvil -->
+        <button type="button"
+                class="tc-menu-toggle"
+                id="tcMenuToggle"
+                aria-label="Abrir menú"
+                aria-controls="tcNavigation"
+                aria-expanded="false">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </div>
+</header>

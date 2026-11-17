@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MiWebAPI.Data;
 using MiWebAPI.Models;
+using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 
 namespace MiWebAPI.Controllers
@@ -16,8 +18,9 @@ namespace MiWebAPI.Controllers
             _maquinariaData = maquinariaData;
         }
 
+        // POST: api/Maquinaria/Registrar
         [HttpPost("Registrar")]
-        public IActionResult Registrar([FromBody] ExpedienteMaquinaModel objeto)
+        public IActionResult Registrar([FromBody] MaquinariaModel objeto)
         {
             try
             {
@@ -25,7 +28,7 @@ namespace MiWebAPI.Controllers
 
                 if (idGenerado > 0)
                 {
-                    return StatusCode(StatusCodes.Status200OK, new
+                    return Ok(new
                     {
                         success = true,
                         idMaquina = idGenerado,
@@ -33,48 +36,94 @@ namespace MiWebAPI.Controllers
                         numeroError = 0
                     });
                 }
-                else
+
+                return StatusCode(500, new
                 {
-                    return StatusCode(StatusCodes.Status500InternalServerError, new
-                    {
-                        success = false,
-                        message = "No se pudo registrar la maquinaria.",
-                        numeroError = 500
-                    });
-                }
+                    success = false,
+                    message = "No se pudo registrar la maquinaria.",
+                    numeroError = 500
+                });
             }
             catch (SqlException ex)
             {
-                // Captura el número de error específico de SQL Server
-                return StatusCode(StatusCodes.Status500InternalServerError, new
-                {
-                    success = false,
-                    message = ex.Message,
-                    numeroError = ex.Number
-                });
+                return StatusCode(500, new { success = false, message = ex.Message, numeroError = ex.Number });
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, new
-                {
-                    success = false,
-                    message = ex.Message,
-                    numeroError = 999
-                });
+                return StatusCode(500, new { success = false, message = ex.Message, numeroError = 999 });
             }
         }
 
+        // GET: api/Maquinaria/Catalogo
         [HttpGet("Catalogo")]
         public IActionResult GetCatalogo()
         {
             try
             {
-                List<CatalogoMaquinariaModel> lista = _maquinariaData.ObtenerCatalogo();
-                return StatusCode(StatusCodes.Status200OK, lista);
+                List<MaquinariaModel> lista = _maquinariaData.ObtenerCatalogo();
+                return Ok(lista);
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, new { message = ex.Message });
+                return StatusCode(500, new { message = ex.Message });
+            }
+        }
+
+        // GET: api/Maquinaria/5
+        [HttpGet("{id}")]
+        public IActionResult GetExpediente(long id)
+        {
+            try
+            {
+                MaquinariaModel maquina = _maquinariaData.ObtenerExpedientePorId(id);
+
+                if (maquina == null)
+                {
+                    return NotFound(new { message = "No se encontró la maquinaria con el ID proporcionado." });
+                }
+
+                return Ok(maquina);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = ex.Message });
+            }
+        }
+
+        // PUT: api/Maquinaria/5
+        [HttpPut("{id}")]
+        public IActionResult EditarExpediente(long id, [FromBody] MaquinariaModel modelo)
+        {
+            try
+            {
+                modelo.Id = id;
+                if (_maquinariaData.EditarExpediente(modelo))
+                {
+                    return Ok(new { mensaje = "Maquinaria actualizada correctamente." });
+                }
+                return NotFound(new { mensaje = "No se encontró la maquinaria indicada." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { mensaje = ex.Message });
+            }
+        }
+
+        // DELETE: api/Maquinaria/5
+        [HttpDelete("{id}")]
+        public IActionResult DarDeBaja(long id)
+        {
+            try
+            {
+                if (_maquinariaData.DarDeBajaMaquina(id))
+                {
+                    return Ok(new { mensaje = "Maquinaria dada de baja correctamente." });
+                }
+                return NotFound(new { mensaje = "No se encontró la maquinaria." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { mensaje = ex.Message });
             }
         }
     }

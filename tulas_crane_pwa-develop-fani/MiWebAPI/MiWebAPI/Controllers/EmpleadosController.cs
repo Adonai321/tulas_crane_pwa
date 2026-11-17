@@ -79,5 +79,41 @@ namespace MiWebAPI.Controllers
                 });
             }
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult DarDeBaja(long id)
+        {
+            try
+            {
+                if (_empleadoData.DarDeBajaEmpleado(id))
+                    return Ok(new { mensaje = "Empleado dado de baja correctamente." });
+                return NotFound(new { mensaje = "No se encontró el empleado." });
+            }
+            catch (System.Exception ex)
+            {
+                return StatusCode(500, new { mensaje = ex.Message });
+            }
+        }
+
+        // GET: api/Empleados/5
+        [HttpGet("{id}")]
+        public IActionResult GetExpediente(long id)
+        {
+            try
+            {
+                EmpleadoModel empleado = _empleadoData.ObtenerExpedientePorId(id);
+
+                if (empleado == null)
+                {
+                    return NotFound(new { mensaje = "No se encontró el empleado con el ID proporcionado." });
+                }
+
+                return Ok(empleado);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { mensaje = ex.Message });
+            }
+        }
     }
 }

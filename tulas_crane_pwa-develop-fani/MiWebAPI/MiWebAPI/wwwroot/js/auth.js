@@ -22,5 +22,5 @@ function mostrarUsuario(elementId) {
 
 function cerrarSesion() {
   sessionStorage.removeItem(SESSION_KEY);
-  window.location.replace("login.html");
+  window.location.replace("index.html");
 }

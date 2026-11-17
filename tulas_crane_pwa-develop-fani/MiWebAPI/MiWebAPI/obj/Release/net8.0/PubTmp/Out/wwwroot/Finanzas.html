@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finanzas | Tula's Crane</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/DiseñoAdmin.css">
+    <link rel="stylesheet" href="css/Finanzas.css">
+</head>
+<body>
+    <div id="admin-header-placeholder"></div>
+
+    <main class="finance-page">
+        <header class="finance-header">
+            <div class="finance-title">
+                <span class="title-icon"><i class="bi bi-cash-coin"></i></span>
+                <div>
+                    <h1>Finanzas</h1>
+                    <p>Controla los ingresos, egresos y la rentabilidad de Tula's Crane.</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <label class="month-select">
+                    <i class="bi bi-calendar3"></i>
+                    <input type="month" id="periodFilter" aria-label="Filtrar por mes">
+                </label>
+                <div class="register-menu-wrap">
+                    <button id="registerMenuButton" class="btn-gold"><i class="bi bi-plus-lg"></i> Registrar <i class="bi bi-chevron-down"></i></button>
+                    <div id="registerMenu" class="register-menu hidden">
+                        <button data-open-form="gasto"><i class="bi bi-arrow-down-circle"></i> Registrar gasto</button>
+                        <button data-open-form="ingreso"><i class="bi bi-arrow-up-circle"></i> Registrar pago recibido / ingreso</button>
+                        <button data-open-form="factura"><i class="bi bi-receipt"></i> Registrar factura</button>
+                        <button data-open-form="impuesto"><i class="bi bi-bank"></i> Registrar impuesto</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="kpi-grid">
+            <article class="kpi-card">
+                <div class="kpi-icon income"><i class="bi bi-wallet2"></i></div>
+                <div><span>Ingresos del periodo</span><strong id="incomeTotal">$0.00</strong><small class="positive">Dinero recibido</small></div>
+            </article>
+            <article class="kpi-card">
+                <div class="kpi-icon expense"><i class="bi bi-receipt-cutoff"></i></div>
+                <div><span>Gastos del periodo</span><strong id="expenseTotal">$0.00</strong><small class="negative">Salidas registradas</small></div>
+            </article>
+            <article class="kpi-card">
+                <div class="kpi-icon profit"><i class="bi bi-graph-up-arrow"></i></div>
+                <div><span>Balance del periodo</span><strong id="balanceTotal">$0.00</strong><small id="balanceCaption">Ingresos menos gastos</small></div>
+            </article>
+            <article class="kpi-card">
+                <div class="kpi-icon pending"><i class="bi bi-calendar2-check"></i></div>
+                <div><span>Obligaciones pendientes</span><strong id="obligationsCount">0</strong><small>Facturas e impuestos</small></div>
+            </article>
+        </section>
+
+        <section class="finance-main-grid">
+            <article class="panel flow-panel">
+                <div class="panel-heading">
+                    <div><i class="bi bi-bar-chart-line-fill"></i><h2>Flujo del periodo</h2></div>
+                    <span class="muted" id="flowPeriodLabel">Mes actual</span>
+                </div>
+                <div class="flow-legend"><span><i class="legend-dot gold-dot"></i>Ingresos</span><span><i class="legend-dot gray-dot"></i>Gastos</span></div>
+                <div id="flowChart" class="flow-chart" aria-label="Gráfica comparativa de ingresos y gastos"></div>
+                <p class="chart-note">Vista por semanas del mes seleccionado. Los valores se calculan a partir de los movimientos registrados.</p>
+            </article>
+            <article class="panel obligations-panel">
+                <div class="panel-heading">
+                    <div><i class="bi bi-calendar-event"></i><h2>Próximos vencimientos</h2></div>
+                    <button class="text-button" data-tab-target="obligaciones">Ver todos <i class="bi bi-arrow-right"></i></button>
+                </div>
+                <div id="upcomingList" class="upcoming-list"></div>
+            </article>
+        </section>
+
+        <nav class="finance-tabs" aria-label="Secciones de finanzas">
+            <button class="finance-tab active" data-tab-target="movimientos"><i class="bi bi-list-ul"></i> Movimientos</button>
+            <button class="finance-tab" data-tab-target="maniobras"><i class="bi bi-cone-striped"></i> Maniobras</button>
+            <button class="finance-tab" data-tab-target="obligaciones"><i class="bi bi-calendar2-week"></i> Pagos y compromisos</button>
+            <button class="finance-tab" data-tab-target="facturacion"><i class="bi bi-receipt"></i> Facturación</button>
+            <button class="finance-tab" data-tab-target="impuestos"><i class="bi bi-bank"></i> Impuestos</button>
+            <button class="finance-tab" data-tab-target="reportes"><i class="bi bi-bar-chart"></i> Reportes</button>
+        </nav>
+
+        <section class="lower-grid">
+            <article class="panel distribution-panel">
+                <div class="panel-heading"><div><i class="bi bi-pie-chart-fill"></i><h2>Distribución de gastos</h2></div></div>
+                <div id="expenseDistribution" class="distribution-content"></div>
+            </article>
+            <article class="panel transactions-panel">
+                <div class="panel-heading">
+                    <div><i class="bi bi-file-earmark-text"></i><h2 id="tableTitle">Movimientos recientes</h2></div>
+                    <span class="muted" id="movementCount">0 registros</span>
+                </div>
+                <div class="table-toolbar">
+                    <input type="search" id="movementSearch" placeholder="Buscar concepto..." aria-label="Buscar movimiento">
+                    <select id="movementTypeFilter" aria-label="Filtrar tipo">
+                        <option value="todos">Todos los movimientos</option>
+                        <option value="ingreso">Ingresos</option>
+                        <option value="gasto">Gastos</option>
+                    </select>
+                </div>
+                <div class="table-scroll">
+                    <table>
+                        <thead><tr><th>Fecha</th><th>Concepto</th><th>Tipo</th><th>Monto</th><th>Recibió / categoría</th><th></th></tr></thead>
+                        <tbody id="movementRows"></tbody>
+                    </table>
+                </div>
+                <div id="tableEmpty" class="empty-state hidden"><i class="bi bi-inbox"></i><p>No hay movimientos para mostrar.</p></div>
+            </article>
+        </section>
+
+        <section id="secondarySection" class="panel secondary-section hidden">
+            <div class="panel-heading"><div><i class="bi bi-folder2-open"></i><h2 id="secondaryTitle">Detalle</h2></div><button class="text-button" id="backToMovements">Volver a movimientos</button></div>
+            <div id="secondaryContent"></div>
+        </section>
+        <p class="prototype-note"><i class="bi bi-info-circle"></i> Prototipo local: los registros se guardan en este navegador. La conexión con la base de datos y el calendario se realizará en la siguiente etapa.</p>
+    </main>
+
+    <div id="financeModal" class="modal-overlay" aria-hidden="true">
+        <section class="finance-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <button id="closeFinanceModal" class="close-modal" type="button" aria-label="Cerrar"><i class="bi bi-x-lg"></i></button>
+            <div class="modal-heading"><span class="title-icon"><i class="bi bi-plus-square"></i></span><div><h2 id="modalTitle">Registrar movimiento</h2><p id="modalSubtitle">Captura la información del registro.</p></div></div>
+            <div class="form-type-tabs" id="formTypeTabs">
+                <button type="button" data-form-type="gasto" class="active"><i class="bi bi-arrow-down-circle"></i> Gasto</button>
+                <button type="button" data-form-type="ingreso"><i class="bi bi-arrow-up-circle"></i> Pago / ingreso</button>
+                <button type="button" data-form-type="factura"><i class="bi bi-receipt"></i> Factura</button>
+                <button type="button" data-form-type="impuesto"><i class="bi bi-bank"></i> Impuesto</button>
+            </div>
+            <form id="financeForm">
+                <input type="hidden" id="recordType" value="gasto">
+                <div id="movementFields" class="form-content">
+                    <div class="form-field"><label for="concept">Concepto *</label><input id="concept" name="concept" maxlength="140" required placeholder="Ej. Pago de operador"></div>
+                    <div class="form-row">
+                        <div class="form-field"><label for="amount">Importe (MXN) *</label><input id="amount" name="amount" type="number" min="0.01" step="0.01" required placeholder="0.00"></div>
+                        <div class="form-field"><label for="movementDate">Fecha *</label><input id="movementDate" name="movementDate" type="date" required></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-field"><label for="category">Categoría *</label><select id="category" name="category" required></select></div>
+                        <div class="form-field" id="receivedByField"><label for="receivedBy" id="receivedByLabel">¿Quién recibió el pago? *</label><select id="receivedBy" name="receivedBy"><option value="">Seleccionar responsable</option><option>Jesús</option><option>Gustavo</option><option>Teresa</option></select></div>
+                    </div>
+                    <div class="form-field"><label for="relatedManeuver">Maniobra relacionada (opcional)</label><input id="relatedManeuver" name="relatedManeuver" maxlength="140" placeholder="Ej. Maniobra - Proyecto Tula"></div>
+                    <div class="form-field"><label for="description">Descripción (opcional)</label><textarea id="description" name="description" rows="3" maxlength="800" placeholder="Detalles adicionales..."></textarea></div>
+                </div>
+                <div id="obligationFields" class="form-content hidden">
+                    <div class="form-field"><label for="obligationConcept">Concepto *</label><input id="obligationConcept" maxlength="140" placeholder="Ej. Factura de maniobra 005"></div>
+                    <div class="form-row">
+                        <div class="form-field"><label for="obligationAmount">Importe estimado (MXN)</label><input id="obligationAmount" type="number" min="0" step="0.01" placeholder="0.00"></div>
+                        <div class="form-field"><label for="dueDate">Fecha límite *</label><input id="dueDate" type="date"></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-field"><label for="obligationStatus">Estatus *</label><select id="obligationStatus"><option value="Pendiente">Pendiente</option><option value="En proceso">En proceso</option><option value="Cumplida">Cumplida</option><option value="Cancelada">Cancelada</option></select></div>
+                        <div class="form-field"><label for="fiscalPeriod">Periodo (opcional)</label><input id="fiscalPeriod" maxlength="80" placeholder="Ej. Noviembre 2026"></div>
+                    </div>
+                    <div class="form-field"><label for="obligationDescription">Notas (opcional)</label><textarea id="obligationDescription" rows="3" maxlength="800" placeholder="Cliente, proveedor, periodo fiscal, referencia interna..."></textarea></div>
+                    <p class="helper-note">Este registro organiza vencimientos y recordatorios. No emite CFDI ni calcula obligaciones fiscales oficiales.</p>
+                </div>
+                <div class="form-actions"><button type="button" id="cancelFinanceForm" class="cancel-button">Cancelar</button><button type="submit" class="save-button"><i class="bi bi-check-lg"></i> Guardar registro</button></div>
+                <p id="financeFormMessage" class="form-message" role="status"></p>
+            </form>
+        </section>
+    </div>
+
+    <script src="js/Layout_Admin.js"></script>
+    <script src="js/Finanzas.js"></script>
+</body>
+</html>

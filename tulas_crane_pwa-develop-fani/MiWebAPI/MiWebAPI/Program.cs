@@ -14,8 +14,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<AuthData>();
 builder.Services.AddScoped<DashboardData>();
 builder.Services.AddScoped<MaquinariaData>();
-builder.Services.AddScoped<ExpedienteMaquinaData>();
 builder.Services.AddScoped<EmpleadoData>();
+builder.Services.AddScoped<CalendarioData>();
 
 // AUTENTICACIÓN POR COOKIES
 builder.Services.AddAuthentication(

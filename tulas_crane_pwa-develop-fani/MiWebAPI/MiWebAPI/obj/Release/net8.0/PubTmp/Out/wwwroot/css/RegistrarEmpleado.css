@@ -1,0 +1,600 @@
+﻿
+/* ==========================================
+   TULA'S CRANE
+   REGISTRAR EMPLEADO
+========================================== */
+
+.registrar-empleado-page {
+    --registro-negro: #000;
+    --registro-dorado: #e9b94f;
+    --registro-dorado-claro: #f2ca72;
+    --registro-blanco: #fff;
+    --registro-campo: #fafafa;
+    --registro-texto: #333;
+    --registro-borde: #777;
+    margin: 0;
+    min-height: 100vh;
+    background: var(--registro-negro);
+    color: var(--registro-blanco);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+    .registrar-empleado-page *,
+    .registrar-empleado-page *::before,
+    .registrar-empleado-page *::after {
+        box-sizing: border-box;
+    }
+
+    .registrar-empleado-page [hidden] {
+        display: none !important;
+    }
+
+    .registrar-empleado-page button,
+    .registrar-empleado-page input,
+    .registrar-empleado-page select {
+        font-family: inherit;
+    }
+
+/* ==========================================
+   CONTENEDOR GENERAL
+========================================== */
+
+.registro-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 510px) minmax(260px, 1fr);
+    grid-template-rows: auto 1fr auto;
+    column-gap: 45px;
+    align-items: start;
+    width: 100%;
+    min-height: calc(100vh - 100px);
+    padding: 14px 38px 30px;
+    overflow: hidden;
+}
+
+/* ==========================================
+   TÍTULO Y BOTÓN REGRESAR
+========================================== */
+
+.registro-titulo {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0 0 18px;
+}
+
+.registro-regresar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 27px;
+    color: #f5e5bc;
+    font-size: 37px;
+    line-height: 1;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+    .registro-regresar:hover {
+        color: var(--registro-dorado);
+    }
+
+.registro-titulo h1 {
+    margin: 0;
+    color: var(--registro-blanco);
+    font-size: clamp(27px, 3vw, 36px);
+    font-weight: 500;
+    letter-spacing: -1.2px;
+    line-height: 1.2;
+}
+
+/* ==========================================
+   FORMULARIO
+========================================== */
+
+#formRegistrarEmpleado {
+    position: relative;
+    z-index: 2;
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    max-width: 510px;
+    min-width: 0;
+}
+
+/* ==========================================
+   INDICADORES DE PASOS
+========================================== */
+
+.registro-pasos {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 27px;
+    margin: 0 0 11px 24px;
+}
+
+.paso-indicador {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #eee;
+    font-size: 17px;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.paso-numero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #c8c8c8;
+    color: #000;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.paso-indicador.activo {
+    color: var(--registro-dorado);
+}
+
+    .paso-indicador.activo .paso-numero {
+        background: var(--registro-dorado);
+    }
+
+/* ==========================================
+   PANELES
+========================================== */
+
+.registro-panel {
+    display: none;
+    width: 100%;
+}
+
+    .registro-panel.activo {
+        display: block;
+    }
+
+.registro-instruccion {
+    margin: 0 0 15px;
+    color: #d0d0d0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* ==========================================
+   DISTRIBUCIÓN DE CAMPOS
+========================================== */
+
+.registro-campos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px 19px;
+    width: 100%;
+}
+
+    .registro-campos .campo {
+        display: block;
+        min-width: 0;
+    }
+
+    .registro-campos .campo-completo {
+        grid-column: 1 / -1;
+    }
+
+    /* ==========================================
+   ETIQUETAS
+========================================== */
+
+    .registro-campos .campo label {
+        display: block;
+        margin: 0 0 6px;
+        color: var(--registro-dorado);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.4;
+    }
+
+    /* ==========================================
+   INPUTS Y SELECTORES
+========================================== */
+
+    .registro-campos input:not([type="file"]),
+    .registro-campos select {
+        display: block;
+        width: 100%;
+        min-width: 0;
+        height: 46px;
+        padding: 0 13px;
+        border: 1.5px solid var(--registro-borde);
+        border-radius: 9px;
+        outline: none;
+        background-color: var(--registro-campo);
+        color: var(--registro-texto);
+        font-size: 17px;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+        .registro-campos input:not([type="file"])::placeholder {
+            color: #858585;
+            opacity: 1;
+        }
+
+        .registro-campos input:not([type="file"]):focus,
+        .registro-campos select:focus {
+            border-color: var(--registro-dorado);
+            box-shadow: 0 0 0 3px rgb(233 185 79 / 18%);
+        }
+
+    /* SELECTOR PERSONALIZADO */
+
+    .registro-campos select {
+        appearance: none;
+        padding-right: 40px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='12' viewBox='0 0 20 12'%3E%3Cpath d='M2 2l8 8 8-8' fill='none' stroke='%23333' stroke-width='1.5'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 15px center;
+        cursor: pointer;
+    }
+
+    /* ==========================================
+   CAMPOS DE ARCHIVOS
+========================================== */
+
+    .registro-campos input[type="file"] {
+        display: block;
+        width: 100%;
+        min-width: 0;
+        height: 46px;
+        padding: 5px 8px;
+        overflow: hidden;
+        border: 1.5px solid var(--registro-borde);
+        border-radius: 9px;
+        background: var(--registro-campo);
+        color: #444;
+        font-size: 13px;
+        cursor: pointer;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+        .registro-campos input[type="file"]:focus {
+            outline: none;
+            border-color: var(--registro-dorado);
+            box-shadow: 0 0 0 3px rgb(233 185 79 / 18%);
+        }
+
+        .registro-campos input[type="file"]::file-selector-button {
+            max-width: 100%;
+            margin-right: 8px;
+            padding: 7px 9px;
+            border: none;
+            border-radius: 5px;
+            background: #e8e8e8;
+            color: #222;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+            .registro-campos input[type="file"]::file-selector-button:hover {
+                background: #d6d6d6;
+            }
+
+/* ==========================================
+   BOTONES
+========================================== */
+
+.registro-botones {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 16px;
+}
+
+.btn-registro {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    min-width: 185px;
+    min-height: 49px;
+    padding: 10px 23px;
+    border: 2px solid #876b34;
+    border-radius: 15px;
+    background: var(--registro-dorado);
+    color: #000;
+    font-size: 18px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+    .btn-registro:hover {
+        background: var(--registro-dorado-claro);
+        transform: translateY(-1px);
+    }
+
+    .btn-registro:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 3px;
+    }
+
+    .btn-registro i {
+        font-size: 22px;
+    }
+
+.registro-botones-doble {
+    justify-content: space-between;
+}
+
+.btn-secundario {
+    border-color: #777;
+    background: #222;
+    color: #fff;
+}
+
+    .btn-secundario:hover {
+        background: #353535;
+    }
+
+/* ==========================================
+   MENSAJE DE ESTADO
+========================================== */
+
+.registro-mensaje {
+    position: relative;
+    z-index: 3;
+    grid-column: 1;
+    grid-row: 3;
+    margin-top: 16px;
+    padding: 13px;
+    border: 1px solid var(--registro-dorado);
+    border-radius: 8px;
+    background: #171717;
+    color: #f4d88f;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* ==========================================
+   LOGO TEMPORAL DE TULA'S CRANE
+========================================== */
+
+.registro-mascota.registro-logo {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    right: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36%;
+    height: 55%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+    .registro-mascota.registro-logo img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+    }
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1000px) {
+
+    .registro-container {
+        grid-template-columns: minmax(0, 1fr) minmax(200px, 0.65fr);
+        column-gap: 20px;
+        padding-right: 22px;
+        padding-left: 22px;
+    }
+
+    #formRegistrarEmpleado {
+        max-width: 100%;
+    }
+
+    .registro-mascota.registro-logo {
+        right: 2%;
+        width: 31%;
+        height: 45%;
+    }
+
+    .registro-pasos {
+        gap: 15px;
+        margin-left: 0;
+    }
+
+    .paso-indicador {
+        gap: 7px;
+        font-size: 14px;
+    }
+
+    .paso-numero {
+        width: 29px;
+        height: 29px;
+        font-size: 17px;
+    }
+
+    .registro-campos {
+        gap: 12px;
+    }
+
+        .registro-campos input[type="file"] {
+            font-size: 12px;
+        }
+
+    .btn-registro {
+        min-width: 145px;
+    }
+}
+
+/* ==========================================
+   MÓVIL
+========================================== */
+
+@media (max-width: 650px) {
+
+    .registro-container {
+        display: block;
+        min-height: auto;
+        padding: 18px 17px 35px;
+        overflow: visible;
+    }
+
+    .registro-titulo {
+        margin-bottom: 20px;
+    }
+
+        .registro-titulo h1 {
+            font-size: 27px;
+            letter-spacing: -0.8px;
+        }
+
+    .registro-regresar {
+        width: 22px;
+        font-size: 31px;
+    }
+
+    #formRegistrarEmpleado {
+        width: 100%;
+        max-width: none;
+    }
+
+    .registro-pasos {
+        gap: 15px;
+        margin-bottom: 16px;
+    }
+
+    .paso-indicador {
+        gap: 7px;
+        font-size: 13px;
+    }
+
+    .paso-numero {
+        width: 28px;
+        height: 28px;
+        font-size: 16px;
+    }
+
+    .registro-instruccion {
+        font-size: 13px;
+    }
+
+    .registro-campos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 13px 10px;
+    }
+
+        .registro-campos input:not([type="file"]),
+        .registro-campos select {
+            height: 45px;
+            padding-left: 10px;
+            font-size: 15px;
+        }
+
+        .registro-campos input[type="file"] {
+            height: auto;
+            min-height: 45px;
+            padding: 5px;
+            font-size: 11px;
+        }
+
+            .registro-campos input[type="file"]::file-selector-button {
+                margin-right: 4px;
+                padding: 7px 4px;
+                font-size: 10px;
+            }
+
+    .registro-botones {
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .registro-botones-doble {
+        justify-content: space-between;
+    }
+
+    .btn-registro {
+        min-width: 0;
+        min-height: 45px;
+        gap: 12px;
+        padding: 8px 14px;
+        font-size: 16px;
+    }
+
+        .btn-registro i {
+            font-size: 19px;
+        }
+
+    /* Ocultar logo para priorizar el formulario */
+    .registro-mascota.registro-logo {
+        display: none;
+    }
+
+    .registro-mensaje {
+        margin-bottom: 20px;
+    }
+}
+
+/* ==========================================
+   MÓVILES PEQUEÑOS
+========================================== */
+
+@media (max-width: 380px) {
+
+    .registro-container {
+        padding-right: 11px;
+        padding-left: 11px;
+    }
+
+    .registro-pasos {
+        gap: 10px;
+    }
+
+    .paso-indicador {
+        gap: 5px;
+        font-size: 12px;
+    }
+
+    .registro-campos {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+        .registro-campos .campo,
+        .registro-campos .campo-completo {
+            grid-column: 1;
+        }
+
+        .registro-campos input[type="file"] {
+            font-size: 12px;
+        }
+
+            .registro-campos input[type="file"]::file-selector-button {
+                padding: 7px;
+                font-size: 11px;
+            }
+
+    .btn-registro {
+        padding-right: 11px;
+        padding-left: 11px;
+        font-size: 14px;
+    }
+}

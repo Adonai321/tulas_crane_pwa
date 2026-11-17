@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar maquinaria | Tula's Crane</title>
+
+    <!-- Estilos del formulario -->
+    <link rel="stylesheet" href="css/RegistrarMaquinaria.css">
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        /* Estilo rápido para las alertas dinámicas en pantalla */
+        .alert-mensaje {
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 15px;
+            display: none;
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER ADMINISTRATIVO COMPARTIDO -->
+    <div id="admin-header-placeholder"></div>
+
+    <main class="rm-container">
+
+        <div class="rm-title-container">
+            <a href="/Maquinaria.html"
+               class="rm-back"
+               aria-label="Regresar a maquinaria">
+                <i class="bi bi-chevron-left"></i>
+            </a>
+            <h1>Registrar Maquinaria</h1>
+        </div>
+
+        <div class="rm-content">
+
+            <!-- COLUMNA IZQUIERDA: FORMULARIO -->
+            <section class="rm-form-section">
+
+                <!-- CONTENEDOR DE RESPUESTAS / ERRORES -->
+                <div id="mensajeRespuesta" class="alert-mensaje"></div>
+
+                <form id="registrarMaquinariaForm">
+
+                    <div class="rm-field">
+                        <label for="marca">Marca</label>
+                        <input type="text" id="marca" name="marca" placeholder="Ej. Grove, Terex, Manitowoc" required>
+                    </div>
+
+                    <div class="rm-field">
+                        <label for="modelo">Modelo</label>
+                        <select id="modelo" name="modelo" required>
+                            <option value="" disabled selected>Selecciona el modelo</option>
+                            <option value="Grúa telescópica">Grúa telescópica</option>
+                            <option value="Grúa hidráulica">Grúa hidráulica</option>
+                            <option value="Grúa todo terreno">Grúa todo terreno</option>
+                            <option value="Plataforma">Plataforma</option>
+                            <option value="Titán">Titán</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="rm-field-row">
+                        <div class="rm-field">
+                            <label for="capacidad">Capacidad</label>
+                            <input type="text" id="capacidad" name="capacidad" placeholder="Ej. 30 toneladas" required>
+                        </div>
+
+                        <div class="rm-field">
+                            <label for="alcance">Alcance</label>
+                            <input type="text" id="alcance" name="alcance" placeholder="Ej. 42 m" required>
+                        </div>
+                    </div>
+
+                    <div class="rm-field">
+                        <label for="tipo">Tipo de maquinaria</label>
+                        <select id="tipo" name="tipo" required>
+                            <option value="" disabled selected>Selecciona el tipo</option>
+                            <option value="Grúas">Grúas</option>
+                            <option value="Plataformas">Plataformas</option>
+                            <option value="Titán">Titán</option>
+                            <option value="Otros">Otros</option>
+                        </select>
+                    </div>
+
+                    <div class="rm-field">
+                        <label for="anio">Año</label>
+                        <input type="number" id="anio" name="anio" placeholder="Ej. 2024" min="1900" max="2100" required>
+                    </div>
+
+                    <div class="rm-field">
+                        <label for="placas">Placas</label>
+                        <input type="text" id="placas" name="placas" placeholder="Número de placas" required>
+                    </div>
+
+                    <div class="rm-actions rm-actions-single">
+                        <button type="submit" class="rm-button rm-button-primary" id="btnGuardar">
+                            Guardar Maquinaria
+                            <i class="bi bi-arrow-right"></i>
+                        </button>
+                    </div>
+
+                </form>
+
+            </section>
+
+            <!-- COLUMNA DERECHA: LOGOTIPO -->
+            <aside class="rm-image-section">
+                <img src="IMG/Copia%20de%20Tula's%20Crane%20Logo.png" alt="Logotipo de Tula's Crane" class="rm-company-logo">
+            </aside>
+
+        </div>
+
+    </main>
+
+    <!-- LAYOUT ADMINISTRATIVO COMPARTIDO -->
+    <script src="js/Layout_Admin.js"></script>
+
+    <!-- LÓGICA ASÍNCRONA, LIMPIEZA Y MANEJO DE NUMERO ERROR -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("registrarMaquinariaForm");
+            const divMensaje = document.getElementById("mensajeRespuesta");
+
+            form.addEventListener("submit", async function (evento) {
+                evento.preventDefault();
+
+                // Ocultar mensaje previo
+                divMensaje.style.display = "none";
+
+                // Recopilar los datos del formulario
+                const maquinariaData = {
+                    marca: document.getElementById("marca").value.trim(),
+                    modelo: document.getElementById("modelo").value,
+                    capacidad: document.getElementById("capacidad").value.trim(),
+                    alcance: document.getElementById("alcance").value.trim(),
+                    tipo: document.getElementById("tipo").value,
+                    anio: parseInt(document.getElementById("anio").value, 10),
+                    placas: document.getElementById("placas").value.trim()
+                };
+
+                try {
+                    const response = await fetch('/api/Maquinaria/Registrar', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(maquinariaData)
+                    });
+
+                    const result = await response.json();
+
+                    if (response.ok && result.success) {
+                        // 1. Mostrar respuesta exitosa
+                        divMensaje.className = "alert-mensaje alert-success";
+                        divMensaje.innerHTML = `<i class="bi bi-check-circle-fill"></i> ${result.message} (Código de error: ${result.numeroError})`;
+                        divMensaje.style.display = "block";
+
+                        // 2. Limpieza automática del formulario después de guardar
+                        form.reset();
+
+                    } else {
+                        // Mostrar error controlado con su numeroError y respuesta de la API
+                        divMensaje.className = "alert-mensaje alert-danger";
+                        divMensaje.innerHTML = `<i class="bi bi-exclamation-triangle-fill"></i> Error: ${result.message} | <strong>Nº Error:</strong> ${result.numeroError}`;
+                        divMensaje.style.display = "block";
+                    }
+
+                } catch (error) {
+                    console.error("Error de conexión:", error);
+                    divMensaje.className = "alert-mensaje alert-danger";
+                    divMensaje.innerHTML = `<i class="bi bi-x-circle-fill"></i> Error de conexión con el servidor backend. (Nº Error: 503)`;
+                    divMensaje.style.display = "block";
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

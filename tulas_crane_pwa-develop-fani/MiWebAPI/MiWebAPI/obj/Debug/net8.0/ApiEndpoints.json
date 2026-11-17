@@ -152,6 +152,85 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "MiWebAPI.Controllers.CalendarioController",
+    "Method": "EliminarEvento",
+    "RelativePath": "api/Calendario/{tipo}/{idNumerico}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tipo",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "idNumerico",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MiWebAPI.Controllers.CalendarioController",
+    "Method": "ActualizarEstatus",
+    "RelativePath": "api/Calendario/Estatus",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "modelo",
+        "Type": "MiWebAPI.Models.ActualizarEstatusEventoModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MiWebAPI.Controllers.CalendarioController",
+    "Method": "ObtenerEventos",
+    "RelativePath": "api/Calendario/Eventos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MiWebAPI.Controllers.CalendarioController",
+    "Method": "EditarLapso",
+    "RelativePath": "api/Calendario/Lapso",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "modelo",
+        "Type": "MiWebAPI.Models.EditarLapsoEventoModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MiWebAPI.Controllers.CalendarioController",
+    "Method": "RegistrarEvento",
+    "RelativePath": "api/Calendario/Registrar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "modelo",
+        "Type": "MiWebAPI.Models.RegistrarEventoCalendarioModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "MiWebAPI.Controllers.DashboardController",
     "Method": "GetResumen",
     "RelativePath": "api/Dashboard/Resumen",
@@ -159,6 +238,38 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MiWebAPI.Controllers.EmpleadosController",
+    "Method": "DarDeBaja",
+    "RelativePath": "api/Empleados/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MiWebAPI.Controllers.EmpleadosController",
+    "Method": "GetExpediente",
+    "RelativePath": "api/Empleados/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -188,10 +299,47 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "MiWebAPI.Controllers.ExpedienteMaquinaController",
-    "Method": "Get",
-    "RelativePath": "api/ExpedienteMaquina/{id}",
+    "ContainingType": "MiWebAPI.Controllers.MaquinariaController",
+    "Method": "GetExpediente",
+    "RelativePath": "api/Maquinaria/{id}",
     "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MiWebAPI.Controllers.MaquinariaController",
+    "Method": "EditarExpediente",
+    "RelativePath": "api/Maquinaria/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      },
+      {
+        "Name": "modelo",
+        "Type": "MiWebAPI.Models.MaquinariaModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MiWebAPI.Controllers.MaquinariaController",
+    "Method": "DarDeBaja",
+    "RelativePath": "api/Maquinaria/{id}",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -223,7 +371,7 @@
     "Parameters": [
       {
         "Name": "objeto",
-        "Type": "MiWebAPI.Models.ExpedienteMaquinaModel",
+        "Type": "MiWebAPI.Models.MaquinariaModel",
         "IsRequired": true
       }
     ],
