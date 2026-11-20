@@ -230,12 +230,23 @@
     border-top: 1px solid var(--border);
     color: #dedede;
     font-size: 11px;
+    text-decoration: none;
+    transition: color 0.2s ease;
 }
 
     .stat-card-footer i {
         color: var(--gold);
         font-size: 16px;
+        transition: transform 0.2s ease;
     }
+
+    .stat-card-footer:hover {
+        color: var(--gold-light);
+    }
+
+        .stat-card-footer:hover i {
+            transform: translate(3px, -3px);
+        }
 
 /* ==========================================
    PANELES INFERIORES
@@ -498,14 +509,6 @@
 }
 
 /* ==========================================
-   NAVEGACIÓN INFERIOR MÓVIL
-========================================== */
-
-.mobile-bottom-nav {
-    display: none;
-}
-
-/* ==========================================
    TABLET Y COMPUTADORAS PEQUEÑAS
 ========================================== */
 
@@ -739,63 +742,6 @@
         right: 8px;
         font-size: 55px;
     }
-
-    /* Barra inferior de navegación */
-
-    .mobile-bottom-nav {
-        position: fixed;
-        z-index: 150;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        min-height: 66px;
-        padding: 7px 4px max(7px, env(safe-area-inset-bottom));
-        display: grid;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
-        gap: 2px;
-        border-top: 1px solid #383838;
-        background: #111;
-    }
-
-    .mobile-nav-item {
-        min-width: 0;
-        padding: 4px 1px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        gap: 4px;
-        color: #c2c2c2;
-        text-decoration: none;
-        border-radius: 7px;
-    }
-
-        .mobile-nav-item i {
-            font-size: 21px;
-            line-height: 1.1;
-        }
-
-        .mobile-nav-item span {
-            font-size: 9px;
-            line-height: 1.2;
-            text-align: center;
-        }
-
-        .mobile-nav-item.active {
-            color: var(--gold);
-        }
-
-        .mobile-nav-item:focus-visible {
-            outline: 2px solid var(--gold);
-            outline-offset: -2px;
-        }
-
-    /* Espacio para que el footer no quede
-       tapado por la barra inferior */
-
-    .dashboard-page #admin-footer-placeholder {
-        padding-bottom: 76px;
-    }
 }
 
 /* ==========================================
@@ -818,13 +764,5 @@
 
     .section-tag {
         font-size: 9px;
-    }
-
-    .mobile-nav-item i {
-        font-size: 19px;
-    }
-
-    .mobile-nav-item span {
-        font-size: 8px;
     }
 }

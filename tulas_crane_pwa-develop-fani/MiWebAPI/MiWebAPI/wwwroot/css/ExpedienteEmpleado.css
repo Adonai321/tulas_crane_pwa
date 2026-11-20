@@ -668,92 +668,39 @@
     }
 }
 
-/* Barra inferior de navegación */
-
-.mobile-bottom-nav {
-    position: fixed;
-    z-index: 150;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    min-height: 66px;
-    padding: 7px 4px max(7px, env(safe-area-inset-bottom));
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 2px;
-    border-top: 1px solid #383838;
-    background: #111;
-}
-
-.mobile-nav-item {
-    min-width: 0;
-    padding: 4px 1px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 4px;
-    color: #c2c2c2;
-    text-decoration: none;
-    border-radius: 7px;
-}
-
-    .mobile-nav-item i {
-        font-size: 21px;
-        line-height: 1.1;
-    }
-
-    .mobile-nav-item span {
-        font-size: 9px;
-        line-height: 1.2;
-        text-align: center;
-    }
-
-    .mobile-nav-item.active {
-        color: var(--gold);
-    }
-
-    .mobile-nav-item:focus-visible {
-        outline: 2px solid var(--gold);
-        outline-offset: -2px;
-    }
-
-/* Espacio para que el footer no quede
-       tapado por la barra inferior */
-
-.dashboard-page #admin-footer-placeholder {
-    padding-bottom: 76px;
-}
-
-}
-
 /* ==========================================
-   CELULARES MUY PEQUEÑOS
+   MODO EDICIÓN DIRECTA EN TARJETAS
 ========================================== */
 
-@media (max-width: 360px) {
-    .dashboard-container {
-        width: calc(100% - 20px);
+.informacion-grid.modo-edicion .dato-card:not(.dato-solo-lectura) {
+    border-color: var(--det-gold);
+    background: #201d15;
+    box-shadow: 0 0 0 1px rgba(233, 189, 104, 0.2);
+}
+
+.dato-card .campo-edicion {
+    width: 100%;
+    padding: 7px 10px;
+    border: 1px solid #555555;
+    border-radius: 7px;
+    background: #111111;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    transition: border-color 0.18s ease;
+}
+
+    .dato-card .campo-edicion:focus {
+        outline: none;
+        border-color: var(--det-gold);
     }
 
-    .dashboard-stats {
-        gap: 8px;
-    }
+.dato-card [hidden] {
+    display: none !important;
+}
 
-    .stat-card {
-        padding-right: 10px;
-        padding-left: 10px;
-    }
-
-    .section-tag {
-        font-size: 9px;
-    }
-
-    .mobile-nav-item i {
-        font-size: 19px;
-    }
-
-    .mobile-nav-item span {
-        font-size: 8px;
+@media (max-width: 600px) {
+    .dato-card[style*="span 2"] {
+        grid-column: 1 / -1 !important;
     }
 }

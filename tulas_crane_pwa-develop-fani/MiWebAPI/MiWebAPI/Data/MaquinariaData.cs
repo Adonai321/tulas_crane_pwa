@@ -61,15 +61,17 @@ namespace MiWebAPI.Data
                         lista.Add(new MaquinariaModel
                         {
                             Id = Convert.ToInt64(dr["Id"]),
-                            Nombre = dr["Nombre"].ToString(),
-                            Capacidad = dr["Capacidad"].ToString(),
-                            Alcance = dr["Alcance"].ToString(),
-                            Categoria = dr["Categoria"].ToString(),
-                            Disponibilidad = dr["Disponibilidad"].ToString(),
-                            Estado = dr["Estado"].ToString(),
-                            DocumentosCompletos = Convert.ToBoolean(dr["DocumentosCompletos"]),
-                            Documentacion = dr["Documentacion"].ToString(),
-                            Imagen = dr["Imagen"].ToString()
+                            Marca = dr["Marca"]?.ToString() ?? "",
+                            Tipo = dr["Tipo"]?.ToString() ?? "",
+                            Nombre = dr["Nombre"]?.ToString() ?? "",
+                            Capacidad = dr["Capacidad"]?.ToString() ?? "",
+                            Alcance = dr["Alcance"]?.ToString() ?? "",
+                            Categoria = dr["Categoria"]?.ToString() ?? "otros",
+                            Disponibilidad = dr["Disponibilidad"]?.ToString() ?? "",
+                            Estado = dr["Estado"]?.ToString() ?? "disponible",
+                            DocumentosCompletos = dr["DocumentosCompletos"] != DBNull.Value && Convert.ToBoolean(dr["DocumentosCompletos"]),
+                            Documentacion = dr["Documentacion"]?.ToString() ?? "Documentación en regla",
+                            Imagen = dr["Imagen"]?.ToString() ?? ""
                         });
                     }
                 }
@@ -125,7 +127,8 @@ namespace MiWebAPI.Data
                 cmd.Parameters.AddWithValue("@anio", modelo.Anio);
 
                 conexion.Open();
-                return cmd.ExecuteNonQuery() > 0;
+                int filas = Convert.ToInt32(cmd.ExecuteScalar() ?? 0);
+                return filas > 0;
             }
         }
 
@@ -138,7 +141,8 @@ namespace MiWebAPI.Data
                 cmd.Parameters.AddWithValue("@id_maquina", idMaquina);
 
                 conexion.Open();
-                return cmd.ExecuteNonQuery() > 0;
+                int filas = Convert.ToInt32(cmd.ExecuteScalar() ?? 0);
+                return filas > 0;
             }
         }
     }

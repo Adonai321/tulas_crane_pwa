@@ -82,8 +82,10 @@ namespace MiWebAPI.Data
             {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_empleado", idEmpleado);
+
                 conexion.Open();
-                return cmd.ExecuteNonQuery() > 0;
+                int filas = Convert.ToInt32(cmd.ExecuteScalar() ?? 0);
+                return filas > 0;
             }
         }
 
@@ -123,6 +125,27 @@ namespace MiWebAPI.Data
                 }
             }
             return empleado;
+        }
+
+        public bool EditarExpediente(EmpleadoModel modelo)
+        {
+            using (SqlConnection conexion = new SqlConnection(_cadenaSQL))
+            using (SqlCommand cmd = new SqlCommand("SP_EDITAR_EXPEDIENTE_EMPLEADO", conexion))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_empleado", modelo.Id);
+                cmd.Parameters.AddWithValue("@nombre", modelo.Nombre);
+                cmd.Parameters.AddWithValue("@apellido_paterno", modelo.ApellidoPaterno);
+                cmd.Parameters.AddWithValue("@apellido_materno", string.IsNullOrWhiteSpace(modelo.ApellidoMaterno) ? (object)DBNull.Value : modelo.ApellidoMaterno.Trim());
+                cmd.Parameters.AddWithValue("@puesto", modelo.Puesto);
+                cmd.Parameters.AddWithValue("@salario", modelo.Salario);
+                cmd.Parameters.AddWithValue("@direccion", modelo.Direccion);
+                cmd.Parameters.AddWithValue("@rfc_empleado", modelo.RfcEmpleado);
+
+                conexion.Open();
+                int filas = Convert.ToInt32(cmd.ExecuteScalar() ?? 0);
+                return filas > 0;
+            }
         }
     }
 }

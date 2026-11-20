@@ -115,19 +115,22 @@
                  hidden>
 
             <div class="panel-titulo">
-
                 <div>
                     <h2>Información del empleado</h2>
                     <p>Datos generales registrados en el expediente.</p>
                 </div>
 
-                <button type="button"
-                        class="btn-dorado btn-editar"
-                        id="btnEditarInfo">
-                    <i class="bi bi-pencil"></i>
-                    Editar información
-                </button>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
+                    <button type="button" class="btn-baja-logica" id="btnBajaEmpleado">
+                        <i class="bi bi-person-x"></i>
+                        Dar de baja
+                    </button>
 
+                    <button type="button" class="btn-dorado btn-editar" id="btnEditarInfo">
+                        <i class="bi bi-pencil"></i>
+                        Editar información
+                    </button>
+                </div>
             </div>
 
             <div class="informacion-grid">
@@ -148,15 +151,13 @@
                 </article>
 
                 <article class="dato-card">
-                    <span>Teléfono</span>
-                    <strong id="datoTelefono">771 000 0000</strong>
+                    <span>RFC</span>
+                    <strong id="datoTelefono">No registrado</strong>
                 </article>
 
                 <article class="dato-card">
-                    <span>Correo electrónico</span>
-                    <strong id="datoCorreo">
-                        juan.perez@tulascrane.mx
-                    </strong>
+                    <span>Dirección</span>
+                    <strong id="datoCorreo">No registrada</strong>
                 </article>
 
                 <article class="dato-card">
@@ -237,51 +238,6 @@
         </section>
 
     </main>
-
-    <!-- NAVEGACIÓN INFERIOR PARA CELULAR -->
-    <nav class="mobile-bottom-nav" aria-label="Navegación móvil">
-
-        <a href="Dashboard.html"
-           class="mobile-nav-item active"
-           aria-label="Inicio">
-            <i class="bi bi-house-fill"></i>
-            <span>Inicio</span>
-        </a>
-
-
-        <a href="TiposRenta.html"
-           class="mobile-nav-item"
-           aria-label="Maquinaria">
-            <i class="bi bi-truck-front"></i>
-            <span>Maquinaria</span>
-        </a>
-
-
-        <a href="Empleados.html"
-           class="mobile-nav-item"
-           aria-label="Empleados">
-            <i class="bi bi-people"></i>
-            <span>Personal</span>
-        </a>
-
-
-        <a href="Calendario.html"
-           class="mobile-nav-item"
-           aria-label="Calendario">
-            <i class="bi bi-calendar3"></i>
-            <span>Agenda</span>
-        </a>
-
-
-        <a href="Finanzas.html"
-           class="mobile-nav-item"
-           aria-label="Finanzas">
-            <i class="bi bi-cash-coin"></i>
-            <span>Finanzas</span>
-        </a>
-
-    </nav>
-
 
     <!-- =====================================
          VENTANA DE VISUALIZACIÓN DE DOCUMENTOS

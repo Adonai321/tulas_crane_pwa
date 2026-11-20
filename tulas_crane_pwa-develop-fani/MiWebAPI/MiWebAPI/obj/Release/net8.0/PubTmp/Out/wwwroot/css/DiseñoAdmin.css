@@ -1,5 +1,4 @@
-﻿
-/* =========================================
+﻿/* =========================================
    HEADER ADMINISTRATIVO - TULA'S CRANE
 ========================================= */
 
@@ -32,7 +31,7 @@
     border-bottom: 1px solid #242424;
 }
 
-/* LOGOTIPO Y MARCA */
+/* LOGOTIPO Y MARCA (Sin enlace) */
 
 .admin-brand {
     display: flex;
@@ -41,7 +40,8 @@
     flex: 0 0 auto;
     min-width: 0;
     color: inherit;
-    text-decoration: none;
+    cursor: default;
+    user-select: none;
 }
 
 .admin-brand-logo {
@@ -74,7 +74,7 @@
     color: var(--tc-white);
 }
 
-/* MENÚ PRINCIPAL */
+/* MENÚ PRINCIPAL (PC) */
 
 .admin-nav {
     display: flex;
@@ -99,8 +99,6 @@
     transition: color .18s ease, transform .18s ease;
 }
 
-    /* ICONOS */
-
     .admin-nav-link svg {
         width: 40px;
         height: 40px;
@@ -111,14 +109,10 @@
         stroke-linejoin: round;
     }
 
-    /* ICONO DE INICIO */
-
     .admin-nav-link[data-page="dashboard"] svg {
         fill: currentColor;
         stroke-width: 1.3;
     }
-
-    /* HOVER Y SECCIÓN ACTIVA */
 
     .admin-nav-link:hover,
     .admin-nav-link.is-active {
@@ -129,78 +123,55 @@
         transform: translateY(-2px);
     }
 
-/* BOTÓN HAMBURGUESA */
+/* BOTÓN CERRAR SESIÓN (PC Y MÓVIL) */
 
-.admin-menu-wrap {
-    position: relative;
+.admin-logout-wrap {
     flex: 0 0 auto;
 }
 
-.admin-menu-toggle {
-    width: 40px;
-    height: 46px;
-    padding: 7px 1px;
+.admin-logout-btn {
+    min-width: 70px;
+    padding: 7px 14px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
-    gap: 7px;
-    border: 0;
-    background: transparent;
-    cursor: pointer;
-}
-
-    .admin-menu-toggle span {
-        display: block;
-        width: 36px;
-        height: 4px;
-        border-radius: 3px;
-        background: var(--tc-white);
-        transition: background .18s ease;
-    }
-
-    .admin-menu-toggle:hover span {
-        background: var(--tc-gold);
-    }
-
-/* MENÚ DESPLEGABLE */
-
-.admin-extra-menu {
-    position: absolute;
-    top: calc(100% + 12px);
-    right: 0;
-    min-width: 210px;
-    padding: 8px;
-    background: #171717;
-    border: 1px solid #383838;
+    gap: 4px;
+    border: 1px solid #4d3e1e;
     border-radius: 10px;
-    box-shadow: 0 12px 28px #0008;
+    background: #171717;
+    color: var(--tc-white);
+    font-family: inherit;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color .18s ease, border-color .18s ease, background .18s ease, transform .18s ease;
 }
 
-    .admin-extra-menu[hidden] {
-        display: none;
+    .admin-logout-btn svg {
+        width: 28px;
+        height: 28px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
     }
 
-    .admin-extra-menu a,
-    .admin-extra-menu button {
-        display: block;
-        width: 100%;
-        padding: 12px 13px;
-        color: var(--tc-white);
-        text-align: left;
-        text-decoration: none;
-        font: inherit;
-        font-size: .92rem;
-        background: transparent;
-        border: 0;
-        border-radius: 6px;
-        cursor: pointer;
+    .admin-logout-btn:hover {
+        color: var(--tc-gold);
+        border-color: var(--tc-gold);
+        background: #241f14;
+        transform: translateY(-2px);
     }
 
-        .admin-extra-menu a:hover,
-        .admin-extra-menu button:hover {
-            color: var(--tc-gold);
-            background: #292929;
-        }
+/* =========================================
+   NAVEGACIÓN INFERIOR MÓVIL COMPARTIDA
+========================================= */
+
+.mobile-bottom-nav {
+    display: none;
+}
 
 /* =========================================
    TABLETAS Y VENTANAS MEDIANAS
@@ -237,9 +208,14 @@
 ========================================= */
 
 @media (max-width: 850px) {
+    body {
+        padding-bottom: 76px;
+    }
+
     .admin-header {
         min-height: 84px;
         padding: 10px 14px;
+        justify-content: space-between;
         gap: 12px;
     }
 
@@ -248,62 +224,91 @@
     }
 
     .admin-brand-logo {
-        width: 58px;
-        height: 58px;
+        width: 54px;
+        height: 54px;
     }
 
     .admin-brand-name {
-        font-size: clamp(1.2rem, 4vw, 1.8rem);
+        font-size: clamp(1.15rem, 4vw, 1.7rem);
         letter-spacing: -.6px;
     }
 
     .admin-brand-slogan {
-        font-size: .78rem;
+        font-size: .74rem;
         padding-left: 1px;
     }
 
-    /* Navegación desplegable */
-
+    /* En teléfono ocultamos los enlaces superiores porque se usa la barra inferior */
     .admin-nav {
         display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        margin: 0;
-        padding: 14px;
-        background: #080808;
-        border-top: 1px solid #292929;
-        box-shadow: 0 12px 20px #0006;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 12px 8px;
     }
 
-        .admin-nav.is-open {
-            display: grid;
-        }
-
-    .admin-nav-link {
-        min-height: 76px;
-        min-width: 0;
-        font-size: .84rem;
-    }
-
-        .admin-nav-link svg {
-            width: 32px;
-            height: 32px;
-        }
-
-    .admin-menu-wrap {
+    /* Botón de salir compacto en teléfono */
+    .admin-logout-wrap {
         margin-left: auto;
     }
 
-    .admin-menu-toggle {
-        width: 36px;
+    .admin-logout-btn {
+        min-width: auto;
+        padding: 8px 12px;
+        flex-direction: row;
+        gap: 6px;
+        font-size: .82rem;
     }
 
-        .admin-menu-toggle span {
-            width: 31px;
+        .admin-logout-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+    /* Barra inferior fija de navegación */
+    .mobile-bottom-nav {
+        position: fixed;
+        z-index: 150;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        min-height: 66px;
+        padding: 7px 4px max(7px, env(safe-area-inset-bottom));
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 2px;
+        border-top: 1px solid #383838;
+        background: #111111;
+    }
+
+    .mobile-nav-item {
+        min-width: 0;
+        padding: 4px 1px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 4px;
+        color: #c2c2c2;
+        text-decoration: none;
+        border-radius: 7px;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+        .mobile-nav-item i {
+            font-size: 21px;
+            line-height: 1.1;
+        }
+
+        .mobile-nav-item span {
+            font-size: 9px;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        .mobile-nav-item.active {
+            color: #f4c542;
+        }
+
+        .mobile-nav-item:focus-visible {
+            outline: 2px solid #f4c542;
+            outline-offset: -2px;
         }
 }
 
@@ -315,19 +320,73 @@
     }
 
     .admin-brand-logo {
-        width: 48px;
-        height: 48px;
+        width: 44px;
+        height: 44px;
     }
 
     .admin-brand-name {
-        font-size: 1.18rem;
+        font-size: 1.05rem;
     }
 
     .admin-brand-slogan {
-        font-size: .7rem;
+        font-size: .66rem;
     }
 
-    .admin-nav {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+    .admin-logout-btn {
+        padding: 6px 9px;
+        font-size: .75rem;
+    }
+
+        .admin-logout-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+    .mobile-nav-item i {
+        font-size: 19px;
+    }
+
+    .mobile-nav-item span {
+        font-size: 8px;
+    }
+}
+
+/* BOTÓN COMPARTIDO DE BAJA LÓGICA */
+.btn-baja-logica {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 9px 18px;
+    border: 1px solid #a83838;
+    border-radius: 8px;
+    background: #2b1414;
+    color: #ff8585;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-baja-logica:hover:not(:disabled) {
+    background: #8f2929;
+    border-color: #ff6b6b;
+    color: #ffffff;
+}
+
+.btn-baja-logica:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Ocultar navbar móvil en modo PC */
+.mobile-bottom-nav {
+    display: none !important;
+}
+
+@media (max-width: 860px) {
+    .mobile-bottom-nav {
+        display: flex !important;
     }
 }

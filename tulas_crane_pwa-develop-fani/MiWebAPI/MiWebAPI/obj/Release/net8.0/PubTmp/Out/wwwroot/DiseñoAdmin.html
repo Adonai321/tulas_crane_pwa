@@ -1,8 +1,8 @@
 ﻿<!-- HEADER ADMINISTRATIVO DE TULA'S CRANE -->
 <header class="admin-header" id="adminHeader">
 
-    <!-- LOGOTIPO Y NOMBRE -->
-    <a class="admin-brand" href="Dashboard.html" aria-label="Tula's Crane, inicio">
+    <!-- LOGOTIPO Y NOMBRE (Sin enlace de redirección) -->
+    <div class="admin-brand" aria-label="Tula's Crane">
 
         <img class="admin-brand-logo"
              src="IMG/Copia%20de%20Tula's%20Crane%20Logo.png"
@@ -15,9 +15,9 @@
             </span>
         </span>
 
-    </a>
+    </div>
 
-    <!-- NAVEGACIÓN PRINCIPAL -->
+    <!-- NAVEGACIÓN PRINCIPAL (Visible en PC, oculta en teléfono porque usa la barra inferior) -->
     <nav class="admin-nav" id="adminNav" aria-label="Navegación administrativa">
 
         <!-- INICIO -->
@@ -76,37 +76,16 @@
 
     </nav>
 
-    <!-- MENÚ HAMBURGUESA -->
-    <div class="admin-menu-wrap">
-
-        <button class="admin-menu-toggle"
-                id="adminMenuToggle"
-                type="button"
-                aria-label="Abrir menú de opciones"
-                aria-expanded="false"
-                aria-controls="adminExtraMenu">
-            <span></span>
-            <span></span>
-            <span></span>
+    <!-- BOTÓN DE CERRAR SESIÓN (PC Y TELÉFONO) -->
+    <div class="admin-logout-wrap">
+        <button type="button" class="admin-logout-btn" id="adminLogoutButton" aria-label="Cerrar sesión">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                <polyline points="16 17 21 12 16 7" />
+                <line x1="21" y1="12" x2="9" y2="12" />
+            </svg>
+            <span>Salir</span>
         </button>
-
-        <!-- OPCIONES ADICIONALES -->
-        <div class="admin-extra-menu" id="adminExtraMenu" hidden>
-
-            <a href="Cotizaciones.html">
-                Solicitar cotización
-            </a>
-
-            <a href="Documentacion.html">
-                Documentación
-            </a>
-
-            <button type="button" id="adminLogoutButton">
-                Cerrar sesión
-            </button>
-
-        </div>
-
     </div>
 
 </header>

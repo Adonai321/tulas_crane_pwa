@@ -24,8 +24,10 @@ wwwroot\Finanzas.html
 wwwroot\IMG\Copia de Tula's Crane Logo.png
 wwwroot\IMG\ImagenFondo.jpeg
 wwwroot\index.html
+wwwroot\js\AlertaPopup.js
 wwwroot\js\app.js
 wwwroot\js\auth.js
+wwwroot\js\Calendario.js
 wwwroot\js\config.js
 wwwroot\js\EmpleadoDetalle.js
 wwwroot\js\Empleados.js
@@ -41,4 +43,3 @@ wwwroot\login.html
 wwwroot\Maquinaria.html
 wwwroot\RegistrarEmpleado.html
 wwwroot\RegistrarMaquinaria.html
-wwwroot\js\Calendario.js

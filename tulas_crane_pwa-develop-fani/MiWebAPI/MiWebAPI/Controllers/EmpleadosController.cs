@@ -115,5 +115,24 @@ namespace MiWebAPI.Controllers
                 return StatusCode(500, new { mensaje = ex.Message });
             }
         }
+
+        // PUT: api/Empleados/5
+        [HttpPut("{id}")]
+        public IActionResult EditarExpediente(long id, [FromBody] EmpleadoModel modelo)
+        {
+            try
+            {
+                modelo.Id = id;
+                if (_empleadoData.EditarExpediente(modelo))
+                {
+                    return Ok(new { mensaje = "Información del empleado actualizada correctamente." });
+                }
+                return NotFound(new { mensaje = "No se encontró el empleado indicado o ya fue dado de baja." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { mensaje = ex.Message });
+            }
+        }
     }
 }

@@ -229,35 +229,59 @@
     }
 
     /* =========================================
-       FUNCIÓN COMPARTIDA PARA BAJA LÓGICA
+       FUNCIÓN COMPARTIDA PARA BAJA LÓGICA (CON POP-UP)
     ========================================= */
-    window.ejecutarBajaLogica = async function ({ endpoint, nombreEntidad, urlRedireccion, boton }) {
-        const confirmado = window.confirm(
-            `¿Estás seguro de dar de baja a ${nombreEntidad}?\n\nDejará de aparecer en los catálogos y conteos, pero su historial se conservará en la base de datos.`
-        );
+    window.ejecutarBajaLogica = function ({ endpoint, nombreEntidad, urlRedireccion, boton }) {
+        const procesarBaja = async () => {
+            const textoOriginal = boton.innerHTML;
+            try {
+                boton.disabled = true;
+                boton.innerHTML = '<i class="bi bi-hourglass-split"></i> Procesando...';
 
-        if (!confirmado) return;
+                const respuesta = await fetch(endpoint, { method: "DELETE" });
+                const resultado = await respuesta.json().catch(() => ({}));
 
-        const textoOriginal = boton.innerHTML;
-        try {
-            boton.disabled = true;
-            boton.innerHTML = '<i class="bi bi-hourglass-split"></i> Procesando...';
+                if (respuesta.ok) {
+                    let redirigido = false;
+                    const irAlCatalogo = () => {
+                        if (redirigido) return;
+                        redirigido = true;
+                        window.location.href = urlRedireccion;
+                    };
 
-            const respuesta = await fetch(endpoint, { method: "DELETE" });
-            const resultado = await respuesta.json().catch(() => ({}));
+                    mostrarAviso({
+                        tipo: "exito",
+                        titulo: "Baja completada",
+                        mensaje: resultado.mensaje || "El registro fue dado de baja correctamente.",
+                        alCerrar: irAlCatalogo
+                    });
 
-            if (respuesta.ok) {
-                alert(resultado.mensaje || "Registro dado de baja correctamente.");
-                window.location.href = urlRedireccion;
-            } else {
-                alert("No se pudo completar la baja: " + (resultado.mensaje || "Error del servidor"));
+                    setTimeout(irAlCatalogo, 1600);
+                }
+            } catch (error) {
+                console.error("Error en baja lógica:", error);
+                mostrarAviso({
+                    tipo: "error",
+                    titulo: "Error de conexión",
+                    mensaje: "No se pudo conectar con el servidor para completar la baja."
+                });
+            } finally {
+                boton.disabled = false;
+                boton.innerHTML = textoOriginal;
             }
-        } catch (error) {
-            console.error("Error en baja lógica:", error);
-            alert("Error de conexión al intentar dar de baja el registro.");
-        } finally {
-            boton.disabled = false;
-            boton.innerHTML = textoOriginal;
+        };
+
+        if (typeof window.mostrarAviso === "function") {
+            window.mostrarAviso({
+                tipo: "advertencia",
+                titulo: "¿Confirmar baja?",
+                mensaje: `¿Estás seguro de dar de baja a ${nombreEntidad}? Dejará de aparecer en los catálogos, pero su historial se conservará.`,
+                confirmar: true,
+                textoConfirmar: "Sí, dar de baja",
+                alConfirmar: procesarBaja
+            });
+        } else if (window.confirm(`¿Estás seguro de dar de baja a ${nombreEntidad}?`)) {
+            procesarBaja();
         }
     };
 
