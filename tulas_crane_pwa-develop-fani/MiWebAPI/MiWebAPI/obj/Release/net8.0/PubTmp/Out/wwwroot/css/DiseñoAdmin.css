@@ -268,18 +268,21 @@
         right: 0;
         bottom: 0;
         left: 0;
+        width: 100%;
         min-height: 66px;
-        padding: 7px 4px max(7px, env(safe-area-inset-bottom));
+        padding: 7px 6px max(7px, env(safe-area-inset-bottom));
         display: grid;
         grid-template-columns: repeat(5, minmax(0, 1fr));
-        gap: 2px;
+        align-items: center;
+        gap: 4px;
         border-top: 1px solid #383838;
         background: #111111;
     }
 
     .mobile-nav-item {
+        width: 100%;
         min-width: 0;
-        padding: 4px 1px;
+        padding: 4px 2px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -380,10 +383,6 @@
     cursor: not-allowed;
 }
 
-/* Ocultar navbar móvil en modo PC */
-.mobile-bottom-nav {
-    display: none !important;
-}
 
 @media (max-width: 860px) {
     .mobile-bottom-nav {

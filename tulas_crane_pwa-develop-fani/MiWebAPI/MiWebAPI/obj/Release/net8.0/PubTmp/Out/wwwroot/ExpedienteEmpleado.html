@@ -104,10 +104,9 @@
             </button>
 
         </nav>
-
         <!-- =====================================
-             PESTAÑA: INFORMACIÓN
-        ====================================== -->
+         PESTAÑA: INFORMACIÓN (EDICIÓN DIRECTA)
+    ====================================== -->
         <section class="detalle-panel"
                  id="panel-informacion"
                  role="tabpanel"
@@ -120,7 +119,8 @@
                     <p>Datos generales registrados en el expediente.</p>
                 </div>
 
-                <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
+                <!-- Botones en modo lectura -->
+                <div id="accionesLecturaInfo" style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
                     <button type="button" class="btn-baja-logica" id="btnBajaEmpleado">
                         <i class="bi bi-person-x"></i>
                         Dar de baja
@@ -131,46 +131,89 @@
                         Editar información
                     </button>
                 </div>
+
+                <!-- Botones en modo edición directa -->
+                <div id="accionesEdicionInfo" hidden style="display: none; gap: 10px; flex-wrap: wrap; align-items: center;">
+                    <button type="button" class="btn-dorado btn-contorno" id="btnCancelarEdicion">
+                        Cancelar
+                    </button>
+
+                    <button type="submit" form="formInfoDirecta" class="btn-dorado" id="btnGuardarEmpleado">
+                        <i class="bi bi-check-lg"></i>
+                        Guardar cambios
+                    </button>
+                </div>
             </div>
 
-            <div class="informacion-grid">
+            <form id="formInfoDirecta" novalidate>
+                <div class="informacion-grid" id="gridInfoEmpleado">
 
-                <article class="dato-card">
-                    <span>Nombre completo</span>
-                    <strong id="datoNombre">Juan Pérez</strong>
-                </article>
+                    <!-- NOMBRE(S) -->
+                    <article class="dato-card">
+                        <span>Nombre(s)</span>
+                        <strong class="valor-lectura" id="datoNombreSolo">Cargando...</strong>
+                        <input type="text" class="campo-edicion" id="editNombre" maxlength="100" hidden>
+                    </article>
 
-                <article class="dato-card">
-                    <span>Puesto</span>
-                    <strong id="datoPuesto">Operador</strong>
-                </article>
+                    <!-- APELLIDO PATERNO -->
+                    <article class="dato-card">
+                        <span>Apellido paterno</span>
+                        <strong class="valor-lectura" id="datoApPaterno">Cargando...</strong>
+                        <input type="text" class="campo-edicion" id="editApellidoPaterno" maxlength="100" hidden>
+                    </article>
 
-                <article class="dato-card">
-                    <span>Número de empleado</span>
-                    <strong id="datoNumero">TC-001</strong>
-                </article>
+                    <!-- APELLIDO MATERNO -->
+                    <article class="dato-card">
+                        <span>Apellido materno</span>
+                        <strong class="valor-lectura" id="datoApMaterno">—</strong>
+                        <input type="text" class="campo-edicion" id="editApellidoMaterno" maxlength="100" placeholder="Opcional" hidden>
+                    </article>
 
-                <article class="dato-card">
-                    <span>RFC</span>
-                    <strong id="datoTelefono">No registrado</strong>
-                </article>
+                    <!-- PUESTO -->
+                    <article class="dato-card">
+                        <span>Puesto</span>
+                        <strong class="valor-lectura" id="datoPuesto">Cargando...</strong>
+                        <select class="campo-edicion" id="editPuesto" hidden>
+                            <option value="Operador">Operador</option>
+                            <option value="Maniobrista">Maniobrista</option>
+                            <option value="Administración">Administración</option>
+                        </select>
+                    </article>
 
-                <article class="dato-card">
-                    <span>Dirección</span>
-                    <strong id="datoCorreo">No registrada</strong>
-                </article>
+                    <!-- SALARIO BASE -->
+                    <article class="dato-card">
+                        <span>Salario base</span>
+                        <strong class="valor-lectura" id="datoSalario">$0.00</strong>
+                        <input type="number" class="campo-edicion" id="editSalario" min="0" step="0.01" hidden>
+                    </article>
 
-                <article class="dato-card">
-                    <span>Estado laboral</span>
-                    <strong id="datoEstadoLaboral">Activo</strong>
-                </article>
+                    <!-- RFC -->
+                    <article class="dato-card">
+                        <span>RFC</span>
+                        <strong class="valor-lectura" id="datoTelefono">No registrado</strong>
+                        <input type="text" class="campo-edicion" id="editRfc" maxlength="13" style="text-transform: uppercase;" hidden>
+                    </article>
 
-            </div>
+                    <!-- DIRECCIÓN -->
+                    <article class="dato-card" style="grid-column: span 2;">
+                        <span>Dirección</span>
+                        <strong class="valor-lectura" id="datoCorreo">No registrada</strong>
+                        <input type="text" class="campo-edicion" id="editDireccion" maxlength="100" hidden>
+                    </article>
+
+                    <!-- SOLO LECTURA (NO EDITABLES DIRECTAMENTE) -->
+                    <article class="dato-card dato-solo-lectura">
+                        <span>Número de empleado / Estado</span>
+                        <strong id="datoNumeroEstado">TC-000 • Activo</strong>
+                    </article>
+
+                </div>
+            </form>
         </section>
 
         <!-- =====================================
-             PESTAÑA: DOCUMENTACIÓN
-        ====================================== -->
+         PESTAÑA: DOCUMENTACIÓN
+    ====================================== -->
         <section class="detalle-panel"
                  id="panel-documentacion"
                  role="tabpanel"
@@ -214,8 +257,8 @@
         </section>
 
         <!-- =====================================
-             PESTAÑA: HISTORIAL
-        ====================================== -->
+         PESTAÑA: HISTORIAL
+    ====================================== -->
         <section class="detalle-panel"
                  id="panel-historial"
                  role="tabpanel"
@@ -282,6 +325,10 @@
 
     <!-- CARGA DEL HEADER COMPARTIDO -->
     <script src="js/Layout_Admin.js"></script>
+
+
+    <!-- TARJETA DE AVISO REUTILIZABLE -->
+    <script src="js/AlertaPopup.js"></script>
 
     <!-- FUNCIONALIDAD DEL EXPEDIENTE -->
     <script src="js/EmpleadoDetalle.js"></script>

@@ -16,8 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const maquina = await respuesta.json();
 
-            document.getElementById("nombreMaquinaria").textContent = `${maquina.tipo} ${maquina.marca}`;
-            document.getElementById("capacidadMaquinaria").textContent = maquina.capacidad;
+            document.getElementById("nombreMaquinaria").textContent = maquina.marca || `${maquina.tipo} ${maquina.marca}`;
+            document.getElementById("capacidadMaquinaria").textContent = `${maquina.tipo || ""} • ${maquina.capacidad || ""}`.replace(/^ • | • $/g, "");
 
             const estadoSpan = document.getElementById("estadoMaquinaria");
             if (maquina.estadoActividad) {
@@ -32,12 +32,19 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("marca").value = maquina.marca || "";
             document.getElementById("modelo").value = maquina.modelo || "";
             document.getElementById("capacidad").value = maquina.capacidad || "";
-            document.getElementById("alcance").value = maquina.alcance || "N/A";
+            document.getElementById("alcance").value = maquina.alcance || "";
             document.getElementById("tipo").value = maquina.tipo || "";
             document.getElementById("anio").value = maquina.anio || "";
         } catch (error) {
             console.error("Error al cargar expediente:", error);
             document.getElementById("nombreMaquinaria").textContent = "Error al cargar datos";
+            if (typeof mostrarAviso === "function") {
+                mostrarAviso({
+                    tipo: "error",
+                    titulo: "Error al cargar expediente",
+                    mensaje: "No se pudieron obtener los datos de esta maquinaria desde el servidor."
+                });
+            }
         }
     }
 
@@ -102,14 +109,30 @@ document.addEventListener("DOMContentLoaded", function () {
             e.preventDefault();
             if (!idMaquina) return;
 
+            const marca = document.getElementById("marca").value.trim();
+            const modelo = document.getElementById("modelo").value.trim();
+            const capacidad = document.getElementById("capacidad").value.trim();
+            const alcance = document.getElementById("alcance").value.trim();
+            const tipo = document.getElementById("tipo").value.trim();
+            const anioVal = parseInt(document.getElementById("anio").value.trim(), 10);
+
+            if (!marca || !modelo || !capacidad || !tipo || isNaN(anioVal)) {
+                mostrarAviso({
+                    tipo: "error",
+                    titulo: "Campos incompletos",
+                    mensaje: "Asegúrate de llenar correctamente la marca, modelo, capacidad, tipo y un año válido antes de guardar."
+                });
+                return;
+            }
+
             const datosActualizados = {
-                id: parseInt(idMaquina),
-                marca: document.getElementById("marca").value.trim(),
-                modelo: document.getElementById("modelo").value.trim(),
-                capacidad: document.getElementById("capacidad").value.trim(),
-                alcance: document.getElementById("alcance").value.trim(),
-                tipo: document.getElementById("tipo").value.trim(),
-                anio: parseInt(document.getElementById("anio").value.trim()) || new Date().getFullYear()
+                id: parseInt(idMaquina, 10),
+                marca: marca,
+                modelo: modelo,
+                capacidad: capacidad,
+                alcance: alcance,
+                tipo: tipo,
+                anio: anioVal
             };
 
             const btnGuardar = formInformacion.querySelector(".btn-guardar");
@@ -125,17 +148,31 @@ document.addEventListener("DOMContentLoaded", function () {
                     body: JSON.stringify(datosActualizados)
                 });
 
+                const result = await respuesta.json().catch(() => ({}));
+
                 if (respuesta.ok) {
-                    document.getElementById("nombreMaquinaria").textContent = `${datosActualizados.tipo} ${datosActualizados.marca}`;
-                    document.getElementById("capacidadMaquinaria").textContent = datosActualizados.capacidad || "Capacidad por registrar";
+                    document.getElementById("nombreMaquinaria").textContent = datosActualizados.marca;
+                    document.getElementById("capacidadMaquinaria").textContent = `${datosActualizados.tipo} • ${datosActualizados.capacidad}`;
                     toggleEdicion(false);
-                    alert("Los cambios se han guardado en la base de datos.");
+
+                    mostrarAviso({
+                        tipo: "exito",
+                        titulo: "Cambios guardados",
+                        mensaje: result.mensaje || "La información de la maquinaria se actualizó correctamente."
+                    });
                 } else {
-                    const err = await respuesta.json().catch(() => ({}));
-                    alert("Error al guardar: " + (err.mensaje || "Error desconocido"));
+                    mostrarAviso({
+                        tipo: "error",
+                        titulo: "No se pudieron guardar los cambios",
+                        mensaje: result.mensaje || "Ocurrió un problema al actualizar la información."
+                    });
                 }
             } catch (error) {
-                alert("Ocurrió un error de conexión al servidor.");
+                mostrarAviso({
+                    tipo: "error",
+                    titulo: "Error de conexión",
+                    mensaje: "No se pudo conectar con el servidor. Verifica que esté encendido."
+                });
             } finally {
                 btnGuardar.disabled = false;
                 btnGuardar.textContent = textoOriginal;
@@ -148,12 +185,14 @@ document.addEventListener("DOMContentLoaded", function () {
     if (btnBajaMaquina && idMaquina) {
         btnBajaMaquina.addEventListener("click", () => {
             const nombre = document.getElementById("nombreMaquinaria").textContent.trim();
-            window.ejecutarBajaLogica({
-                endpoint: `/api/Maquinaria/${idMaquina}`,
-                nombreEntidad: `la maquinaria "${nombre}"`,
-                urlRedireccion: "Maquinaria.html",
-                boton: btnBajaMaquina
-            });
+            if (typeof window.ejecutarBajaLogica === "function") {
+                window.ejecutarBajaLogica({
+                    endpoint: `/api/Maquinaria/${idMaquina}`,
+                    nombreEntidad: `la maquinaria "${nombre}"`,
+                    urlRedireccion: "Maquinaria.html",
+                    boton: btnBajaMaquina
+                });
+            }
         });
     }
 

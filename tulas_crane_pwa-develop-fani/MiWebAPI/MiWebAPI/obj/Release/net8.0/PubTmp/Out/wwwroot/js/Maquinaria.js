@@ -1,5 +1,4 @@
-﻿
-"use strict";
+﻿"use strict";
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -18,17 +17,23 @@ document.addEventListener("DOMContentLoaded", function () {
             const respuesta = await fetch("/api/Maquinaria/Catalogo");
 
             if (!respuesta.ok) {
-                throw new Error("Error al obtener los datos del servidor");
+                throw new Error("El servidor no respondió correctamente al solicitar el catálogo.");
             }
 
-            // Asignamos la respuesta a nuestro arreglo global
             maquinaria = await respuesta.json();
-
-            // Renderizamos las tarjetas una vez obtenidos los datos
             renderizarMaquinaria();
+
         } catch (error) {
             console.error("Fallo la conexión con la API:", error);
-            contenedor.innerHTML = `<p style="color: #ff7b7b;">Error al cargar la maquinaria. Verifica tu conexión.</p>`;
+            contenedor.innerHTML = "";
+
+            if (typeof mostrarAviso === "function") {
+                mostrarAviso({
+                    tipo: "error",
+                    titulo: "Error al cargar el catálogo",
+                    mensaje: "No se pudo obtener el listado de maquinaria. Verifica tu conexión o que el servidor esté encendido."
+                });
+            }
         }
     }
 
@@ -36,12 +41,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const tarjeta = document.createElement("article");
 
+        // Priorizamos la Marca como título principal; si no viene, usamos Nombre o Tipo
+        const tituloPrincipal = maquina.marca || maquina.nombre || maquina.tipo || "Sin marca";
+        const tipoSecundario = maquina.tipo || maquina.nombre || "";
+
         tarjeta.className = "maquinaria-card";
         tarjeta.tabIndex = 0;
         tarjeta.setAttribute("role", "button");
         tarjeta.setAttribute(
             "aria-label",
-            `Consultar ${maquina.nombre}, ${maquina.capacidad}`
+            `Consultar ${tituloPrincipal}, ${maquina.capacidad}`
         );
 
         const estadoDisponible = maquina.estado === "disponible";
@@ -78,15 +87,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 <img
                     src="${maquina.imagen}"
-                    alt="${maquina.nombre}"
+                    alt="${tituloPrincipal}"
                     loading="lazy">
             </div>
 
             <div class="maquinaria-info">
 
                 <h2 class="maquinaria-name">
-                    ${maquina.nombre}
+                    ${tituloPrincipal}
                 </h2>
+
+                ${tipoSecundario ? `
+                    <p class="maquinaria-type" style="margin: 0 0 4px; font-size: 0.88rem; color: #f4c542; font-weight: 600;">
+                        ${tipoSecundario}
+                    </p>
+                ` : ""}
 
                 <p class="maquinaria-capacity">
                     ${maquina.capacidad}
@@ -126,23 +141,19 @@ document.addEventListener("DOMContentLoaded", function () {
             <button
                 type="button"
                 class="maquinaria-arrow"
-                aria-label="Consultar ${maquina.nombre}">
+                aria-label="Consultar ${tituloPrincipal}">
                 <i class="bi bi-arrow-right"></i>
             </button>
         `;
 
-        // Si todavía no existe la fotografía,
-        // se conserva el icono provisional.
         const imagen = tarjeta.querySelector("img");
 
         imagen.addEventListener("error", function () {
             imagen.style.display = "none";
         });
 
-        // La tarjeta y su flecha realizan la misma acción.
         function consultarMaquinaria() {
-            window.location.href =
-                `ExpedienteMaquinaria.html?id=${maquina.id}`;
+            window.location.href = `ExpedienteMaquinaria.html?id=${maquina.id}`;
         }
 
         tarjeta.addEventListener("click", consultarMaquinaria);
@@ -175,6 +186,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const resultados = maquinaria.filter(function (maquina) {
 
             const coincideTexto = [
+                maquina.marca,
+                maquina.tipo,
                 maquina.nombre,
                 maquina.capacidad,
                 maquina.alcance,
@@ -212,17 +225,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     botonesFiltro.forEach(function (boton) {
-
         boton.addEventListener("click", function () {
-
             filtroActual = boton.dataset.filter;
-
-            botonesFiltro.forEach(otroBoton => otroBoton.classList.toggle("active", otroBoton === boton));
+            botonesFiltro.forEach(otroBoton => {
+                const activo = otroBoton === boton;
+                otroBoton.classList.toggle("active", activo);
+                otroBoton.setAttribute("aria-pressed", activo ? "true" : "false");
+            });
             renderizarMaquinaria();
         });
-
     });
-
 
     botonAgregar.addEventListener("click", function () {
         window.location.href = "RegistrarMaquinaria.html";
