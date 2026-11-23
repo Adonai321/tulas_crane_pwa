@@ -5,24 +5,19 @@ using System.IO;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// CONTROLADORES (con camelCase global para JS)[cite: 17]
-builder.Services.AddControllers()
-    .AddJsonOptions(options =>
-    {
-        options.JsonSerializerOptions.PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase;
-    });
-
+// CONTROLADORES
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// INYECCIÓN DE DEPENDENCIAS[cite: 7, 13]
+// INYECCIÓN DE DEPENDENCIAS
 builder.Services.AddScoped<AuthData>();
 builder.Services.AddScoped<DashboardData>();
 builder.Services.AddScoped<MaquinariaData>();
 builder.Services.AddScoped<EmpleadoData>();
 builder.Services.AddScoped<CalendarioData>();
 
-// AUTENTICACIÓN POR COOKIES[cite: 13]
+// AUTENTICACIÓN POR COOKIES
 builder.Services.AddAuthentication(
     CookieAuthenticationDefaults.AuthenticationScheme
 )
@@ -33,10 +28,10 @@ builder.Services.AddAuthentication(
     options.AccessDeniedPath = "/Acceso/Login";
 });
 
-// AUTORIZACIÓN[cite: 13]
+// AUTORIZACIÓN
 builder.Services.AddAuthorization();
 
-// CORS[cite: 13]
+// CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("NuevaPolitica", app =>
@@ -49,39 +44,35 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// SWAGGER[cite: 13]
+var rutaUploads = Path.Combine(builder.Environment.ContentRootPath, "Uploads");
+if (!Directory.Exists(rutaUploads))
+    Directory.CreateDirectory(rutaUploads);
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(rutaUploads),
+    RequestPath = "/ArchivosUsuario" // Esta será la ruta pública en la web
+});
+
+// SWAGGER
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-// 1. CORS DEBE IR ANTES de UseStaticFiles[cite: 12]
+// 1. CORS DEBE IR ANTES de UseStaticFiles
 app.UseCors("NuevaPolitica");
 
-// 2. ARCHIVOS ESTÁTICOS (Apuntando a la carpeta Frontend en la raíz)[cite: 13]
-var rutaFrontend = Path.Combine(builder.Environment.ContentRootPath, "Frontend");
+// 2. ARCHIVOS ESTÁTICOS
+app.UseDefaultFiles();
+app.UseStaticFiles();
 
-if (Directory.Exists(rutaFrontend))
-{
-    var fileProvider = new PhysicalFileProvider(rutaFrontend);
-
-    app.UseDefaultFiles(new DefaultFilesOptions
-    {
-        FileProvider = fileProvider
-    });
-
-    app.UseStaticFiles(new StaticFileOptions
-    {
-        FileProvider = fileProvider
-    });
-}
-
-// AUTENTICACIÓN Y AUTORIZACIÓN[cite: 13]
+// AUTENTICACIÓN Y AUTORIZACIÓN
 app.UseAuthentication();
 app.UseAuthorization();
 
-// RUTAS API[cite: 13]
+// RUTAS API
 app.MapControllers();
 
 app.Run();
