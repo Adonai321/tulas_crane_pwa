@@ -1,0 +1,433 @@
+﻿/* =========================================
+   HEADER ADMINISTRATIVO - TULA'S CRANE
+   ========================================= */
+
+/* VARIABLES GLOBALES DE TEMA */
+
+:root {
+    --tc-gold: #f4c542;
+    --tc-gold-strong: #d49b1a;
+    --tc-bg: #050505;
+    --tc-surface: #161719;
+    --tc-surface-alt: #1d1e21;
+    --tc-border: #2a2c30;
+    --tc-text: #f8f8f8;
+    --tc-muted: #b0b3b8;
+    --tc-header-bg: #050505;
+    --tc-nav-mobile-bg: #111111;
+    --tc-black: #050505;
+    --tc-white: #f8f8f8;
+}
+
+[data-theme="light"] {
+    --tc-gold: #c98f12;
+    --tc-gold-strong: #a87408;
+    --tc-bg: #f4f5f7;
+    --tc-surface: #ffffff;
+    --tc-surface-alt: #f8f9fa;
+    --tc-border: #dcdde1;
+    --tc-text: #141518;
+    --tc-muted: #5a5e66;
+    --tc-header-bg: #ffffff;
+    --tc-nav-mobile-bg: #ffffff;
+    --tc-black: #ffffff;
+    --tc-white: #141518;
+}
+
+body {
+    background-color: var(--tc-bg);
+    color: var(--tc-text);
+    transition: background-color .2s ease, color .2s ease;
+}
+
+.admin-header,
+.admin-header * {
+    box-sizing: border-box;
+}
+
+/* CONTENEDOR PRINCIPAL */
+
+#admin-header-placeholder {
+    display: contents;
+}
+
+.admin-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    min-height: 92px;
+    padding: 10px 22px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    background: var(--tc-header-bg);
+    backdrop-filter: blur(8px);
+    color: var(--tc-text);
+    font-family: Arial, Helvetica, sans-serif;
+    border-bottom: 1px solid var(--tc-border);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .20);
+    transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+
+/* LOGOTIPO Y MARCA */
+
+.admin-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex: 0 0 auto;
+    min-width: 0;
+    color: inherit;
+    cursor: default;
+    user-select: none;
+}
+
+.admin-brand-logo {
+    display: block;
+    width: 82px;
+    height: 82px;
+    object-fit: contain;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.admin-brand-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    white-space: nowrap;
+}
+
+.admin-brand-name {
+    font-size: clamp(1.6rem, 2.6vw, 2.75rem);
+    line-height: 1.05;
+    font-weight: 800;
+    letter-spacing: -1.2px;
+}
+
+.admin-brand-slogan {
+    padding-left: 5px;
+    font-size: clamp(.78rem, 1.15vw, 1.08rem);
+    line-height: 1.25;
+    color: var(--tc-muted);
+}
+
+/* MENÚ PRINCIPAL */
+
+.admin-nav {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-end;
+    gap: clamp(16px, 2.4vw, 38px);
+    margin-left: auto;
+}
+
+.admin-nav-link {
+    min-width: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 4px 0;
+    color: var(--tc-text);
+    text-decoration: none;
+    font-size: .96rem;
+    line-height: 1.15;
+    transition: color .18s ease, transform .18s ease;
+}
+
+    .admin-nav-link svg {
+        width: 40px;
+        height: 40px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.65;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    .admin-nav-link[data-page="dashboard"] svg {
+        fill: currentColor;
+        stroke-width: 1.3;
+    }
+
+    .admin-nav-link:hover,
+    .admin-nav-link.is-active {
+        color: var(--tc-gold);
+    }
+
+    .admin-nav-link:hover {
+        transform: translateY(-2px);
+    }
+
+/* CONTENEDOR DE ACCIONES */
+
+.admin-actions-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 0 0 auto;
+}
+
+/* BOTONES DE TEMA Y CERRAR SESIÓN */
+
+.admin-theme-btn,
+.admin-logout-btn {
+    min-width: 68px;
+    padding: 7px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    border: 1px solid var(--tc-border);
+    border-radius: 10px;
+    background: var(--tc-surface);
+    color: var(--tc-text);
+    font-family: inherit;
+    font-size: .85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color .18s ease, border-color .18s ease, background .18s ease, transform .18s ease;
+}
+
+    .admin-theme-btn svg,
+    .admin-logout-btn svg {
+        width: 24px;
+        height: 24px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    .admin-theme-btn:hover,
+    .admin-logout-btn:hover {
+        color: var(--tc-gold);
+        border-color: var(--tc-gold);
+        transform: translateY(-2px);
+    }
+
+    .admin-theme-btn:focus-visible,
+    .admin-logout-btn:focus-visible {
+        outline: 2px solid var(--tc-gold);
+        outline-offset: 3px;
+    }
+
+/* NAVEGACIÓN INFERIOR MÓVIL */
+
+.mobile-bottom-nav {
+    display: none;
+}
+
+/* TABLETAS Y VENTANAS MEDIANAS */
+
+@media (max-width: 1150px) {
+    .admin-header {
+        gap: 18px;
+        padding-inline: 16px;
+    }
+
+    .admin-brand-logo {
+        width: 68px;
+        height: 68px;
+    }
+
+    .admin-nav {
+        gap: 15px;
+    }
+
+    .admin-nav-link {
+        min-width: 60px;
+        font-size: .82rem;
+    }
+
+        .admin-nav-link svg {
+            width: 34px;
+            height: 34px;
+        }
+}
+
+/* CELULARES Y PANTALLAS PEQUEÑAS */
+
+@media (max-width: 850px) {
+    body {
+        padding-bottom: 84px !important;
+    }
+
+    .admin-header {
+        min-height: 84px;
+        padding: 10px 14px;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    .admin-brand {
+        gap: 10px;
+    }
+
+    .admin-brand-logo {
+        width: 54px;
+        height: 54px;
+    }
+
+    .admin-brand-name {
+        font-size: clamp(1.15rem, 4vw, 1.7rem);
+        letter-spacing: -.6px;
+    }
+
+    .admin-brand-slogan {
+        font-size: .74rem;
+        padding-left: 1px;
+    }
+
+    .admin-nav {
+        display: none;
+    }
+
+    .admin-actions-wrap {
+        margin-left: auto;
+        gap: 6px;
+    }
+
+    .admin-theme-btn,
+    .admin-logout-btn {
+        min-width: auto;
+        padding: 7px 10px;
+        flex-direction: row;
+        gap: 5px;
+        font-size: .78rem;
+    }
+
+        .admin-theme-btn svg,
+        .admin-logout-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+    .mobile-bottom-nav {
+        position: fixed !important;
+        z-index: 1050 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        min-height: 66px;
+        padding: 7px 6px max(7px, env(safe-area-inset-bottom));
+        display: grid !important;
+        grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+        align-items: center;
+        gap: 4px;
+        border-top: 1px solid var(--tc-border);
+        background: var(--tc-nav-mobile-bg);
+    }
+
+    .mobile-nav-item {
+        width: 100%;
+        min-width: 0;
+        padding: 4px 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 4px;
+        color: var(--tc-muted);
+        text-decoration: none;
+        border-radius: 7px;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+        .mobile-nav-item i {
+            font-size: 21px;
+            line-height: 1.1;
+        }
+
+        .mobile-nav-item span {
+            font-size: 9px;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        .mobile-nav-item.active {
+            color: var(--tc-gold);
+        }
+
+        .mobile-nav-item:focus-visible {
+            outline: 2px solid var(--tc-gold);
+            outline-offset: -2px;
+        }
+}
+
+/* CELULARES MUY PEQUEÑOS */
+
+@media (max-width: 420px) {
+    .admin-header {
+        padding-inline: 10px;
+    }
+
+    .admin-brand-logo {
+        width: 44px;
+        height: 44px;
+    }
+
+    .admin-brand-name {
+        font-size: 1.05rem;
+    }
+
+    .admin-brand-slogan {
+        font-size: .66rem;
+    }
+
+    .admin-theme-btn,
+    .admin-logout-btn {
+        padding: 6px 8px;
+        font-size: .72rem;
+    }
+
+        .admin-theme-btn svg,
+        .admin-logout-btn svg {
+            width: 17px;
+            height: 17px;
+        }
+
+    .mobile-nav-item i {
+        font-size: 19px;
+    }
+
+    .mobile-nav-item span {
+        font-size: 8px;
+    }
+}
+
+/* BOTÓN COMPARTIDO DE BAJA LÓGICA */
+
+.btn-baja-logica {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 9px 18px;
+    border: 1px solid #a83838;
+    border-radius: 8px;
+    background: #2b1414;
+    color: #ff8585;
+    font-family: inherit;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s ease, border-color .2s ease, color .2s ease;
+}
+
+    .btn-baja-logica:hover:not(:disabled) {
+        background: #8f2929;
+        border-color: #ff6b6b;
+        color: #ffffff;
+    }
+
+    .btn-baja-logica:disabled {
+        opacity: .6;
+        cursor: not-allowed;
+    }

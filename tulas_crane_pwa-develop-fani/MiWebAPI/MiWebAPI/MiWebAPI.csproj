@@ -4,14 +4,8 @@
 		<TargetFramework>net8.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
+		<UserSecretsId>42126c72-6d86-45b3-9a05-51ef62e5d51f</UserSecretsId>
 	</PropertyGroup>
-
-	<ItemGroup>
-		<Compile Remove="wwwroot\IMG\NewFolder\**" />
-		<Content Remove="wwwroot\IMG\NewFolder\**" />
-		<EmbeddedResource Remove="wwwroot\IMG\NewFolder\**" />
-		<None Remove="wwwroot\IMG\NewFolder\**" />
-	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
@@ -19,7 +13,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Content Update="wwwroot\**\*" Watch="false" />
+		<Content Update="Frontend\**\*">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
 	</ItemGroup>
 
 </Project>

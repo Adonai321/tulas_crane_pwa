@@ -5,19 +5,24 @@ using System.IO;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// CONTROLADORES
-builder.Services.AddControllers();
+// CONTROLADORES (con camelCase global para JS)[cite: 17]
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase;
+    });
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// INYECCIÓN DE DEPENDENCIAS
+// INYECCIÓN DE DEPENDENCIAS[cite: 7, 13]
 builder.Services.AddScoped<AuthData>();
 builder.Services.AddScoped<DashboardData>();
 builder.Services.AddScoped<MaquinariaData>();
 builder.Services.AddScoped<EmpleadoData>();
 builder.Services.AddScoped<CalendarioData>();
 
-// AUTENTICACIÓN POR COOKIES
+// AUTENTICACIÓN POR COOKIES[cite: 13]
 builder.Services.AddAuthentication(
     CookieAuthenticationDefaults.AuthenticationScheme
 )
@@ -28,10 +33,10 @@ builder.Services.AddAuthentication(
     options.AccessDeniedPath = "/Acceso/Login";
 });
 
-// AUTORIZACIÓN
+// AUTORIZACIÓN[cite: 13]
 builder.Services.AddAuthorization();
 
-// CORS
+// CORS[cite: 13]
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("NuevaPolitica", app =>
@@ -44,35 +49,39 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-var rutaUploads = Path.Combine(builder.Environment.ContentRootPath, "Uploads");
-if (!Directory.Exists(rutaUploads))
-    Directory.CreateDirectory(rutaUploads);
-
-app.UseStaticFiles(new StaticFileOptions
-{
-    FileProvider = new PhysicalFileProvider(rutaUploads),
-    RequestPath = "/ArchivosUsuario" // Esta será la ruta pública en la web
-});
-
-// SWAGGER
+// SWAGGER[cite: 13]
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-// 1. CORS DEBE IR ANTES de UseStaticFiles
+// 1. CORS DEBE IR ANTES de UseStaticFiles[cite: 12]
 app.UseCors("NuevaPolitica");
 
-// 2. ARCHIVOS ESTÁTICOS
-app.UseDefaultFiles();
-app.UseStaticFiles();
+// 2. ARCHIVOS ESTÁTICOS (Apuntando a la carpeta Frontend en la raíz)[cite: 13]
+var rutaFrontend = Path.Combine(builder.Environment.ContentRootPath, "Frontend");
 
-// AUTENTICACIÓN Y AUTORIZACIÓN
+if (Directory.Exists(rutaFrontend))
+{
+    var fileProvider = new PhysicalFileProvider(rutaFrontend);
+
+    app.UseDefaultFiles(new DefaultFilesOptions
+    {
+        FileProvider = fileProvider
+    });
+
+    app.UseStaticFiles(new StaticFileOptions
+    {
+        FileProvider = fileProvider
+    });
+}
+
+// AUTENTICACIÓN Y AUTORIZACIÓN[cite: 13]
 app.UseAuthentication();
 app.UseAuthorization();
 
-// RUTAS API
+// RUTAS API[cite: 13]
 app.MapControllers();
 
 app.Run();

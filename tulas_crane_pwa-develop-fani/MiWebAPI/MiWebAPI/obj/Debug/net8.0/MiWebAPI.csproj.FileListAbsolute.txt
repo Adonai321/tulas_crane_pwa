@@ -84,8 +84,6 @@ C:\Users\estef\OneDrive\Escritorio\Tula´s Crane Gestor\CRUD_NET8_HTML_JAVASCRIP
 C:\Users\estef\OneDrive\Escritorio\Tula´s Crane Gestor\CRUD_NET8_HTML_JAVASCRIPT\MiWebAPI\MiWebAPI\obj\Debug\net8.0\MiWebAPI.genruntimeconfig.cache
 C:\Users\estef\OneDrive\Escritorio\Tula´s Crane Gestor\CRUD_NET8_HTML_JAVASCRIPT\MiWebAPI\MiWebAPI\obj\Debug\net8.0\ref\MiWebAPI.dll
 C:\Users\adona\OneDrive\Documents\proyecto_pwa\tulas_crane_pwa-develop-fani\MiWebAPI\MiWebAPI\bin\Debug\net8.0\appsettings.Development.json
-C:\Users\adona\OneDrive\Documents\proyecto_pwa\tulas_crane_pwa-develop-fani\MiWebAPI\MiWebAPI\bin\Debug\net8.0\appsettings.json
-C:\Users\adona\OneDrive\Documents\proyecto_pwa\tulas_crane_pwa-develop-fani\MiWebAPI\MiWebAPI\bin\Debug\net8.0\MiWebAPI.staticwebassets.runtime.json
 C:\Users\adona\OneDrive\Documents\proyecto_pwa\tulas_crane_pwa-develop-fani\MiWebAPI\MiWebAPI\bin\Debug\net8.0\MiWebAPI.staticwebassets.endpoints.json
 C:\Users\adona\OneDrive\Documents\proyecto_pwa\tulas_crane_pwa-develop-fani\MiWebAPI\MiWebAPI\bin\Debug\net8.0\MiWebAPI.exe
 C:\Users\adona\OneDrive\Documents\proyecto_pwa\tulas_crane_pwa-develop-fani\MiWebAPI\MiWebAPI\bin\Debug\net8.0\MiWebAPI.deps.json
@@ -126,3 +124,5 @@ C:\Users\adona\OneDrive\Documents\proyecto_pwa\tulas_crane_pwa-develop-fani\MiWe
 C:\Users\adona\OneDrive\Documents\proyecto_pwa\tulas_crane_pwa-develop-fani\MiWebAPI\MiWebAPI\obj\Debug\net8.0\MiWebAPI.pdb
 C:\Users\adona\OneDrive\Documents\proyecto_pwa\tulas_crane_pwa-develop-fani\MiWebAPI\MiWebAPI\obj\Debug\net8.0\MiWebAPI.genruntimeconfig.cache
 C:\Users\adona\OneDrive\Documents\proyecto_pwa\tulas_crane_pwa-develop-fani\MiWebAPI\MiWebAPI\obj\Debug\net8.0\ref\MiWebAPI.dll
+C:\Users\adona\OneDrive\Documents\proyecto_pwa\tulas_crane_pwa-develop-fani\MiWebAPI\MiWebAPI\bin\Debug\net8.0\API\Properties\launchSettings.json
+C:\Users\adona\OneDrive\Documents\proyecto_pwa\tulas_crane_pwa-develop-fani\MiWebAPI\MiWebAPI\bin\Debug\net8.0\appsettings.json

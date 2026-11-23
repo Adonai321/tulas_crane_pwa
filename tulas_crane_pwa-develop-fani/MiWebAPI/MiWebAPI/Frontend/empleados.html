@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empleados | Tula's Crane</title>
+
+    <!-- Iconos compartidos -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Diseño administrativo compartido -->
+    <link rel="stylesheet" href="css/DiseñoAdmin.css">
+    <link rel="stylesheet" href="css/Empleados.css">
+</head>
+
+<body class="empleados-page">
+
+    <!-- HEADER ADMINISTRATIVO COMPARTIDO -->
+    <div id="admin-header-placeholder"></div>
+
+    <main class="empleados-container">
+
+        <section class="empleados-heading">
+            <h1>EMPLEADOS</h1>
+        </section>
+
+        <!-- BUSCADOR Y FILTROS -->
+        <section class="empleados-toolbar">
+
+            <div class="empleados-search">
+                <i class="bi bi-search search-icon"></i>
+                <input type="search" id="buscarEmpleado" placeholder="Buscar empleados" aria-label="Buscar empleados por nombre o puesto">
+                <i class="bi bi-search search-icon-right"></i>
+            </div>
+
+            <div class="empleados-actions">
+                <div class="empleados-filtros" role="group" aria-label="Filtrar empleados">
+                    <button type="button" class="filtro-btn activo" data-filtro="todos">Todos</button>
+                    <button type="button" class="filtro-btn" data-filtro="operadores">Operadores</button>
+                    <button type="button" class="filtro-btn" data-filtro="maniobrista">Maniobrista</button>
+                    <button type="button" class="filtro-btn" data-filtro="admin">Admin</button>
+                </div>
+
+                <a href="RegistrarEmpleado.html" class="btn-agregar-empleado">
+                    <i class="bi bi-plus-lg"></i>
+                    Agregar
+                </a>
+            </div>
+        </section>
+
+        <!-- LISTA DINÁMICA Y PAGINACIÓN DE EMPLEADOS -->
+        <section class="empleados-catalog" aria-label="Listado de empleados">
+
+            <!-- CUADRÍCULA DE 4 TARJETAS -->
+            <div class="empleados-grid" id="listaEmpleados"></div>
+
+            <!-- CONTROLES DE PAGINACIÓN -->
+            <nav class="empleados-pagination" id="empleadosPagination" aria-label="Paginación de empleados" hidden></nav>
+
+        </section>
+
+        <!-- MENSAJE CUANDO NO HAY RESULTADOS -->
+        <div class="empleados-vacio" id="empleadosVacio" hidden>
+            <i class="bi bi-person-exclamation"></i>
+            <h2>No se encontraron empleados</h2>
+            <p>Intenta cambiar la búsqueda o el filtro.</p>
+        </div>
+
+    </main>
+
+    <!-- CARGA DEL HEADER COMPARTIDO -->
+    <script src="js/Layout_Admin.js"></script>
+
+    <!-- SCRIPT PARA CARGAR Y FILTRAR EMPLEADOS DESDE LA API -->
+    <script src="js/Empleados.js"></script>
+
+</body>
+</html>

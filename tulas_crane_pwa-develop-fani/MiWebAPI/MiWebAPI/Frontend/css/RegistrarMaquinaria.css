@@ -1,0 +1,522 @@
+﻿/* =========================================
+   REGISTRAR MAQUINARIA - TULA'S CRANE
+   Soporte Modo Oscuro y Modo Claro
+========================================= */
+
+:root {
+    --rm-black: var(--tc-bg, #000000);
+    --rm-panel: var(--tc-surface, #181818);
+    --rm-gold: var(--tc-gold, #edba4d);
+    --rm-gold-light: var(--tc-gold, #e5bd70);
+    --rm-white: var(--tc-text, #ffffff);
+    --rm-muted: var(--tc-muted, #d7d7d7);
+    --rm-input: var(--tc-surface, #fafafa);
+    --rm-border: var(--tc-border, #494949);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    background: var(--tc-bg);
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--tc-bg);
+    color: var(--tc-text);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =========================================
+   CONTENEDOR PRINCIPAL
+========================================= */
+
+.rm-container {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 10px 4% 35px;
+}
+
+.rm-title-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 4px 0 16px;
+}
+
+    .rm-title-container h1 {
+        margin: 0;
+        font-size: clamp(25px, 2.8vw, 36px);
+        font-weight: 500;
+        letter-spacing: -1.2px;
+        color: var(--tc-text);
+    }
+
+.rm-back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--tc-gold);
+    text-decoration: none;
+    font-size: 36px;
+    line-height: 1;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+    .rm-back:hover {
+        transform: translateX(-3px);
+        opacity: 0.85;
+    }
+
+/* =========================================
+   DISTRIBUCIÓN DE LAS DOS COLUMNAS
+========================================= */
+
+.rm-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.9fr);
+    align-items: center;
+    gap: 5%;
+    width: 100%;
+}
+
+.rm-form-section {
+    width: 100%;
+    max-width: 580px;
+    min-width: 0;
+    margin: 0 auto;
+}
+
+/* =========================================
+   INDICADORES DE PASOS
+========================================= */
+
+.rm-steps {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 28px;
+    margin: 0 0 20px 20px;
+}
+
+.rm-step {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--tc-muted);
+    font-size: 17px;
+    transition: color 0.2s ease;
+}
+
+.rm-step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--tc-surface-alt);
+    border: 1px solid var(--tc-border);
+    color: var(--tc-text);
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.rm-step.active {
+    color: var(--tc-gold);
+    font-weight: 600;
+}
+
+    .rm-step.active .rm-step-number {
+        background: var(--tc-gold);
+        border-color: var(--tc-gold);
+        color: #111111;
+    }
+
+[data-theme="light"] .rm-step.active .rm-step-number {
+    color: #ffffff;
+}
+
+/* =========================================
+   FORMULARIOS Y CAMPOS
+========================================= */
+
+#registrarMaquinariaForm {
+    width: 100%;
+}
+
+.rm-form-step {
+    display: none;
+    width: 100%;
+}
+
+    .rm-form-step.active {
+        display: block;
+    }
+
+.rm-field {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    margin-bottom: 15px;
+}
+
+    .rm-field label {
+        margin-bottom: 7px;
+        color: var(--tc-gold);
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .rm-field input:not([type="file"]),
+    .rm-field select {
+        width: 100%;
+        min-width: 0;
+        height: 44px;
+        padding: 0 14px;
+        border: 1px solid var(--tc-border);
+        border-radius: 10px;
+        outline: none;
+        background: var(--tc-surface);
+        color: var(--tc-text);
+        font-family: inherit;
+        font-size: 16px;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+
+[data-theme="light"] .rm-field input:not([type="file"]),
+[data-theme="light"] .rm-field select {
+    background: #ffffff;
+    border-color: #cbd5e1;
+    color: #141518;
+}
+
+.rm-field input::placeholder {
+    color: var(--tc-muted);
+    opacity: 0.85;
+}
+
+.rm-field select {
+    cursor: pointer;
+}
+
+    .rm-field select option {
+        background-color: var(--tc-surface);
+        color: var(--tc-text);
+    }
+
+    .rm-field input:focus,
+    .rm-field select:focus {
+        border-color: var(--tc-gold);
+        box-shadow: 0 0 0 2px rgba(237, 186, 77, 0.25);
+    }
+
+/* Campos colocados uno al lado del otro */
+
+.rm-field-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+    .rm-field-row .rm-field {
+        min-width: 0;
+    }
+
+/* =========================================
+   CARGA DE DOCUMENTOS
+========================================= */
+
+.rm-field input[type="file"] {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    min-height: 48px;
+    padding: 7px;
+    overflow: hidden;
+    border: 1px solid var(--tc-border);
+    border-radius: 10px;
+    background: var(--tc-surface);
+    color: var(--tc-text);
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+[data-theme="light"] .rm-field input[type="file"] {
+    background: #ffffff;
+    border-color: #cbd5e1;
+}
+
+.rm-field input[type="file"]::file-selector-button {
+    margin-right: 10px;
+    padding: 8px 12px;
+    border: 1px solid var(--tc-border);
+    border-radius: 6px;
+    background: var(--tc-surface-alt);
+    color: var(--tc-text);
+    font-size: 14px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+    .rm-field input[type="file"]::file-selector-button:hover {
+        border-color: var(--tc-gold);
+        color: var(--tc-gold);
+    }
+
+.rm-instructions {
+    margin: 0 0 20px;
+    color: var(--tc-muted);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* =========================================
+   BOTONES
+========================================= */
+
+.rm-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 22px;
+}
+
+.rm-actions-single {
+    justify-content: flex-end;
+}
+
+.rm-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    min-width: 174px;
+    min-height: 48px;
+    padding: 10px 22px;
+    border: 2px solid var(--tc-border);
+    border-radius: 15px;
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: filter 0.2s ease, background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+    .rm-button i {
+        font-size: 20px;
+    }
+
+.rm-button-primary {
+    background: var(--tc-gold);
+    color: #000000;
+    border-color: var(--tc-gold);
+}
+
+[data-theme="light"] .rm-button-primary {
+    color: #ffffff;
+}
+
+.rm-button-primary:hover {
+    filter: brightness(1.07);
+    transform: translateY(-1px);
+}
+
+.rm-button-secondary {
+    background: var(--tc-surface);
+    color: var(--tc-text);
+    border-color: var(--tc-border);
+}
+
+    .rm-button-secondary:hover {
+        background: var(--tc-surface-alt);
+        border-color: var(--tc-gold);
+    }
+
+/* =========================================
+   LOGOTIPO DE LA EMPRESA
+========================================= */
+
+.rm-image-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-width: 0;
+    padding: 20px;
+}
+
+.rm-company-logo {
+    display: block;
+    width: 100%;
+    max-width: 350px;
+    max-height: 390px;
+    object-fit: contain;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+    .rm-container {
+        padding-right: 25px;
+        padding-left: 25px;
+    }
+
+    .rm-content {
+        grid-template-columns: minmax(0, 1fr) minmax(200px, 0.7fr);
+        gap: 25px;
+    }
+
+    .rm-steps {
+        gap: 16px;
+        margin-left: 0;
+    }
+
+    .rm-step {
+        font-size: 15px;
+    }
+
+    .rm-image-section {
+        padding: 10px;
+    }
+
+    .rm-company-logo {
+        max-width: 270px;
+    }
+
+    .rm-button {
+        min-width: 140px;
+    }
+}
+
+/* =========================================
+   MÓVILES
+========================================= */
+
+@media (max-width: 600px) {
+    .rm-container {
+        padding: 15px 18px 95px;
+    }
+
+    .rm-title-container {
+        margin-bottom: 20px;
+    }
+
+        .rm-title-container h1 {
+            font-size: 26px;
+        }
+
+    .rm-back {
+        font-size: 30px;
+    }
+
+    .rm-content {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 25px;
+    }
+
+    .rm-form-section {
+        max-width: none;
+    }
+
+    .rm-steps {
+        gap: 14px;
+        margin-bottom: 20px;
+    }
+
+    .rm-step {
+        gap: 7px;
+        font-size: 13px;
+    }
+
+    .rm-step-number {
+        width: 29px;
+        height: 29px;
+        font-size: 16px;
+    }
+
+    .rm-field-row {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
+    }
+
+    .rm-field {
+        margin-bottom: 14px;
+    }
+
+        .rm-field label {
+            font-size: 15px;
+        }
+
+        .rm-field input:not([type="file"]),
+        .rm-field select {
+            height: 46px;
+            font-size: 15px;
+        }
+
+        .rm-field input[type="file"] {
+            font-size: 12px;
+        }
+
+    .rm-actions {
+        gap: 10px;
+    }
+
+    .rm-button {
+        flex: 1;
+        min-width: 0;
+        padding: 10px 12px;
+        font-size: 15px;
+    }
+
+    .rm-image-section {
+        padding: 0;
+    }
+
+    .rm-company-logo {
+        max-width: 190px;
+        max-height: 200px;
+    }
+}
+
+/* =========================================
+   PANTALLAS MUY PEQUEÑAS
+========================================= */
+
+@media (max-width: 360px) {
+    .rm-container {
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+
+    .rm-title-container h1 {
+        font-size: 23px;
+    }
+
+    .rm-steps {
+        gap: 10px;
+    }
+
+    .rm-step {
+        font-size: 12px;
+    }
+
+    .rm-button {
+        gap: 7px;
+        font-size: 14px;
+    }
+}
