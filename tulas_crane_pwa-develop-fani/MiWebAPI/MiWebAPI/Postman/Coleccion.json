@@ -1,0 +1,432 @@
+{
+  "info": {
+    "_postman_id": "4cab1c78-10ab-4b61-aa16-9208a41ab727",
+    "name": "TulasCrane_API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "58829378",
+    "_collection_link": "https://go.postman.co/collection/58829378-4cab1c78-10ab-4b61-aa16-9208a41ab727?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login Admin",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"usuario\": \"admin\",\r\n  \"password\": \"Admin123*\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "Auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "item": [
+        {
+          "name": "Obtener Resumen General",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Dashboard/Resumen",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "Dashboard",
+                "Resumen"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Maquinaria",
+      "item": [
+        {
+          "name": "Catálogo Maquinaria",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Maquinaria/Catalogo",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "Maquinaria",
+                "Catalogo"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Expediente por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Maquinaria/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "Maquinaria",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Registrar Maquinaria",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"marca\": \"Liebherr\",\r\n  \"modelo\": \"LTM 1050\",\r\n  \"capacidad\": \"50 toneladas\",\r\n  \"alcance\": \"38 m\",\r\n  \"tipo\": \"Grúa Telescópica\",\r\n  \"anio\": 2021,\r\n  \"placas\": \"TC-999-A\",\r\n  \"estadoActividad\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Maquinaria/Registrar",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "Maquinaria",
+                "Registrar"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Editar Maquinaria",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"marca\": \"Liebherr\",\r\n  \"modelo\": \"LTM 1050-3.1\",\r\n  \"capacidad\": \"55 toneladas\",\r\n  \"alcance\": \"40 m\",\r\n  \"tipo\": \"Grúa Telescópica\",\r\n  \"anio\": 2022,\r\n  \"placas\": \"TC-999-A\",\r\n  \"estadoActividad\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Maquinaria/10006",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "Maquinaria",
+                "10006"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Baja Lógica Maquinaria",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Maquinaria/10006",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "Maquinaria",
+                "10006"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminación Física Maquinaria",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Maquinaria/Permanente/10006",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "Maquinaria",
+                "Permanente",
+                "10006"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Empleados",
+      "item": [
+        {
+          "name": "Catálogo Empleados",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Empleados/Catalogo",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "Empleados",
+                "Catalogo"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Expediente Empleado por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Empleados/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "Empleados",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Registrar Empleado",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nombre\": \"Carlos\",\r\n  \"apellidoPaterno\": \"Méndez\",\r\n  \"apellidoMaterno\": \"Ruiz\",\r\n  \"puesto\": \"Operador de Grúa\",\r\n  \"salario\": 18000,\r\n  \"direccion\": \"Tula de Allende, Hgo.\",\r\n  \"rfcEmpleado\": \"MERC900101ABC\",\r\n  \"estadoActividad\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Empleados/Registrar",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "Empleados",
+                "Registrar"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Editar Empleado",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nombre\": \"Carlos\",\r\n  \"apellidoPaterno\": \"Méndez\",\r\n  \"apellidoMaterno\": \"Ruiz\",\r\n  \"puesto\": \"Operador de Grúa\",\r\n  \"salario\": 18000,\r\n  \"direccion\": \"Tula de Allende, Hgo.\",\r\n  \"rfcEmpleado\": \"MERC900101ABC\",\r\n  \"estadoActividad\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Empleados/ID_EMPLEADO",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "Empleados",
+                "ID_EMPLEADO"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminación Física Empleado",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Empleados/Permanente/ID_EMPLEADO",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "Empleados",
+                "Permanente",
+                "ID_EMPLEADO"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Calendario",
+      "item": [
+        {
+          "name": "Listar Eventos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Calendario/Eventos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "Calendario",
+                "Eventos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Registrar Evento",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"type\": \"reunion\",\r\n  \"title\": \"Revisión operativa semanal\",\r\n  \"date\": \"2026-11-25\",\r\n  \"time\": \"10:00\",\r\n  \"endDate\": \"2026-11-25\",\r\n  \"endTime\": \"11:00\",\r\n  \"description\": \"Coordinación de maniobras\",\r\n  \"place\": \"Oficinas Tula\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Calendario/Registrar",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "Calendario",
+                "Registrar"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar Estatus",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"type\": \"reunion\",\r\n  \"idNumerico\": 1,\r\n  \"status\": \"Confirmado\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Calendario/Estatus",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "Calendario",
+                "Estatus"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminación Física Evento",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Calendario/Permanente/reunion/ID_EVENTO",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "Calendario",
+                "Permanente",
+                "reunion",
+                "ID_EVENTO"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": ""
+    }
+  ]
+}

@@ -3,51 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1DC64CB1-50A4-E35E-C171-7B8FC444EB04}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\adona\\onedrive\\documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\miwebapi\\miwebapi\\api\\data\\authdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1DC64CB1-50A4-E35E-C171-7B8FC444EB04}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\api\\data\\authdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1DC64CB1-50A4-E35E-C171-7B8FC444EB04}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\adona\\onedrive\\documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\miwebapi\\miwebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1DC64CB1-50A4-E35E-C171-7B8FC444EB04}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1DC64CB1-50A4-E35E-C171-7B8FC444EB04}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\adona\\onedrive\\documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\miwebapi\\miwebapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{1DC64CB1-50A4-E35E-C171-7B8FC444EB04}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\9.0.320\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.DefaultItems.Shared.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{1DC64CB1-50A4-E35E-C171-7B8FC444EB04}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\adona\\onedrive\\documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\miwebapi\\miwebapi\\api\\data\\dashboarddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1DC64CB1-50A4-E35E-C171-7B8FC444EB04}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\api\\data\\dashboarddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1DC64CB1-50A4-E35E-C171-7B8FC444EB04}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\adona\\onedrive\\documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\miwebapi\\miwebapi\\miwebapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{1DC64CB1-50A4-E35E-C171-7B8FC444EB04}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\miwebapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\API\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:MiWebAPI\\API\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1DC64CB1-50A4-E35E-C171-7B8FC444EB04}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\adona\\onedrive\\documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\miwebapi\\miwebapi\\api\\controllers\\calendariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1DC64CB1-50A4-E35E-C171-7B8FC444EB04}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\api\\controllers\\calendariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1DC64CB1-50A4-E35E-C171-7B8FC444EB04}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\adona\\onedrive\\documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\miwebapi\\miwebapi\\api\\controllers\\empleadoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1DC64CB1-50A4-E35E-C171-7B8FC444EB04}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\api\\controllers\\empleadoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1DC64CB1-50A4-E35E-C171-7B8FC444EB04}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\adona\\onedrive\\documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\miwebapi\\miwebapi\\api\\controllers\\maquinariacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1DC64CB1-50A4-E35E-C171-7B8FC444EB04}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\api\\controllers\\maquinariacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1DC64CB1-50A4-E35E-C171-7B8FC444EB04}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\adona\\onedrive\\documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\miwebapi\\miwebapi\\api\\data\\calendariodata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1DC64CB1-50A4-E35E-C171-7B8FC444EB04}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\api\\data\\calendariodata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1DC64CB1-50A4-E35E-C171-7B8FC444EB04}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\adona\\onedrive\\documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\miwebapi\\miwebapi\\api\\data\\empleadodata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1DC64CB1-50A4-E35E-C171-7B8FC444EB04}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\api\\data\\empleadodata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1DC64CB1-50A4-E35E-C171-7B8FC444EB04}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\adona\\onedrive\\documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\miwebapi\\miwebapi\\api\\data\\maquinariadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1DC64CB1-50A4-E35E-C171-7B8FC444EB04}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\api\\data\\maquinariadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -57,154 +18,33 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\appsettings.json",
-              "RelativeDocumentMoniker": "MiWebAPI\\appsettings.json",
-              "ToolTip": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\appsettings.json",
-              "RelativeToolTip": "MiWebAPI\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-11-23T18:03:49.126Z",
+              "DocumentIndex": 0,
+              "Title": "DashboardData.cs",
+              "DocumentMoniker": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\API\\Data\\DashboardData.cs",
+              "RelativeDocumentMoniker": "MiWebAPI\\API\\Data\\DashboardData.cs",
+              "ToolTip": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\API\\Data\\DashboardData.cs",
+              "RelativeToolTip": "MiWebAPI\\API\\Data\\DashboardData.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAvwAsAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-23T21:42:10.888Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Microsoft.NET.Sdk.DefaultItems.Shared.targets",
-              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\9.0.320\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.DefaultItems.Shared.targets",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.320\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.DefaultItems.Shared.targets",
-              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\9.0.320\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.DefaultItems.Shared.targets",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.320\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.DefaultItems.Shared.targets",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAABMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2026-11-23T18:02:02.06Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\Program.cs",
-              "RelativeDocumentMoniker": "MiWebAPI\\Program.cs",
-              "ToolTip": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\Program.cs",
-              "RelativeToolTip": "MiWebAPI\\Program.cs",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAIwFYAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-23T18:00:57.98Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AuthData.cs",
-              "DocumentMoniker": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\API\\Data\\AuthData.cs",
-              "RelativeDocumentMoniker": "MiWebAPI\\API\\Data\\AuthData.cs",
-              "ToolTip": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\API\\Data\\AuthData.cs",
-              "RelativeToolTip": "MiWebAPI\\API\\Data\\AuthData.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAIAwwBYAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-23T17:39:52.714Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "MiWebAPI.csproj",
               "DocumentMoniker": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\MiWebAPI.csproj",
               "RelativeDocumentMoniker": "MiWebAPI\\MiWebAPI.csproj",
               "ToolTip": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\MiWebAPI.csproj",
               "RelativeToolTip": "MiWebAPI\\MiWebAPI.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-11-23T17:35:02.114Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\API\\Program.cs",
-              "RelativeDocumentMoniker": "MiWebAPI\\API\\Program.cs",
-              "ToolTip": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\API\\Program.cs",
-              "RelativeToolTip": "MiWebAPI\\API\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-23T17:29:36.252Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "CalendarioController.cs",
-              "DocumentMoniker": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\API\\Controllers\\CalendarioController.cs",
-              "RelativeDocumentMoniker": "MiWebAPI\\API\\Controllers\\CalendarioController.cs",
-              "ToolTip": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\API\\Controllers\\CalendarioController.cs",
-              "RelativeToolTip": "MiWebAPI\\API\\Controllers\\CalendarioController.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAswKYAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-23T17:25:56.836Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "EmpleadosController.cs",
-              "DocumentMoniker": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\API\\Controllers\\EmpleadosController.cs",
-              "RelativeDocumentMoniker": "MiWebAPI\\API\\Controllers\\EmpleadosController.cs",
-              "ToolTip": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\API\\Controllers\\EmpleadosController.cs",
-              "RelativeToolTip": "MiWebAPI\\API\\Controllers\\EmpleadosController.cs",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAwwJcAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-23T17:25:35.659Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "MaquinariaController.cs",
-              "DocumentMoniker": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\API\\Controllers\\MaquinariaController.cs",
-              "RelativeDocumentMoniker": "MiWebAPI\\API\\Controllers\\MaquinariaController.cs",
-              "ToolTip": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\API\\Controllers\\MaquinariaController.cs",
-              "RelativeToolTip": "MiWebAPI\\API\\Controllers\\MaquinariaController.cs",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAwwI8AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-23T17:25:05.318Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "CalendarioData.cs",
-              "DocumentMoniker": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\API\\Data\\CalendarioData.cs",
-              "RelativeDocumentMoniker": "MiWebAPI\\API\\Data\\CalendarioData.cs",
-              "ToolTip": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\API\\Data\\CalendarioData.cs",
-              "RelativeToolTip": "MiWebAPI\\API\\Data\\CalendarioData.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAA1wLAAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-23T17:24:28.913Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "EmpleadoData.cs",
-              "DocumentMoniker": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\API\\Data\\EmpleadoData.cs",
-              "RelativeDocumentMoniker": "MiWebAPI\\API\\Data\\EmpleadoData.cs",
-              "ToolTip": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\API\\Data\\EmpleadoData.cs",
-              "RelativeToolTip": "MiWebAPI\\API\\Data\\EmpleadoData.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAowKEAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-23T17:24:08.105Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "MaquinariaData.cs",
-              "DocumentMoniker": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\API\\Data\\MaquinariaData.cs",
-              "RelativeDocumentMoniker": "MiWebAPI\\API\\Data\\MaquinariaData.cs",
-              "ToolTip": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\API\\Data\\MaquinariaData.cs",
-              "RelativeToolTip": "MiWebAPI\\API\\Data\\MaquinariaData.cs",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAkwKAAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-23T17:23:33.263Z"
+              "WhenOpened": "2026-11-23T17:35:02.114Z",
+              "EditorCaption": ""
             }
           ]
         }
