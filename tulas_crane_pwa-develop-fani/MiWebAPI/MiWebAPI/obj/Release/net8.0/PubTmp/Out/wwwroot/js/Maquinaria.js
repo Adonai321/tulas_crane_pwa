@@ -3,14 +3,17 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     let maquinaria = [];
+    const POR_PAGINA = 4;
+    let paginaActual = 1;
+    let filtroActual = "todos";
+
     const contenedor = document.getElementById("maquinariaGrid");
+    const paginacion = document.getElementById("maquinariaPagination");
     const buscador = document.getElementById("buscarMaquinaria");
     const botonBuscar = document.getElementById("btnBuscarMaquinaria");
     const botonAgregar = document.getElementById("btnAgregarMaquinaria");
     const mensajeVacio = document.getElementById("maquinariaEmpty");
     const botonesFiltro = document.querySelectorAll(".filter-btn");
-
-    let filtroActual = "todos";
 
     async function cargarMaquinariaDesdeDB() {
         try {
@@ -21,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             maquinaria = await respuesta.json();
+            paginaActual = 1;
             renderizarMaquinaria();
 
         } catch (error) {
@@ -37,30 +41,21 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    function crearTarjeta(maquina) {
-
+    function crearTarjeta(maquina, indice) {
         const tarjeta = document.createElement("article");
 
-        // Priorizamos la Marca como título principal; si no viene, usamos Nombre o Tipo
         const tituloPrincipal = maquina.marca || maquina.nombre || maquina.tipo || "Sin marca";
-        const tipoSecundario = maquina.tipo || maquina.nombre || "";
+        const tipoSecundario = maquina.tipo || "";
+        const urlImagen = (maquina.imagen || maquina.rutaImagen || "").trim();
 
         tarjeta.className = "maquinaria-card";
+        tarjeta.style.animationDelay = `${indice * 0.06}s`; // Entrada escalonada dinámica
         tarjeta.tabIndex = 0;
         tarjeta.setAttribute("role", "button");
-        tarjeta.setAttribute(
-            "aria-label",
-            `Consultar ${tituloPrincipal}, ${maquina.capacidad}`
-        );
+        tarjeta.setAttribute("aria-label", `Consultar ${tituloPrincipal}, ${maquina.capacidad}`);
 
         const estadoDisponible = maquina.estado === "disponible";
         const estadoManiobra = maquina.estado === "maniobra";
-
-        const claseEstado = estadoDisponible
-            ? "status-available"
-            : estadoManiobra
-                ? "status-busy"
-                : "status-unavailable";
 
         const claseTexto = estadoDisponible
             ? "status-text-available"
@@ -69,10 +64,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 : "status-text-unavailable";
 
         const iconoEstado = estadoDisponible
-            ? "bi-check-lg"
+            ? "bi-check-circle-fill"
             : estadoManiobra
-                ? "bi-check-lg"
-                : "bi-x-lg";
+                ? "bi-cone-striped"
+                : "bi-x-circle-fill";
 
         const iconoDocumentacion = maquina.documentosCompletos
             ? "bi-check-lg"
@@ -80,62 +75,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
         tarjeta.innerHTML = `
             <div class="maquinaria-photo">
-                <div class="maquinaria-photo-placeholder"
-                     aria-hidden="true">
+                <span class="maquinaria-badge-estado ${claseTexto}">
+                    <i class="bi ${iconoEstado}"></i> ${maquina.disponibilidad}
+                </span>
+
+                <div class="maquinaria-photo-placeholder" aria-hidden="true">
                     <i class="bi bi-truck-front"></i>
+                    <span>Imagen pendiente</span>
                 </div>
 
-                <img
-                    src="${maquina.imagen}"
-                    alt="${tituloPrincipal}"
-                    loading="lazy">
+                ${urlImagen ? `
+                    <img
+                        src="${urlImagen}"
+                        alt="${tituloPrincipal}"
+                        loading="lazy">
+                ` : ""}
             </div>
 
             <div class="maquinaria-info">
-
-                <h2 class="maquinaria-name">
-                    ${tituloPrincipal}
-                </h2>
+                <h2 class="maquinaria-name">${tituloPrincipal}</h2>
 
                 ${tipoSecundario ? `
-                    <p class="maquinaria-type" style="margin: 0 0 4px; font-size: 0.88rem; color: #f4c542; font-weight: 600;">
+                    <p class="maquinaria-type" style="margin: 0; font-size: 0.88rem; color: #f4c542; font-weight: 600;">
                         ${tipoSecundario}
                     </p>
                 ` : ""}
 
-                <p class="maquinaria-capacity">
-                    ${maquina.capacidad}
-                </p>
+                <div class="maquinaria-specs-row">
+                    ${maquina.capacidad ? `<span class="spec-pill"><i class="bi bi-speedometer2"></i> ${maquina.capacidad}</span>` : ""}
+                    ${maquina.alcance ? `<span class="spec-pill"><i class="bi bi-arrows-expand"></i> ${maquina.alcance}</span>` : ""}
+                </div>
 
-                ${maquina.alcance ? `
-                    <p class="maquinaria-reach">
-                        ${maquina.alcance}
-                    </p>
-                ` : ""}
-
-                <p class="maquinaria-status">
-                    <span class="status-icon ${claseEstado}">
-                        <i class="bi ${iconoEstado}"></i>
-                    </span>
-
-                    <span class="${claseTexto}">
-                        ${maquina.disponibilidad}
-                    </span>
-                </p>
-
-                <p class="maquinaria-doc-status">
-                    <span class="status-icon ${maquina.documentosCompletos
-                ? "status-available"
-                : "status-busy"
-            }">
+                <p class="maquinaria-doc-status" style="margin-top: 4px; padding-right: 42px;">
+                    <span class="status-icon ${maquina.documentosCompletos ? "status-available" : "status-busy"}">
                         <i class="bi ${iconoDocumentacion}"></i>
                     </span>
-
-                    <span>
-                        ${maquina.documentacion}
-                    </span>
+                    <span>${maquina.documentacion}</span>
                 </p>
-
             </div>
 
             <button
@@ -146,11 +122,13 @@ document.addEventListener("DOMContentLoaded", function () {
             </button>
         `;
 
+        // Si la URL existe pero aún no carga en Azure Blob, ocultamos el <img> y queda el marco estilizado
         const imagen = tarjeta.querySelector("img");
-
-        imagen.addEventListener("error", function () {
-            imagen.style.display = "none";
-        });
+        if (imagen) {
+            imagen.addEventListener("error", function () {
+                imagen.remove();
+            });
+        }
 
         function consultarMaquinaria() {
             window.location.href = `ExpedienteMaquinaria.html?id=${maquina.id}`;
@@ -159,32 +137,76 @@ document.addEventListener("DOMContentLoaded", function () {
         tarjeta.addEventListener("click", consultarMaquinaria);
 
         tarjeta.addEventListener("keydown", function (evento) {
-            if (
-                evento.target === tarjeta &&
-                (evento.key === "Enter" || evento.key === " ")
-            ) {
+            if (evento.target === tarjeta && (evento.key === "Enter" || evento.key === " ")) {
                 evento.preventDefault();
                 consultarMaquinaria();
             }
         });
 
-        tarjeta.querySelector(".maquinaria-arrow")
-            .addEventListener("click", function (evento) {
-                evento.stopPropagation();
-                consultarMaquinaria();
-            });
+        tarjeta.querySelector(".maquinaria-arrow").addEventListener("click", function (evento) {
+            evento.stopPropagation();
+            consultarMaquinaria();
+        });
 
         return tarjeta;
     }
 
-    function renderizarMaquinaria() {
+    function renderizarControlesPaginacion(totalResultados) {
+        if (!paginacion) return;
 
-        const texto = buscador.value
-            .trim()
-            .toLocaleLowerCase("es-MX");
+        const totalPaginas = Math.ceil(totalResultados / POR_PAGINA);
+        paginacion.replaceChildren();
+
+        // Si hay 4 o menos máquinas en total, no hace falta paginar
+        if (totalPaginas <= 1) {
+            paginacion.hidden = true;
+            return;
+        }
+
+        paginacion.hidden = false;
+
+        // Botón Anterior
+        const btnAnterior = document.createElement("button");
+        btnAnterior.type = "button";
+        btnAnterior.className = "page-btn page-btn-nav";
+        btnAnterior.innerHTML = `<i class="bi bi-chevron-left"></i> <span>Anterior</span>`;
+        btnAnterior.disabled = paginaActual === 1;
+        btnAnterior.addEventListener("click", () => cambiarPagina(paginaActual - 1));
+        paginacion.appendChild(btnAnterior);
+
+        // Botones numéricos: 1, 2, 3...
+        for (let i = 1; i <= totalPaginas; i++) {
+            const btnNumero = document.createElement("button");
+            btnNumero.type = "button";
+            btnNumero.className = `page-btn ${i === paginaActual ? "active" : ""}`;
+            btnNumero.textContent = i;
+            btnNumero.setAttribute("aria-label", `Página ${i}`);
+            if (i === paginaActual) btnNumero.setAttribute("aria-current", "page");
+
+            btnNumero.addEventListener("click", () => cambiarPagina(i));
+            paginacion.appendChild(btnNumero);
+        }
+
+        // Botón Siguiente
+        const btnSiguiente = document.createElement("button");
+        btnSiguiente.type = "button";
+        btnSiguiente.className = "page-btn page-btn-nav";
+        btnSiguiente.innerHTML = `<span>Siguiente</span> <i class="bi bi-chevron-right"></i>`;
+        btnSiguiente.disabled = paginaActual === totalPaginas;
+        btnSiguiente.addEventListener("click", () => cambiarPagina(paginaActual + 1));
+        paginacion.appendChild(btnSiguiente);
+    }
+
+    function cambiarPagina(nuevaPagina) {
+        paginaActual = nuevaPagina;
+        renderizarMaquinaria();
+        contenedor.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function renderizarMaquinaria() {
+        const texto = buscador.value.trim().toLocaleLowerCase("es-MX");
 
         const resultados = maquinaria.filter(function (maquina) {
-
             const coincideTexto = [
                 maquina.marca,
                 maquina.tipo,
@@ -206,21 +228,36 @@ document.addEventListener("DOMContentLoaded", function () {
             return coincideTexto && coincideCategoria;
         });
 
+        const totalPaginas = Math.max(1, Math.ceil(resultados.length / POR_PAGINA));
+        if (paginaActual > totalPaginas) {
+            paginaActual = 1;
+        }
+
+        const inicio = (paginaActual - 1) * POR_PAGINA;
+        const paginaItems = resultados.slice(inicio, inicio + POR_PAGINA);
+
         contenedor.replaceChildren();
 
-        resultados.forEach(function (maquina) {
-            contenedor.appendChild(crearTarjeta(maquina));
+        paginaItems.forEach(function (maquina, idx) {
+            contenedor.appendChild(crearTarjeta(maquina, idx));
         });
 
         mensajeVacio.hidden = resultados.length > 0;
+        renderizarControlesPaginacion(resultados.length);
     }
 
-    buscador.addEventListener("input", renderizarMaquinaria);
-    botonBuscar.addEventListener("click", renderizarMaquinaria);
+    // Al buscar o filtrar regresamos siempre a la página 1
+    function reiniciarYRenderizar() {
+        paginaActual = 1;
+        renderizarMaquinaria();
+    }
+
+    buscador.addEventListener("input", reiniciarYRenderizar);
+    botonBuscar.addEventListener("click", reiniciarYRenderizar);
 
     buscador.addEventListener("keydown", function (evento) {
         if (evento.key === "Enter") {
-            renderizarMaquinaria();
+            reiniciarYRenderizar();
         }
     });
 
@@ -232,7 +269,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 otroBoton.classList.toggle("active", activo);
                 otroBoton.setAttribute("aria-pressed", activo ? "true" : "false");
             });
-            renderizarMaquinaria();
+            reiniciarYRenderizar();
         });
     });
 

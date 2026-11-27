@@ -1,6 +1,7 @@
 C:\Users\adona\OneDrive\Documents\proyecto_pwa\tulas_crane_pwa-develop-fani\MiWebAPI\MiWebAPI\obj\Release\net8.0\PubTmp\Out\MiWebAPI.exe
 C:\Users\adona\OneDrive\Documents\proyecto_pwa\tulas_crane_pwa-develop-fani\MiWebAPI\MiWebAPI\obj\Release\net8.0\PubTmp\Out\appsettings.Development.json
 C:\Users\adona\OneDrive\Documents\proyecto_pwa\tulas_crane_pwa-develop-fani\MiWebAPI\MiWebAPI\obj\Release\net8.0\PubTmp\Out\appsettings.json
+C:\Users\adona\OneDrive\Documents\proyecto_pwa\tulas_crane_pwa-develop-fani\MiWebAPI\MiWebAPI\obj\Release\net8.0\PubTmp\Out\Postman\Coleccion.json
 C:\Users\adona\OneDrive\Documents\proyecto_pwa\tulas_crane_pwa-develop-fani\MiWebAPI\MiWebAPI\obj\Release\net8.0\PubTmp\Out\MiWebAPI.dll
 C:\Users\adona\OneDrive\Documents\proyecto_pwa\tulas_crane_pwa-develop-fani\MiWebAPI\MiWebAPI\obj\Release\net8.0\PubTmp\Out\MiWebAPI.deps.json
 C:\Users\adona\OneDrive\Documents\proyecto_pwa\tulas_crane_pwa-develop-fani\MiWebAPI\MiWebAPI\obj\Release\net8.0\PubTmp\Out\MiWebAPI.runtimeconfig.json

@@ -4,39 +4,39 @@
 ======================================== */
 
 /* COLORES */
-
 :root {
-    --tc-black: #080808;
-    --tc-panel: #191a1c;
-    --tc-gold: #e3b969;
-    --tc-gold-dark: #c99c47;
-    --tc-cream: #fff1d0;
-    --tc-white: #ffffff;
-    --tc-gray: #d5d5d5;
+    --tc-home-black: #080808;
+    --tc-home-panel: #191a1c;
+    --tc-home-gold: #e3b969;
+    --tc-home-gold-dark: #c99c47;
+    --tc-home-cream: #fff1d0;
+    --tc-home-white: #ffffff;
+    --tc-home-gray: #d5d5d5;
 }
 
 /* AJUSTES GENERALES */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
 
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
-    box-sizing: border-box;
     width: 100%;
     overflow-x: hidden;
-}
-
-*, *::before, *::after {
-    box-sizing: inherit;
 }
 
 body {
     margin: 0;
+    padding: 0;
     min-height: 100vh;
-    background: var(--tc-black);
-    color: var(--tc-white);
+    width: 100%;
+    background: var(--tc-home-black);
+    color: var(--tc-home-white);
     font-family: Arial, Helvetica, sans-serif;
     overflow-x: hidden;
-    width: 100%;
 }
 
 button,
@@ -54,38 +54,20 @@ img {
     display: block;
 }
 
-
-/* ========================================
-   DISTRIBUCIÓN PRINCIPAL (APROVECHANDO EL ANCHO EN PC)
-======================================== */
-
-/*.home-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-    align-items: stretch;
-    gap: 30px;
-    max-width: 1650px;
-    margin: 0 auto;
-    padding: 20px 35px 45px;
-    width: 100%;
-}*/
-
 /* ========================================
    DISTRIBUCIÓN PRINCIPAL (PROPORCIÓN 40% / 60%)
 ======================================== */
 
 .home-layout {
     display: grid;
-    /* 40% para la portada izquierda (hero) y 60% para la columna derecha (home-side) */
-    grid-template-columns: minmax(0, 0.68fr) minmax(0, 1.02fr);
+    grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.08fr);
     align-items: stretch;
-    gap: 25px;
-    max-width: 1700px;
-    margin: 0 auto;
-    padding: 20px 30px 45px;
+    gap: 22px;
+    max-width: 1560px;
     width: 100%;
+    margin: 0 auto;
+    padding: 16px 26px 40px;
 }
-
 
 /* ========================================
    PORTADA
@@ -95,14 +77,14 @@ img {
     position: relative;
     isolation: isolate;
     min-width: 0;
-    min-height: 560px;
+    min-height: 510px;
     height: 100%;
     display: flex;
     align-items: center;
     overflow: hidden;
     border-radius: 14px;
     background-color: #202020;
-    background-image: linear-gradient( 180deg, rgb(0 0 0 / 12%) 0%, rgb(0 0 0 / 35%) 35%, rgb(0 0 0 / 94%) 100% ), linear-gradient( 90deg, rgb(0 0 0 / 48%) 0%, rgb(0 0 0 / 12%) 100% ), url("../IMG/ImagenFondo.jpeg");
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.14) 0%, rgba(0, 0, 0, 0.38) 35%, rgba(0, 0, 0, 0.94) 100%), linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.14) 100%), url("../IMG/ImagenFondo.jpeg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -110,49 +92,48 @@ img {
 
 .hero-content {
     width: 100%;
-    padding: 40px clamp(24px, 3.5vw, 48px);
-    margin-top: 15px;
+    padding: 34px clamp(20px, 3vw, 40px);
+    margin-top: 10px;
 }
 
 .hero h1 {
-    max-width: 600px;
-    margin: 0 0 18px;
-    color: var(--tc-white);
-    font-size: clamp(2.2rem, 3.2vw, 3.6rem);
+    max-width: 540px;
+    margin: 0 0 16px;
+    color: var(--tc-home-white);
+    font-size: clamp(2rem, 2.9vw, 3.25rem);
     font-weight: 800;
-    line-height: 1.05;
+    line-height: 1.04;
     letter-spacing: -1px;
 }
 
 .hero-content > p {
-    margin: 0 0 28px;
-    color: var(--tc-white);
-    font-size: clamp(1rem, 1.2vw, 1.15rem);
+    margin: 0 0 24px;
+    color: var(--tc-home-white);
+    font-size: clamp(0.95rem, 1.1vw, 1.1rem);
     line-height: 1.45;
-    max-width: 520px;
+    max-width: 480px;
 }
 
 /* Botones de la portada */
-
 .hero-actions {
-    width: min(100%, 460px);
+    width: min(100%, 420px);
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 12px;
+    gap: 11px;
     margin: 0;
 }
 
 .btn-main,
 .btn-outline-gold {
-    min-height: 48px;
-    padding: 12px 22px;
+    min-height: 45px;
+    padding: 10px 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    border-radius: 30px;
-    font-size: 1.02rem;
+    gap: 11px;
+    border-radius: 28px;
+    font-size: 0.98rem;
     font-weight: 500;
     text-align: center;
     text-decoration: none;
@@ -160,33 +141,32 @@ img {
 }
 
 .btn-main {
-    color: var(--tc-black);
-    background: var(--tc-gold);
-    border: 2px solid var(--tc-gold);
+    color: var(--tc-home-black);
+    background: var(--tc-home-gold);
+    border: 2px solid var(--tc-home-gold);
 }
 
     .btn-main:hover {
-        color: var(--tc-black);
+        color: var(--tc-home-black);
         background: #f0ce88;
         border-color: #f0ce88;
     }
 
 .btn-outline-gold {
-    color: var(--tc-white);
-    background: rgb(0 0 0 / 50%);
-    border: 2px solid var(--tc-gold);
+    color: var(--tc-home-white);
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--tc-home-gold);
 }
 
     .btn-outline-gold:hover {
-        color: var(--tc-black);
-        background: var(--tc-gold);
+        color: var(--tc-home-black);
+        background: var(--tc-home-gold);
     }
 
     .btn-main i,
     .btn-outline-gold i {
-        font-size: 1.25rem;
+        font-size: 1.2rem;
     }
-
 
 /* ========================================
    COLUMNA LATERAL Y ACCESOS RÁPIDOS
@@ -196,51 +176,50 @@ img {
     min-width: 0;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 18px;
 }
 
 .quick-links {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
+    gap: 14px;
 }
 
 .quick-card {
     min-width: 0;
-    min-height: 155px;
-    padding: 18px 10px;
+    min-height: 142px;
+    padding: 16px 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    background: var(--tc-panel);
+    gap: 10px;
+    background: var(--tc-home-panel);
     border: 1px solid transparent;
     border-radius: 12px;
-    color: var(--tc-white);
+    color: var(--tc-home-white);
     text-align: center;
     text-decoration: none;
     transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
     .quick-card:hover {
-        color: var(--tc-white);
-        border-color: var(--tc-gold);
+        color: var(--tc-home-white);
+        border-color: var(--tc-home-gold);
         transform: translateY(-2px);
     }
 
 .quick-icon {
-    color: var(--tc-gold);
-    font-size: clamp(2.4rem, 3.5vw, 3.8rem);
+    color: var(--tc-home-gold);
+    font-size: clamp(2.2rem, 3.2vw, 3.4rem);
     line-height: 1;
 }
 
 .quick-card span {
-    font-size: clamp(0.82rem, 1.05vw, 0.98rem);
+    font-size: clamp(0.8rem, 1vw, 0.94rem);
     font-weight: 500;
     line-height: 1.3;
 }
-
 
 /* ========================================
    SECCIÓN NOSOTROS
@@ -248,28 +227,27 @@ img {
 
 .about-section {
     min-width: 0;
-    padding: 20px;
-    background: var(--tc-gold);
+    padding: 18px;
+    background: var(--tc-home-gold);
     border-radius: 12px;
-    color: var(--tc-black);
+    color: var(--tc-home-black);
 }
 
     .about-section > h2 {
-        margin: 0 0 16px;
-        color: var(--tc-black);
+        margin: 0 0 14px;
+        color: var(--tc-home-black);
         text-align: center;
-        font-size: 1.35rem;
+        font-size: 1.25rem;
         font-weight: 800;
     }
-
 
 /* ========================================
    EXPERIENCIA
 ======================================== */
 
 .experience {
-    padding: 22px;
-    margin-bottom: 18px;
+    padding: 20px;
+    margin-bottom: 16px;
     background: #f8e9c8;
     border-radius: 10px;
 }
@@ -278,53 +256,52 @@ img {
     display: block;
     margin-bottom: 6px;
     color: #7b5b24;
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     font-weight: 800;
     letter-spacing: 1.2px;
 }
 
 .experience h3 {
-    margin: 0 0 12px;
+    margin: 0 0 10px;
     color: #171717;
-    font-size: clamp(1.25rem, 1.7vw, 1.7rem);
+    font-size: clamp(1.2rem, 1.6vw, 1.6rem);
     font-weight: 800;
     line-height: 1.15;
 }
 
 .experience > p {
-    margin: 0 0 20px;
+    margin: 0 0 18px;
     color: #343434;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     line-height: 1.6;
     text-align: justify;
     text-justify: inter-word;
 }
 
 /* Características de la empresa */
-
 .experience-features {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
+    gap: 16px;
 }
 
 .feature {
     display: flex;
     align-items: flex-start;
-    gap: 12px;
+    gap: 11px;
 }
 
     .feature > i {
         flex-shrink: 0;
         color: #9a7029;
-        font-size: 1.9rem;
+        font-size: 1.8rem;
         line-height: 1;
     }
 
     .feature h4 {
-        margin: 0 0 6px;
+        margin: 0 0 5px;
         color: #171717;
-        font-size: 0.88rem;
+        font-size: 0.85rem;
         font-weight: 800;
         line-height: 1.3;
     }
@@ -332,12 +309,11 @@ img {
     .feature p {
         margin: 0;
         color: #454545;
-        font-size: 0.84rem;
+        font-size: 0.82rem;
         line-height: 1.5;
         text-align: justify;
         text-justify: inter-word;
     }
-
 
 /* ========================================
    TARJETAS DE MISIÓN, VISIÓN Y VALORES
@@ -346,43 +322,43 @@ img {
 .company-cards {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
+    gap: 14px;
     align-items: stretch;
 }
 
 .company-card {
     min-width: 0;
-    padding: 20px 14px;
+    padding: 18px 13px;
     display: flex;
     flex-direction: column;
-    background: var(--tc-cream);
+    background: var(--tc-home-cream);
     border-radius: 10px;
     color: #171717;
 }
 
 .company-card-icon {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 12px;
+    width: 38px;
+    height: 38px;
+    margin-bottom: 10px;
     display: grid;
     place-items: center;
-    background: var(--tc-gold);
+    background: var(--tc-home-gold);
     border-radius: 50%;
     color: #171717;
-    font-size: 1.2rem;
+    font-size: 1.15rem;
 }
 
 .company-card h3 {
-    margin: 0 0 10px;
+    margin: 0 0 9px;
     color: #171717;
-    font-size: 1rem;
+    font-size: 0.96rem;
     font-weight: 800;
 }
 
 .company-card > p {
     margin: 0;
     color: #383838;
-    font-size: 0.86rem;
+    font-size: 0.84rem;
     line-height: 1.55;
     text-align: justify;
     text-justify: inter-word;
@@ -392,10 +368,9 @@ img {
     margin: 0;
     padding-left: 16px;
     color: #383838;
-    font-size: 0.86rem;
-    line-height: 1.75;
+    font-size: 0.84rem;
+    line-height: 1.72;
 }
-
 
 /* ========================================
    BARRA INFERIOR PARA CELULAR
@@ -405,7 +380,6 @@ img {
     display: none;
 }
 
-
 /* ========================================
    TABLET Y PANTALLAS MEDIANAS
 ======================================== */
@@ -413,30 +387,29 @@ img {
 @media (max-width: 1100px) {
     .home-layout {
         gap: 16px;
-        padding: 12px 18px;
+        padding: 12px 18px 30px;
     }
 
     .quick-links {
-        gap: 12px;
+        gap: 10px;
     }
 
     .quick-card {
-        min-height: 135px;
+        min-height: 128px;
     }
 
     .company-cards {
-        gap: 12px;
+        gap: 10px;
     }
 
     .company-card {
-        padding: 16px 10px;
+        padding: 15px 10px;
     }
 
     .experience-features {
         grid-template-columns: 1fr;
     }
 }
-
 
 /* ========================================
    CELULAR
@@ -451,7 +424,7 @@ img {
         display: flex;
         flex-direction: column;
         gap: 12px;
-        padding: 5px 10px 15px;
+        padding: 6px 10px 18px;
         width: 100%;
     }
 
@@ -475,7 +448,7 @@ img {
 
     .hero-content > p {
         margin-bottom: 10px;
-        font-size: 0.8rem;
+        font-size: 0.82rem;
     }
 
     .hero-actions {
@@ -507,7 +480,7 @@ img {
     }
 
     .quick-icon {
-        font-size: 2.2rem;
+        font-size: 2.1rem;
     }
 
     .quick-card span {
@@ -584,10 +557,9 @@ img {
 
         .bottom-link.active,
         .bottom-link:hover {
-            color: var(--tc-gold);
+            color: var(--tc-home-gold);
         }
 }
-
 
 /* ========================================
    CELULARES MUY ESTRECHOS
@@ -606,7 +578,6 @@ img {
         font-size: 0.63rem;
     }
 }
-
 
 /* ========================================
    ACCESIBILIDAD

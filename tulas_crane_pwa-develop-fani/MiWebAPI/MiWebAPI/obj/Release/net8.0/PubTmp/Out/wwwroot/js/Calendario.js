@@ -69,6 +69,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const lapsoFormMessage = document.getElementById("lapsoFormMessage");
     let editingLapsoEventId = null;
 
+    // Helper seguro para mostrar el pop-up reutilizable[cite: 2]
+    function notificar(tipo, titulo, mensaje) {
+        if (typeof mostrarAviso === "function") {
+            mostrarAviso({ tipo, titulo, mensaje });
+        } else {
+            alert(`${titulo}: ${mensaje}`);
+        }
+    }
+
     // ==========================================
     // ESTADO DEL CALENDARIO
     // ==========================================
@@ -182,6 +191,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } catch (error) {
             console.error("Error al cargar eventos:", error);
             events = [];
+            notificar("error", "Error al cargar eventos", "No se pudieron obtener los eventos programados desde el servidor.");
         }
         renderCalendar();
     }
@@ -425,17 +435,16 @@ document.addEventListener("DOMContentLoaded", function () {
         if (currentView === "day") {
             start = dateKey(selectedDate);
             end = start;
-        } else if (currentView === "week") {
-            start = dateKey(startOfWeek(cursorDate));
-            end = dateKey(addDays(startOfWeek(cursorDate), 6));
         } else {
-            start = dateKey(new Date(cursorDate.getFullYear(), cursorDate.getMonth(), 1));
-            end = dateKey(new Date(cursorDate.getFullYear(), cursorDate.getMonth() + 1, 0));
+            // Tanto en vista "week" como en "month" mostramos únicamente la semana en curso
+            const baseSemana = currentView === "week" ? cursorDate : selectedDate;
+            const inicioSemana = startOfWeek(baseSemana);
+            start = dateKey(inicioSemana);
+            end = dateKey(addDays(inicioSemana, 6));
         }
 
         const selectedKey = dateKey(selectedDate);
         const now = new Date();
-        // Si el día seleccionado es hoy, tomamos la hora actual como referencia; si es otro día, tomamos el inicio de ese día
         const refTime = sameDate(selectedDate, today)
             ? now.getTime()
             : new Date(`${selectedKey}T00:00:00`).getTime();
@@ -446,14 +455,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 return event.date <= end && evEnd >= start && activeCategories.has(event.type);
             })
             .sort((a, b) => {
-                // 1. Priorizar eventos que ocurren o abarcan la fecha seleccionada
                 const aEnSeleccionado = eventCoversDay(a, selectedKey) ? 0 : 1;
                 const bEnSeleccionado = eventCoversDay(b, selectedKey) ? 0 : 1;
                 if (aEnSeleccionado !== bEnSeleccionado) {
                     return aEnSeleccionado - bEnSeleccionado;
                 }
 
-                // 2. Ordenar del más cercano al más lejano respecto a la fecha/hora de referencia
                 const aStart = new Date(`${a.date}T${a.time || "00:00"}`).getTime();
                 const bStart = new Date(`${b.date}T${b.time || "00:00"}`).getTime();
 
@@ -464,7 +471,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     return distA - distB;
                 }
 
-                // 3. Desempate cronológico directo
                 return aStart - bStart;
             });
     }
@@ -476,11 +482,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (currentView === "day") {
             eventsDateHeading.textContent = fullDateFormatter.format(selectedDate);
-        } else if (currentView === "week") {
-            eventsDateHeading.textContent =
-                `${shortDateFormatter.format(startOfWeek(cursorDate))} – ${shortDateFormatter.format(addDays(startOfWeek(cursorDate), 6))}`;
         } else {
-            eventsDateHeading.textContent = `${monthFormatter.format(cursorDate)} ${cursorDate.getFullYear()}`;
+            const baseSemana = currentView === "week" ? cursorDate : selectedDate;
+            eventsDateHeading.textContent =
+                `Semana: ${shortDateFormatter.format(startOfWeek(baseSemana))} – ${shortDateFormatter.format(addDays(startOfWeek(baseSemana), 6))}`;
         }
 
         if (visibleEvents.length === 0) {
@@ -576,7 +581,6 @@ document.addEventListener("DOMContentLoaded", function () {
             actions.className = "event-card-actions";
 
             if (manualTypes.has(event.type)) {
-                // Botón editar lapso de trabajo
                 const lapsoBtn = document.createElement("button");
                 lapsoBtn.type = "button";
                 lapsoBtn.className = "edit-event-status";
@@ -586,7 +590,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 lapsoBtn.addEventListener("click", () => openLapsoModal(event));
                 actions.appendChild(lapsoBtn);
 
-                // Botón editar estatus
                 const editButton = document.createElement("button");
                 editButton.type = "button";
                 editButton.className = "edit-event-status";
@@ -605,22 +608,39 @@ document.addEventListener("DOMContentLoaded", function () {
             deleteButton.innerHTML = '<i class="bi bi-trash3"></i>';
             actions.appendChild(deleteButton);
 
-            deleteButton.addEventListener("click", async function () {
-                const confirmed = window.confirm(`¿Deseas eliminar el evento "${event.title}"?`);
-                if (!confirmed) return;
+            deleteButton.addEventListener("click", function () {
+                const ejecutarEliminacion = async () => {
+                    try {
+                        const res = await fetch(`/api/Calendario/${event.type}/${event.idNumerico}`, {
+                            method: "DELETE"
+                        });
+                        const data = await res.json().catch(() => ({}));
 
-                try {
-                    const res = await fetch(`/api/Calendario/${event.type}/${event.idNumerico}`, { method: "DELETE" });
-                    if (!res.ok) {
-                        const err = await res.json();
-                        alert(err.mensaje || "No se pudo eliminar el evento.");
-                        return;
+                        if (!res.ok) {
+                            notificar("error", "No se pudo eliminar", data.mensaje || "Ocurrió un problema al eliminar el evento.");
+                            return;
+                        }
+
+                        notificar("exito", "Evento eliminado", data.mensaje || `Se eliminó "${event.title}" correctamente.`);
+                        await cargarCatalogosModal();
+                        await cargarEventosDesdeAPI();
+                    } catch (error) {
+                        console.error("Error al eliminar evento:", error);
+                        notificar("error", "Error de conexión", "No se pudo conectar con el servidor para eliminar el evento.");
                     }
-                    await cargarCatalogosModal();
-                    await cargarEventosDesdeAPI();
-                } catch (error) {
-                    console.error("Error al eliminar evento:", error);
-                    alert("Error de conexión al eliminar el evento.");
+                };
+
+                if (typeof window.mostrarAviso === "function") {
+                    window.mostrarAviso({
+                        tipo: "advertencia",
+                        titulo: "¿Eliminar evento?",
+                        mensaje: `¿Deseas eliminar "${event.title}"? Esta acción quitará el evento del calendario.`,
+                        confirmar: true,
+                        textoConfirmar: "Sí, eliminar",
+                        alConfirmar: ejecutarEliminacion
+                    });
+                } else if (window.confirm(`¿Deseas eliminar el evento "${event.title}"?`)) {
+                    ejecutarEliminacion();
                 }
             });
 
@@ -661,6 +681,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const nuevaFechaFin = editEndDateInput.value;
         const nuevaHoraFin = editEndTimeInput.value;
+
+        if (new Date(`${nuevaFechaFin}T${nuevaHoraFin}`) <= new Date(`${target.date}T${target.time}`)) {
+            notificar("error", "Lapso inválido", "La nueva fecha y hora de término deben ser posteriores al inicio.");
+            return;
+        }
+
         const plazoActualizado = calcularPlazoTexto(target.date, target.time, nuevaFechaFin, nuevaHoraFin);
 
         try {
@@ -676,18 +702,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 })
             });
 
-            const data = await res.json();
+            const data = await res.json().catch(() => ({}));
             if (!res.ok) {
-                lapsoFormMessage.textContent = data.mensaje || "No se pudo actualizar el lapso.";
+                notificar("error", "No se pudo actualizar el lapso", data.mensaje || "Verifica la fecha y hora ingresadas.");
                 return;
             }
 
             closeLapsoModalWindow();
+            notificar("exito", "Lapso actualizado", data.mensaje || "El horario de finalización se actualizó correctamente.");
             await cargarCatalogosModal();
             await cargarEventosDesdeAPI();
         } catch (error) {
             console.error("Error al actualizar lapso:", error);
-            lapsoFormMessage.textContent = "Error de conexión con el servidor.";
+            notificar("error", "Error de conexión", "No se pudo conectar con el servidor.");
         }
     });
 
@@ -740,18 +767,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 })
             });
 
-            const data = await res.json();
+            const data = await res.json().catch(() => ({}));
             if (!res.ok) {
-                statusFormMessage.textContent = data.mensaje || "No se pudo actualizar el estatus.";
+                notificar("error", "No se pudo actualizar el estatus", data.mensaje || "Inténtalo de nuevo.");
                 return;
             }
 
             closeStatusModalWindow();
+            notificar("exito", "Estatus actualizado", data.mensaje || `El evento pasó a "${eventStatusSelect.value}".`);
             await cargarCatalogosModal();
             await cargarEventosDesdeAPI();
         } catch (error) {
             console.error("Error al actualizar estatus:", error);
-            statusFormMessage.textContent = "Error de conexión con el servidor.";
+            notificar("error", "Error de conexión", "No se pudo conectar con el servidor.");
         }
     });
 
@@ -840,6 +868,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.addEventListener("keydown", function (event) {
         if (event.key === "Escape") {
+            const avisoAbierto = document.getElementById("alertaPopupOverlay")?.classList.contains("open");
+            if (avisoAbierto) return;
+
             if (eventModal.classList.contains("open")) closeEventModal();
             if (statusModal.classList.contains("open")) closeStatusModalWindow();
             if (lapsoModal.classList.contains("open")) closeLapsoModalWindow();
@@ -867,12 +898,12 @@ document.addEventListener("DOMContentLoaded", function () {
         const endTime = eventEndTimeInput.value;
 
         if (!title || !date || !time || !endDate || !endTime) {
-            formMessage.textContent = "Completa el título y el lapso completo (fecha y hora de inicio y término).";
+            notificar("error", "Campos incompletos", "Completa el título y el lapso completo (fecha y hora de inicio y término).");
             return;
         }
 
         if (new Date(`${endDate}T${endTime}`) <= new Date(`${date}T${time}`)) {
-            formMessage.textContent = "La fecha y hora de término deben ser posteriores al inicio.";
+            notificar("error", "Lapso inválido", "La fecha y hora de término deben ser posteriores al inicio.");
             eventEndTimeInput.focus();
             return;
         }
@@ -883,29 +914,29 @@ document.addEventListener("DOMContentLoaded", function () {
                 input.value === "" || !Number.isFinite(Number(input.value)) || Number(input.value) < 0
             );
             if (invalidAmount) {
-                formMessage.textContent = "Completa los cuatro importes de la maniobra con cantidades iguales o mayores a cero.";
+                notificar("error", "Importes inválidos", "Completa los cuatro importes de la maniobra con cantidades iguales o mayores a cero.");
                 invalidAmount.focus();
                 return;
             }
             if (Number(maniobraAdvanceInput.value) > Number(maniobraTotalInput.value)) {
-                formMessage.textContent = "El anticipo recibido no puede ser mayor que el importe total a cobrar.";
+                notificar("error", "Anticipo excedido", "El anticipo recibido no puede ser mayor que el importe total a cobrar.");
                 maniobraAdvanceInput.focus();
                 return;
             }
         }
 
         if (selectedType === "otro" && !otherEventTypeInput.value.trim()) {
-            formMessage.textContent = "Especifica cuál es el evento.";
+            notificar("error", "Dato requerido", "Especifica cuál es el evento.");
             otherEventTypeInput.focus();
             return;
         }
         if (selectedType === "personal" && !personalEventTypeInput.value) {
-            formMessage.textContent = "Selecciona el tipo de evento de personal.";
+            notificar("error", "Dato requerido", "Selecciona el tipo de evento de personal.");
             personalEventTypeInput.focus();
             return;
         }
         if (selectedType === "mantenimiento" && !maintenanceTypeInput.value) {
-            formMessage.textContent = "Selecciona el tipo de mantenimiento.";
+            notificar("error", "Dato requerido", "Selecciona el tipo de mantenimiento.");
             maintenanceTypeInput.focus();
             return;
         }
@@ -946,9 +977,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 body: JSON.stringify(payload)
             });
 
-            const data = await res.json();
+            const data = await res.json().catch(() => ({}));
             if (!res.ok) {
-                formMessage.textContent = data.mensaje || "No se pudo guardar el evento.";
+                notificar("error", "No se pudo registrar", data.mensaje || "No se pudo guardar el evento.");
                 return;
             }
 
@@ -967,11 +998,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
             eventForm.reset();
             closeEventModal();
+            notificar("exito", "Evento registrado", data.mensaje || `"${title}" se programó correctamente en el calendario.`);
             await cargarCatalogosModal();
             await cargarEventosDesdeAPI();
         } catch (error) {
             console.error("Error al registrar evento:", error);
-            formMessage.textContent = "Error de conexión al guardar el evento.";
+            notificar("error", "Error de conexión", "No se pudo conectar con el servidor para guardar el evento.");
         }
     });
 

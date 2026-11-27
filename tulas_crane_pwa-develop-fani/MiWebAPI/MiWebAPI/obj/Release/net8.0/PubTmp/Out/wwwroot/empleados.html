@@ -47,9 +47,15 @@
             </div>
         </section>
 
-        <!-- LISTA DINÁMICA DE EMPLEADOS DESDE LA BD -->
-        <section class="empleados-grid" id="listaEmpleados" aria-label="Listado de empleados">
-            <!-- Las tarjetas se generan automáticamente con JavaScript mediante la API -->
+        <!-- LISTA DINÁMICA Y PAGINACIÓN DE EMPLEADOS -->
+        <section class="empleados-catalog" aria-label="Listado de empleados">
+
+            <!-- CUADRÍCULA DE 4 TARJETAS -->
+            <div class="empleados-grid" id="listaEmpleados"></div>
+
+            <!-- CONTROLES DE PAGINACIÓN -->
+            <nav class="empleados-pagination" id="empleadosPagination" aria-label="Paginación de empleados" hidden></nav>
+
         </section>
 
         <!-- MENSAJE CUANDO NO HAY RESULTADOS -->

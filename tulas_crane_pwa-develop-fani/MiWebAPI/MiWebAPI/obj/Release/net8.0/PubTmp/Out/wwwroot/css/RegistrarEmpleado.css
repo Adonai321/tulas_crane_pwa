@@ -1,21 +1,24 @@
-﻿
-/* ==========================================
+﻿/* ==========================================
    TULA'S CRANE
    REGISTRAR EMPLEADO
+   Soporte Modo Oscuro y Modo Claro
 ========================================== */
 
 .registrar-empleado-page {
-    --registro-negro: #000;
-    --registro-dorado: #e9b94f;
+    --registro-negro: var(--tc-bg, #000000);
+    --registro-superficie: var(--tc-surface, #141414);
+    --registro-superficie-alt: var(--tc-surface-alt, #1f1f1f);
+    --registro-dorado: var(--tc-gold, #e9b94f);
     --registro-dorado-claro: #f2ca72;
-    --registro-blanco: #fff;
-    --registro-campo: #fafafa;
-    --registro-texto: #333;
-    --registro-borde: #777;
+    --registro-blanco: var(--tc-text, #ffffff);
+    --registro-muted: var(--tc-muted, #d0d0d0);
+    --registro-campo: var(--tc-surface-alt, #fafafa);
+    --registro-texto: var(--tc-text, #f5f5f5);
+    --registro-borde: var(--tc-border, #777777);
     margin: 0;
     min-height: 100vh;
-    background: var(--registro-negro);
-    color: var(--registro-blanco);
+    background: var(--tc-bg);
+    color: var(--tc-text);
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -73,20 +76,21 @@
     justify-content: center;
     flex-shrink: 0;
     width: 27px;
-    color: #f5e5bc;
+    color: var(--tc-gold);
     font-size: 37px;
     line-height: 1;
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
     .registro-regresar:hover {
-        color: var(--registro-dorado);
+        transform: translateX(-3px);
+        opacity: 0.85;
     }
 
 .registro-titulo h1 {
     margin: 0;
-    color: var(--registro-blanco);
+    color: var(--tc-text);
     font-size: clamp(27px, 3vw, 36px);
     font-weight: 500;
     letter-spacing: -1.2px;
@@ -123,7 +127,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    color: #eee;
+    color: var(--tc-muted);
     font-size: 17px;
     white-space: nowrap;
     transition: color 0.2s ease;
@@ -137,19 +141,27 @@
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: #c8c8c8;
-    color: #000;
+    background: var(--tc-surface-alt);
+    border: 1px solid var(--tc-border);
+    color: var(--tc-text);
     font-size: 19px;
     font-weight: 700;
 }
 
 .paso-indicador.activo {
-    color: var(--registro-dorado);
+    color: var(--tc-gold);
+    font-weight: 600;
 }
 
     .paso-indicador.activo .paso-numero {
-        background: var(--registro-dorado);
+        background: var(--tc-gold);
+        border-color: var(--tc-gold);
+        color: #000000;
     }
+
+[data-theme="light"] .paso-indicador.activo .paso-numero {
+    color: #ffffff;
+}
 
 /* ==========================================
    PANELES
@@ -166,7 +178,7 @@
 
 .registro-instruccion {
     margin: 0 0 15px;
-    color: #d0d0d0;
+    color: var(--tc-muted);
     font-size: 14px;
     line-height: 1.5;
 }
@@ -198,7 +210,7 @@
     .registro-campos .campo label {
         display: block;
         margin: 0 0 6px;
-        color: var(--registro-dorado);
+        color: var(--tc-gold);
         font-size: 14px;
         font-weight: 600;
         line-height: 1.4;
@@ -215,79 +227,97 @@
         min-width: 0;
         height: 46px;
         padding: 0 13px;
-        border: 1.5px solid var(--registro-borde);
+        border: 1.5px solid var(--tc-border);
         border-radius: 9px;
         outline: none;
-        background-color: var(--registro-campo);
-        color: var(--registro-texto);
+        background-color: var(--tc-surface);
+        color: var(--tc-text);
         font-size: 17px;
-        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
     }
 
-        .registro-campos input:not([type="file"])::placeholder {
-            color: #858585;
-            opacity: 1;
-        }
+[data-theme="light"] .registro-campos input:not([type="file"]),
+[data-theme="light"] .registro-campos select {
+    background-color: #ffffff;
+    border-color: #cbd5e1;
+    color: #141518;
+}
 
-        .registro-campos input:not([type="file"]):focus,
-        .registro-campos select:focus {
-            border-color: var(--registro-dorado);
-            box-shadow: 0 0 0 3px rgb(233 185 79 / 18%);
-        }
+.registro-campos input:not([type="file"])::placeholder {
+    color: var(--tc-muted);
+    opacity: 0.85;
+}
 
-    /* SELECTOR PERSONALIZADO */
+.registro-campos input:not([type="file"]):focus,
+.registro-campos select:focus {
+    border-color: var(--tc-gold);
+    box-shadow: 0 0 0 3px rgba(233, 185, 79, 0.22);
+}
 
-    .registro-campos select {
-        appearance: none;
-        padding-right: 40px;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='12' viewBox='0 0 20 12'%3E%3Cpath d='M2 2l8 8 8-8' fill='none' stroke='%23333' stroke-width='1.5'/%3E%3C/svg%3E");
-        background-repeat: no-repeat;
-        background-position: right 15px center;
-        cursor: pointer;
+/* SELECTOR PERSONALIZADO */
+
+.registro-campos select {
+    appearance: none;
+    padding-right: 40px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='12' viewBox='0 0 20 12'%3E%3Cpath d='M2 2l8 8 8-8' fill='none' stroke='%23999999' stroke-width='1.8'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    cursor: pointer;
+}
+
+    .registro-campos select option {
+        background-color: var(--tc-surface);
+        color: var(--tc-text);
     }
 
-    /* ==========================================
+/* ==========================================
    CAMPOS DE ARCHIVOS
 ========================================== */
 
-    .registro-campos input[type="file"] {
-        display: block;
-        width: 100%;
-        min-width: 0;
-        height: 46px;
-        padding: 5px 8px;
-        overflow: hidden;
-        border: 1.5px solid var(--registro-borde);
-        border-radius: 9px;
-        background: var(--registro-campo);
-        color: #444;
-        font-size: 13px;
-        cursor: pointer;
-        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+.registro-campos input[type="file"] {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    height: 46px;
+    padding: 5px 8px;
+    overflow: hidden;
+    border: 1.5px solid var(--tc-border);
+    border-radius: 9px;
+    background: var(--tc-surface);
+    color: var(--tc-text);
+    font-size: 13px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+[data-theme="light"] .registro-campos input[type="file"] {
+    background: #ffffff;
+    border-color: #cbd5e1;
+}
+
+.registro-campos input[type="file"]:focus {
+    outline: none;
+    border-color: var(--tc-gold);
+    box-shadow: 0 0 0 3px rgba(233, 185, 79, 0.22);
+}
+
+.registro-campos input[type="file"]::file-selector-button {
+    max-width: 100%;
+    margin-right: 8px;
+    padding: 7px 9px;
+    border: 1px solid var(--tc-border);
+    border-radius: 5px;
+    background: var(--tc-surface-alt);
+    color: var(--tc-text);
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+    .registro-campos input[type="file"]::file-selector-button:hover {
+        border-color: var(--tc-gold);
+        color: var(--tc-gold);
     }
-
-        .registro-campos input[type="file"]:focus {
-            outline: none;
-            border-color: var(--registro-dorado);
-            box-shadow: 0 0 0 3px rgb(233 185 79 / 18%);
-        }
-
-        .registro-campos input[type="file"]::file-selector-button {
-            max-width: 100%;
-            margin-right: 8px;
-            padding: 7px 9px;
-            border: none;
-            border-radius: 5px;
-            background: #e8e8e8;
-            color: #222;
-            font-size: 13px;
-            cursor: pointer;
-            transition: background 0.2s ease;
-        }
-
-            .registro-campos input[type="file"]::file-selector-button:hover {
-                background: #d6d6d6;
-            }
 
 /* ==========================================
    BOTONES
@@ -310,43 +340,52 @@
     min-width: 185px;
     min-height: 49px;
     padding: 10px 23px;
-    border: 2px solid #876b34;
+    border: 2px solid var(--tc-gold);
     border-radius: 15px;
-    background: var(--registro-dorado);
-    color: #000;
+    background: var(--tc-gold);
+    color: #000000;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s ease, transform 0.2s ease;
+    transition: filter 0.2s ease, transform 0.2s ease;
 }
 
-    .btn-registro:hover {
-        background: var(--registro-dorado-claro);
-        transform: translateY(-1px);
-    }
+[data-theme="light"] .btn-registro {
+    color: #ffffff;
+}
 
-    .btn-registro:focus-visible {
-        outline: 2px solid #fff;
-        outline-offset: 3px;
-    }
+.btn-registro:hover {
+    filter: brightness(1.07);
+    transform: translateY(-1px);
+}
 
-    .btn-registro i {
-        font-size: 22px;
-    }
+.btn-registro:focus-visible {
+    outline: 2px solid var(--tc-gold);
+    outline-offset: 3px;
+}
+
+.btn-registro i {
+    font-size: 22px;
+}
 
 .registro-botones-doble {
     justify-content: space-between;
 }
 
 .btn-secundario {
-    border-color: #777;
-    background: #222;
-    color: #fff;
+    border-color: var(--tc-border);
+    background: var(--tc-surface);
+    color: var(--tc-text);
 }
 
-    .btn-secundario:hover {
-        background: #353535;
-    }
+[data-theme="light"] .btn-secundario {
+    color: var(--tc-text);
+}
+
+.btn-secundario:hover {
+    background: var(--tc-surface-alt);
+    border-color: var(--tc-gold);
+}
 
 /* ==========================================
    MENSAJE DE ESTADO
@@ -359,10 +398,10 @@
     grid-row: 3;
     margin-top: 16px;
     padding: 13px;
-    border: 1px solid var(--registro-dorado);
+    border: 1px solid var(--tc-gold);
     border-radius: 8px;
-    background: #171717;
-    color: #f4d88f;
+    background: var(--tc-surface);
+    color: var(--tc-text);
     font-size: 14px;
     line-height: 1.5;
 }
@@ -398,7 +437,6 @@
 ========================================== */
 
 @media (max-width: 1000px) {
-
     .registro-container {
         grid-template-columns: minmax(0, 1fr) minmax(200px, 0.65fr);
         column-gap: 20px;
@@ -450,11 +488,10 @@
 ========================================== */
 
 @media (max-width: 650px) {
-
     .registro-container {
         display: block;
         min-height: auto;
-        padding: 18px 17px 35px;
+        padding: 18px 17px 95px;
         overflow: visible;
     }
 
@@ -559,7 +596,6 @@
 ========================================== */
 
 @media (max-width: 380px) {
-
     .registro-container {
         padding-right: 11px;
         padding-left: 11px;

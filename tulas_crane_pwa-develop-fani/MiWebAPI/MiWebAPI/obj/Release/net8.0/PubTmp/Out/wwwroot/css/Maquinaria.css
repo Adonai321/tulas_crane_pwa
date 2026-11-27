@@ -1,18 +1,19 @@
-﻿
-/* =========================================
+﻿/* =========================================
    MAQUINARIA - TULA'S CRANE
+   Soporte Modo Oscuro y Modo Claro
 ========================================= */
 
 :root {
-    --maq-black: #000000;
-    --maq-card: #191919;
-    --maq-border: #454545;
-    --maq-gold: #e9b94f;
-    --maq-gold-light: #e6bd72;
-    --maq-cream: #fbf0d2;
-    --maq-white: #ffffff;
-    --maq-muted: #b4b4b4;
-    --maq-green: #19c337;
+    --maq-black: var(--tc-bg, #080808);
+    --maq-card: var(--tc-surface, #141414);
+    --maq-card-alt: var(--tc-surface-alt, #1d1d1d);
+    --maq-border: var(--tc-border, #262626);
+    --maq-gold: var(--tc-gold, #c98f12);
+    --maq-gold-light: var(--tc-gold, #f4c542);
+    --maq-cream: #f8e9c8;
+    --maq-white: var(--tc-text, #f5f5f5);
+    --maq-muted: var(--tc-muted, #a3a3a3);
+    --maq-green: #20bd39;
     --maq-yellow: #edb83f;
 }
 
@@ -23,8 +24,8 @@
 body.maquinaria-page {
     margin: 0;
     min-height: 100vh;
-    background: var(--maq-black);
-    color: var(--maq-white);
+    background: var(--tc-bg);
+    color: var(--tc-text);
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -61,13 +62,14 @@ body.maquinaria-page {
         line-height: 1.2;
         font-weight: 400;
         letter-spacing: -1px;
+        color: var(--tc-text);
     }
 
 .maquinaria-back {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: var(--maq-gold-light);
+    color: var(--tc-gold);
     font-size: 34px;
     text-decoration: none;
     transition: transform 0.2s ease;
@@ -90,8 +92,15 @@ body.maquinaria-page {
     padding: 0 12px 0 48px;
     border-radius: 30px;
     background: var(--maq-cream);
+    border: 1px solid rgba(201, 143, 18, 0.35);
     color: #222;
     position: relative;
+}
+
+[data-theme="light"] .maquinaria-search {
+    background: var(--tc-surface);
+    border-color: var(--tc-border);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
 .search-icon-left {
@@ -102,22 +111,34 @@ body.maquinaria-page {
     pointer-events: none;
 }
 
+[data-theme="light"] .search-icon-left {
+    color: var(--tc-muted);
+}
+
 .maquinaria-search input {
     width: 100%;
     min-width: 0;
     height: 100%;
     padding: 0 12px 0 34px;
-    border: none;
+    border: none !important;
     outline: none;
-    background: transparent;
+    background: transparent !important;
     color: #222;
     font-size: 19px;
 }
 
-    .maquinaria-search input::placeholder {
-        color: #aaa493;
-        opacity: 1;
-    }
+[data-theme="light"] .maquinaria-search input {
+    color: var(--tc-text);
+}
+
+.maquinaria-search input::placeholder {
+    color: #aaa493;
+    opacity: 1;
+}
+
+[data-theme="light"] .maquinaria-search input::placeholder {
+    color: var(--tc-muted);
+}
 
 .maquinaria-search button {
     flex-shrink: 0;
@@ -129,6 +150,10 @@ body.maquinaria-page {
     color: #111;
     cursor: pointer;
     font-size: 25px;
+}
+
+[data-theme="light"] .maquinaria-search button {
+    color: var(--tc-gold);
 }
 
 /* =========================================
@@ -155,10 +180,10 @@ body.maquinaria-page {
     min-width: 77px;
     min-height: 33px;
     padding: 5px 13px;
-    border: 2px solid var(--maq-gold);
+    border: 2px solid var(--tc-gold);
     border-radius: 22px;
-    background: transparent;
-    color: var(--maq-white);
+    background: var(--tc-surface);
+    color: var(--tc-text);
     cursor: pointer;
     font-size: 14px;
     white-space: nowrap;
@@ -166,14 +191,18 @@ body.maquinaria-page {
 }
 
     .filter-btn:hover {
-        background: #332814;
+        background: rgba(244, 197, 66, 0.16);
     }
 
     .filter-btn.active {
-        background: var(--maq-gold-light);
+        background: var(--tc-gold);
         color: #080808;
         font-weight: 700;
     }
+
+[data-theme="light"] .filter-btn.active {
+    color: #ffffff;
+}
 
 .btn-agregar-maquinaria {
     display: inline-flex;
@@ -183,114 +212,193 @@ body.maquinaria-page {
     flex: 0 0 240px;
     min-height: 52px;
     padding: 8px 20px;
-    border: 2px solid var(--maq-gold-light);
+    border: 2px solid var(--tc-gold);
     border-radius: 30px;
-    background: var(--maq-gold);
+    background: var(--tc-gold);
     color: #050505;
     font-size: 25px;
     cursor: pointer;
-    transition: background 0.2s ease, transform 0.2s ease;
+    transition: filter 0.2s ease, transform 0.2s ease;
 }
 
-    .btn-agregar-maquinaria:hover {
-        background: #f4cb70;
-        transform: translateY(-1px);
-    }
+[data-theme="light"] .btn-agregar-maquinaria {
+    color: #ffffff;
+}
+
+.btn-agregar-maquinaria:hover {
+    filter: brightness(1.07);
+    transform: translateY(-1px);
+}
 
 /* =========================================
-   TARJETAS DE MAQUINARIA
+   CUADRÍCULA Y TARJETAS DE MAQUINARIA
 ========================================= */
 
 .maquinaria-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 4.8%;
-    row-gap: 12px;
+    gap: 20px;
 }
 
 .maquinaria-card {
-    display: grid;
-    grid-template-columns: 150px minmax(0, 1fr) 62px;
-    align-items: stretch;
+    position: relative;
+    display: flex;
+    flex-direction: column;
     min-width: 0;
-    min-height: 165px;
+    background: var(--tc-surface);
+    border: 1px solid var(--tc-border);
+    border-radius: 16px;
+    color: var(--tc-text);
     overflow: hidden;
-    border: 2px solid var(--maq-border);
-    border-radius: 13px;
-    background: var(--maq-card);
-    color: var(--maq-white);
     cursor: pointer;
-    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    animation: cardFadeIn 0.35s ease both;
 }
 
-    .maquinaria-card:hover {
-        border-color: var(--maq-gold);
-        background: #202020;
-        transform: translateY(-2px);
+[data-theme="light"] .maquinaria-card {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.maquinaria-card:hover,
+.maquinaria-card:focus-visible {
+    transform: translateY(-5px);
+    border-color: var(--tc-gold);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(244, 197, 66, 0.25);
+}
+
+.maquinaria-card:focus-visible {
+    outline: 2px solid var(--tc-gold);
+    outline-offset: 3px;
+}
+
+@keyframes cardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
     }
 
-    .maquinaria-card:focus-visible {
-        outline: 2px solid var(--maq-gold);
-        outline-offset: 3px;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
+}
 
+/* Contenedor protagonista para la imagen */
 .maquinaria-photo {
-    width: 100%;
-    height: 100%;
-    min-height: 160px;
     position: relative;
+    width: 100%;
+    height: 190px;
+    background: var(--tc-surface-alt);
+    border-bottom: 1px solid var(--tc-border);
     overflow: hidden;
-    background: #292929;
 }
 
     .maquinaria-photo img {
+        position: relative;
+        z-index: 2;
         display: block;
         width: 100%;
         height: 100%;
-        min-height: 160px;
         object-fit: cover;
         object-position: center;
+        transition: transform 0.4s ease;
     }
 
-.maquinaria-photo-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    min-height: 160px;
-    background: linear-gradient(145deg, #353535, #171717);
-    color: var(--maq-gold);
-    font-size: 54px;
+.maquinaria-card:hover .maquinaria-photo img {
+    transform: scale(1.06);
 }
 
-.maquinaria-info {
+.maquinaria-photo-placeholder {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
-    gap: 4px;
+    gap: 8px;
+    color: var(--tc-muted);
+    background-image: repeating-linear-gradient( -45deg, rgba(244, 197, 66, 0.05) 0px, rgba(244, 197, 66, 0.05) 10px, transparent 10px, transparent 20px );
+}
+
+    .maquinaria-photo-placeholder i {
+        font-size: 2.6rem;
+        color: var(--tc-gold);
+        opacity: 0.8;
+    }
+
+    .maquinaria-photo-placeholder span {
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--tc-text);
+        background: var(--tc-surface);
+        padding: 3px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--tc-border);
+    }
+
+/* Etiqueta flotante de estado sobre la foto */
+.maquinaria-badge-estado {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 3;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    backdrop-filter: blur(6px);
+    background: var(--tc-surface);
+    color: var(--tc-text);
+    border: 1px solid var(--tc-border);
+}
+
+/* Cuerpo de información */
+.maquinaria-info {
+    padding: 16px 56px 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
     min-width: 0;
-    padding: 12px 10px 12px 20px;
 }
 
 .maquinaria-name {
     margin: 0;
     font-size: clamp(17px, 1.65vw, 24px);
-    line-height: 1.1;
+    line-height: 1.15;
     font-weight: 700;
+    color: var(--tc-text);
     overflow-wrap: anywhere;
 }
 
 .maquinaria-capacity {
     margin: 0;
-    font-size: clamp(16px, 1.55vw, 22px);
+    font-size: clamp(16px, 1.55vw, 21px);
     line-height: 1.15;
+    color: var(--tc-text);
 }
 
 .maquinaria-reach {
-    margin: 5px 0 1px;
-    color: #eeeeee;
+    margin: 2px 0;
+    color: var(--tc-muted);
     font-size: 15px;
+}
+
+.maquinaria-specs-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 4px 0;
+}
+
+.spec-pill {
+    font-size: 0.8rem;
+    color: var(--tc-text);
+    background: var(--tc-surface-alt);
+    border: 1px solid var(--tc-border);
+    padding: 3px 10px;
+    border-radius: 8px;
 }
 
 .maquinaria-status,
@@ -299,8 +407,9 @@ body.maquinaria-page {
     align-items: center;
     gap: 6px;
     margin: 3px 0 0;
-    font-size: clamp(13px, 1.3vw, 18px);
+    font-size: clamp(13px, 1.3vw, 17px);
     line-height: 1.25;
+    color: var(--tc-text);
 }
 
 .status-icon {
@@ -311,7 +420,7 @@ body.maquinaria-page {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    color: white;
+    color: #ffffff;
     font-size: 13px;
     font-weight: bold;
 }
@@ -322,7 +431,7 @@ body.maquinaria-page {
 
 .status-busy {
     background: var(--maq-yellow);
-    color: #fff;
+    color: #161616;
 }
 
 .status-unavailable {
@@ -333,49 +442,120 @@ body.maquinaria-page {
     color: #a5ff4f;
 }
 
+[data-theme="light"] .status-text-available {
+    color: #187a2e;
+    font-weight: 600;
+}
+
 .status-text-busy {
     color: var(--maq-yellow);
+}
+
+[data-theme="light"] .status-text-busy {
+    color: #a87408;
+    font-weight: 600;
 }
 
 .status-text-unavailable {
     color: #ff7b7b;
 }
 
-.maquinaria-arrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-self: center;
-    justify-self: center;
-    width: 54px;
-    height: 54px;
-    margin-right: 8px;
-    border: none;
-    border-radius: 50%;
-    background: var(--maq-gold-light);
-    color: #050505;
-    font-size: 27px;
-    cursor: pointer;
-    transition: background 0.2s ease, transform 0.2s ease;
+[data-theme="light"] .status-text-unavailable {
+    color: #c81e1e;
+    font-weight: 600;
 }
 
-    .maquinaria-arrow:hover {
-        background: #f4cf81;
-        transform: translateX(3px);
-    }
+/* Botón de flecha */
+.maquinaria-arrow {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid var(--tc-border);
+    background: var(--tc-surface-alt);
+    color: var(--tc-gold);
+    display: grid;
+    place-items: center;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.maquinaria-card:hover .maquinaria-arrow {
+    background: var(--tc-gold);
+    border-color: var(--tc-gold);
+    color: #080808;
+    transform: translateX(3px);
+}
+
+[data-theme="light"] .maquinaria-card:hover .maquinaria-arrow {
+    color: #ffffff;
+}
 
 /* =========================================
-   SIN RESULTADOS
+   PAGINACIÓN Y SIN RESULTADOS
 ========================================= */
+
+.maquinaria-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+}
+
+.page-btn {
+    min-width: 40px;
+    height: 40px;
+    padding: 0 12px;
+    border-radius: 10px;
+    border: 1px solid var(--tc-border);
+    background: var(--tc-surface);
+    color: var(--tc-text);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+    .page-btn:hover:not(:disabled) {
+        border-color: var(--tc-gold);
+        color: var(--tc-gold);
+    }
+
+    .page-btn.active {
+        background: var(--tc-gold);
+        border-color: var(--tc-gold);
+        color: #080808;
+        box-shadow: 0 4px 14px rgba(244, 197, 66, 0.3);
+    }
+
+[data-theme="light"] .page-btn.active {
+    color: #ffffff;
+}
+
+.page-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.page-btn-nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 16px;
+}
 
 .maquinaria-empty {
     padding: 45px 20px;
-    color: var(--maq-muted);
+    color: var(--tc-muted);
     text-align: center;
 }
 
     .maquinaria-empty i {
-        color: var(--maq-gold);
+        color: var(--tc-gold);
         font-size: 36px;
     }
 
@@ -389,7 +569,7 @@ body.maquinaria-page {
     }
 
 /* =========================================
-   TABLET
+   TABLET Y MÓVILES
 ========================================= */
 
 @media (max-width: 1050px) {
@@ -407,46 +587,17 @@ body.maquinaria-page {
         flex-basis: 175px;
         font-size: 21px;
     }
+}
 
+@media (max-width: 768px) {
     .maquinaria-grid {
-        column-gap: 18px;
-    }
-
-    .maquinaria-card {
-        grid-template-columns: 120px minmax(0, 1fr) 48px;
-        min-height: 145px;
-    }
-
-    .maquinaria-photo,
-    .maquinaria-photo img,
-    .maquinaria-photo-placeholder {
-        min-height: 140px;
-    }
-
-    .maquinaria-info {
-        padding-left: 12px;
-    }
-
-    .maquinaria-arrow {
-        width: 42px;
-        height: 42px;
-        margin-right: 5px;
-        font-size: 23px;
-    }
-
-    .maquinaria-status,
-    .maquinaria-doc-status {
-        font-size: 13px;
+        grid-template-columns: 1fr;
     }
 }
 
-/* =========================================
-   MÓVILES
-========================================= */
-
 @media (max-width: 700px) {
     .maquinaria-main {
-        padding: 12px 15px 25px;
+        padding: 12px 15px 95px;
     }
 
     .maquinaria-heading {
@@ -500,85 +651,21 @@ body.maquinaria-page {
         font-size: 21px;
     }
 
-    .maquinaria-grid {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 12px;
-    }
-
-    .maquinaria-card {
-        grid-template-columns: 105px minmax(0, 1fr) 43px;
-        min-height: 130px;
-    }
-
-    .maquinaria-photo,
-    .maquinaria-photo img,
-    .maquinaria-photo-placeholder {
-        min-height: 126px;
-    }
-
-    .maquinaria-photo-placeholder {
-        font-size: 38px;
-    }
-
-    .maquinaria-info {
-        gap: 4px;
-        padding: 9px 7px 9px 10px;
-    }
-
     .maquinaria-name {
+        font-size: 18px;
+    }
+
+    .maquinaria-capacity {
         font-size: 16px;
     }
 
-    .maquinaria-capacity {
-        font-size: 15px;
-    }
-
     .maquinaria-reach {
-        font-size: 12px;
-    }
-
-    .maquinaria-status,
-    .maquinaria-doc-status {
-        gap: 5px;
-        font-size: 12px;
-    }
-
-    .status-icon {
-        flex-basis: 17px;
-        width: 17px;
-        height: 17px;
-        font-size: 11px;
-    }
-
-    .maquinaria-arrow {
-        width: 36px;
-        height: 36px;
-        margin-right: 3px;
-        font-size: 20px;
-    }
-}
-
-@media (max-width: 370px) {
-    .maquinaria-card {
-        grid-template-columns: 85px minmax(0, 1fr) 35px;
-    }
-
-    .maquinaria-name {
-        font-size: 14px;
-    }
-
-    .maquinaria-capacity {
         font-size: 13px;
     }
 
     .maquinaria-status,
     .maquinaria-doc-status {
-        font-size: 11px;
-    }
-
-    .maquinaria-arrow {
-        width: 30px;
-        height: 30px;
-        font-size: 17px;
+        gap: 5px;
+        font-size: 13px;
     }
 }

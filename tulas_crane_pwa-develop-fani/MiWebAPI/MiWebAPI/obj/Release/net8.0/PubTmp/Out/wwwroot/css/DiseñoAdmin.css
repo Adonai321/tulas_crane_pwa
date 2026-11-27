@@ -1,12 +1,43 @@
 ﻿/* =========================================
    HEADER ADMINISTRATIVO - TULA'S CRANE
-========================================= */
+   ========================================= */
+
+/* VARIABLES GLOBALES DE TEMA */
 
 :root {
     --tc-gold: #f4c542;
+    --tc-gold-strong: #d49b1a;
+    --tc-bg: #050505;
+    --tc-surface: #161719;
+    --tc-surface-alt: #1d1e21;
+    --tc-border: #2a2c30;
+    --tc-text: #f8f8f8;
+    --tc-muted: #b0b3b8;
+    --tc-header-bg: #050505;
+    --tc-nav-mobile-bg: #111111;
     --tc-black: #050505;
     --tc-white: #f8f8f8;
-    --tc-muted: #d9d9d9;
+}
+
+[data-theme="light"] {
+    --tc-gold: #c98f12;
+    --tc-gold-strong: #a87408;
+    --tc-bg: #f4f5f7;
+    --tc-surface: #ffffff;
+    --tc-surface-alt: #f8f9fa;
+    --tc-border: #dcdde1;
+    --tc-text: #141518;
+    --tc-muted: #5a5e66;
+    --tc-header-bg: #ffffff;
+    --tc-nav-mobile-bg: #ffffff;
+    --tc-black: #ffffff;
+    --tc-white: #141518;
+}
+
+body {
+    background-color: var(--tc-bg);
+    color: var(--tc-text);
+    transition: background-color .2s ease, color .2s ease;
 }
 
 .admin-header,
@@ -16,22 +47,30 @@
 
 /* CONTENEDOR PRINCIPAL */
 
+#admin-header-placeholder {
+    display: contents;
+}
+
 .admin-header {
-    position: relative;
+    position: sticky;
+    top: 0;
     z-index: 1000;
     width: 100%;
-    min-height: 104px;
-    padding: 12px 22px;
+    min-height: 92px;
+    padding: 10px 22px;
     display: flex;
     align-items: center;
     gap: 28px;
-    background: var(--tc-black);
-    color: var(--tc-white);
+    background: var(--tc-header-bg);
+    backdrop-filter: blur(8px);
+    color: var(--tc-text);
     font-family: Arial, Helvetica, sans-serif;
-    border-bottom: 1px solid #242424;
+    border-bottom: 1px solid var(--tc-border);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .20);
+    transition: background .2s ease, color .2s ease, border-color .2s ease;
 }
 
-/* LOGOTIPO Y MARCA (Sin enlace) */
+/* LOGOTIPO Y MARCA */
 
 .admin-brand {
     display: flex;
@@ -71,10 +110,10 @@
     padding-left: 5px;
     font-size: clamp(.78rem, 1.15vw, 1.08rem);
     line-height: 1.25;
-    color: var(--tc-white);
+    color: var(--tc-muted);
 }
 
-/* MENÚ PRINCIPAL (PC) */
+/* MENÚ PRINCIPAL */
 
 .admin-nav {
     display: flex;
@@ -92,7 +131,7 @@
     justify-content: center;
     gap: 5px;
     padding: 4px 0;
-    color: var(--tc-white);
+    color: var(--tc-text);
     text-decoration: none;
     font-size: .96rem;
     line-height: 1.15;
@@ -123,34 +162,41 @@
         transform: translateY(-2px);
     }
 
-/* BOTÓN CERRAR SESIÓN (PC Y MÓVIL) */
+/* CONTENEDOR DE ACCIONES */
 
-.admin-logout-wrap {
+.admin-actions-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     flex: 0 0 auto;
 }
 
+/* BOTONES DE TEMA Y CERRAR SESIÓN */
+
+.admin-theme-btn,
 .admin-logout-btn {
-    min-width: 70px;
-    padding: 7px 14px;
+    min-width: 68px;
+    padding: 7px 12px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 4px;
-    border: 1px solid #4d3e1e;
+    border: 1px solid var(--tc-border);
     border-radius: 10px;
-    background: #171717;
-    color: var(--tc-white);
+    background: var(--tc-surface);
+    color: var(--tc-text);
     font-family: inherit;
-    font-size: .9rem;
+    font-size: .85rem;
     font-weight: 600;
     cursor: pointer;
     transition: color .18s ease, border-color .18s ease, background .18s ease, transform .18s ease;
 }
 
+    .admin-theme-btn svg,
     .admin-logout-btn svg {
-        width: 28px;
-        height: 28px;
+        width: 24px;
+        height: 24px;
         fill: none;
         stroke: currentColor;
         stroke-width: 1.8;
@@ -158,24 +204,26 @@
         stroke-linejoin: round;
     }
 
+    .admin-theme-btn:hover,
     .admin-logout-btn:hover {
         color: var(--tc-gold);
         border-color: var(--tc-gold);
-        background: #241f14;
         transform: translateY(-2px);
     }
 
-/* =========================================
-   NAVEGACIÓN INFERIOR MÓVIL COMPARTIDA
-========================================= */
+    .admin-theme-btn:focus-visible,
+    .admin-logout-btn:focus-visible {
+        outline: 2px solid var(--tc-gold);
+        outline-offset: 3px;
+    }
+
+/* NAVEGACIÓN INFERIOR MÓVIL */
 
 .mobile-bottom-nav {
     display: none;
 }
 
-/* =========================================
-   TABLETAS Y VENTANAS MEDIANAS
-========================================= */
+/* TABLETAS Y VENTANAS MEDIANAS */
 
 @media (max-width: 1150px) {
     .admin-header {
@@ -203,13 +251,11 @@
         }
 }
 
-/* =========================================
-   CELULARES Y PANTALLAS PEQUEÑAS
-========================================= */
+/* CELULARES Y PANTALLAS PEQUEÑAS */
 
 @media (max-width: 850px) {
     body {
-        padding-bottom: 76px;
+        padding-bottom: 84px !important;
     }
 
     .admin-header {
@@ -238,45 +284,45 @@
         padding-left: 1px;
     }
 
-    /* En teléfono ocultamos los enlaces superiores porque se usa la barra inferior */
     .admin-nav {
         display: none;
     }
 
-    /* Botón de salir compacto en teléfono */
-    .admin-logout-wrap {
+    .admin-actions-wrap {
         margin-left: auto;
+        gap: 6px;
     }
 
+    .admin-theme-btn,
     .admin-logout-btn {
         min-width: auto;
-        padding: 8px 12px;
+        padding: 7px 10px;
         flex-direction: row;
-        gap: 6px;
-        font-size: .82rem;
+        gap: 5px;
+        font-size: .78rem;
     }
 
+        .admin-theme-btn svg,
         .admin-logout-btn svg {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
         }
 
-    /* Barra inferior fija de navegación */
     .mobile-bottom-nav {
-        position: fixed;
-        z-index: 150;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        width: 100%;
+        position: fixed !important;
+        z-index: 1050 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
         min-height: 66px;
         padding: 7px 6px max(7px, env(safe-area-inset-bottom));
-        display: grid;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
+        display: grid !important;
+        grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
         align-items: center;
         gap: 4px;
-        border-top: 1px solid #383838;
-        background: #111111;
+        border-top: 1px solid var(--tc-border);
+        background: var(--tc-nav-mobile-bg);
     }
 
     .mobile-nav-item {
@@ -288,7 +334,7 @@
         justify-content: center;
         flex-direction: column;
         gap: 4px;
-        color: #c2c2c2;
+        color: var(--tc-muted);
         text-decoration: none;
         border-radius: 7px;
         -webkit-tap-highlight-color: transparent;
@@ -306,11 +352,11 @@
         }
 
         .mobile-nav-item.active {
-            color: #f4c542;
+            color: var(--tc-gold);
         }
 
         .mobile-nav-item:focus-visible {
-            outline: 2px solid #f4c542;
+            outline: 2px solid var(--tc-gold);
             outline-offset: -2px;
         }
 }
@@ -335,14 +381,16 @@
         font-size: .66rem;
     }
 
+    .admin-theme-btn,
     .admin-logout-btn {
-        padding: 6px 9px;
-        font-size: .75rem;
+        padding: 6px 8px;
+        font-size: .72rem;
     }
 
+        .admin-theme-btn svg,
         .admin-logout-btn svg {
-            width: 18px;
-            height: 18px;
+            width: 17px;
+            height: 17px;
         }
 
     .mobile-nav-item i {
@@ -355,6 +403,7 @@
 }
 
 /* BOTÓN COMPARTIDO DE BAJA LÓGICA */
+
 .btn-baja-logica {
     display: inline-flex;
     align-items: center;
@@ -366,26 +415,19 @@
     background: #2b1414;
     color: #ff8585;
     font-family: inherit;
-    font-size: 0.9rem;
+    font-size: .9rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    transition: background .2s ease, border-color .2s ease, color .2s ease;
 }
 
-.btn-baja-logica:hover:not(:disabled) {
-    background: #8f2929;
-    border-color: #ff6b6b;
-    color: #ffffff;
-}
-
-.btn-baja-logica:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
-
-@media (max-width: 860px) {
-    .mobile-bottom-nav {
-        display: flex !important;
+    .btn-baja-logica:hover:not(:disabled) {
+        background: #8f2929;
+        border-color: #ff6b6b;
+        color: #ffffff;
     }
-}
+
+    .btn-baja-logica:disabled {
+        opacity: .6;
+        cursor: not-allowed;
+    }

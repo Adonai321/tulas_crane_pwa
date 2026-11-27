@@ -1,38 +1,138 @@
 ﻿/* =========================================
-   CARGA DEL HEADER ADMINISTRATIVO
-   TULA'S CRANE
+   CONTROL DE TEMA
+   SISTEMA POR DEFECTO
 ========================================= */
 
+(function inicializarTema() {
+
+    const STORAGE_KEY = "tc_theme";
+    const mediaOscuro = window.matchMedia("(prefers-color-scheme: dark)");
+
+    function obtenerTemaActual() {
+
+        const guardado = localStorage.getItem(STORAGE_KEY);
+
+        if (guardado === "light" || guardado === "dark") {
+            return guardado;
+        }
+
+        return mediaOscuro.matches ? "dark" : "light";
+    }
+
+    function aplicarTema(tema) {
+
+        document.documentElement.setAttribute("data-theme", tema);
+
+        const btn = document.getElementById("adminThemeToggle");
+
+        if (btn) {
+
+            const esOscuro = tema === "dark";
+
+            btn.setAttribute(
+                "aria-label",
+                esOscuro ? "Cambiar a modo claro" : "Cambiar a modo oscuro"
+            );
+
+            const label = btn.querySelector(".theme-label");
+            const sun = btn.querySelector(".icon-sun");
+            const moon = btn.querySelector(".icon-moon");
+
+            if (label) {
+                label.textContent = esOscuro ? "Claro" : "Oscuro";
+            }
+
+            if (sun) {
+                sun.style.display = esOscuro ? "block" : "none";
+            }
+
+            if (moon) {
+                moon.style.display = esOscuro ? "none" : "block";
+            }
+        }
+    }
+
+    // Aplicar inmediatamente para evitar parpadeos.
+
+    aplicarTema(obtenerTemaActual());
+
+    // Detectar cambios en el tema del sistema operativo.
+
+    mediaOscuro.addEventListener("change", function (e) {
+
+        if (!localStorage.getItem(STORAGE_KEY)) {
+            aplicarTema(e.matches ? "dark" : "light");
+        }
+
+    });
+
+    // Alternar tema manualmente.
+
+    window.alternarTemaAdmin = function () {
+
+        const actual =
+            document.documentElement.getAttribute("data-theme") ||
+            obtenerTemaActual();
+
+        const nuevo = actual === "dark" ? "light" : "dark";
+
+        localStorage.setItem(STORAGE_KEY, nuevo);
+
+        aplicarTema(nuevo);
+
+    };
+
+    // Sincronizar botón cuando se inserta el header.
+
+    window.sincronizarBotonTema = function () {
+        aplicarTema(obtenerTemaActual());
+    };
+
+})();
+
+
 (function () {
+
     "use strict";
 
     const HEADER_FILE = "DiseñoAdmin.html";
     const CSS_FILE = "css/DiseñoAdmin.css";
+
 
     /* =========================================
        CARGAR LOS ESTILOS
     ========================================= */
 
     function cargarEstilos() {
+
         const yaExiste = Array.from(
             document.querySelectorAll('link[rel="stylesheet"]')
         ).some(function (link) {
+
             return link.getAttribute("href") === CSS_FILE;
+
         });
 
         if (!yaExiste) {
+
             const link = document.createElement("link");
+
             link.rel = "stylesheet";
             link.href = CSS_FILE;
+
             document.head.appendChild(link);
+
         }
+
     }
+
 
     /* =========================================
        RESUMEN DEL DASHBOARD
     ========================================= */
 
     async function cargarResumenDashboard() {
+
         const cotizaciones = document.getElementById("statCotizaciones");
         const maniobras = document.getElementById("statManiobras");
         const maquinaria = document.getElementById("statMaquinaria");
@@ -43,6 +143,7 @@
         }
 
         try {
+
             const respuesta = await fetch("/api/Dashboard/Resumen", {
                 method: "GET",
                 headers: {
@@ -51,8 +152,13 @@
             });
 
             if (!respuesta.ok) {
+
                 const errorApi = await respuesta.text();
-                throw new Error("Error HTTP " + respuesta.status + ": " + errorApi);
+
+                throw new Error(
+                    "Error HTTP " + respuesta.status + ": " + errorApi
+                );
+
             }
 
             const datos = await respuesta.json();
@@ -63,226 +169,482 @@
             empleados.textContent = formatNumber(datos.totalEmpleados);
 
         } catch (error) {
-            console.error("Error al cargar el resumen del Dashboard:", error);
+
+            console.error(
+                "Error al cargar el resumen del Dashboard:",
+                error
+            );
+
             cotizaciones.textContent = "0";
             maniobras.textContent = "0";
             maquinaria.textContent = "0";
             empleados.textContent = "0";
+
         }
+
     }
+
 
     function formatNumber(num) {
+
         const numero = Number(num) || 0;
-        return numero < 10 ? "0" + numero : numero.toString();
+
+        return numero < 10
+            ? "0" + numero
+            : numero.toString();
+
     }
 
+
     /* =========================================
-       CONFIGURAR EL HEADER Y NAVEGACIÓN MÓVIL
+       CONFIGURAR HEADER Y NAVEGACIÓN MÓVIL
     ========================================= */
 
     function activarHeader(contenedor) {
+
         const header = contenedor.querySelector("#adminHeader");
 
         if (!header) {
+
             console.error("No se encontró el header administrativo.");
+
             return;
+
         }
 
         const nav = header.querySelector("#adminNav");
+
         const logoutButton = header.querySelector("#adminLogoutButton");
 
-        /* INYECTAR BARRA INFERIOR MÓVIL SINCRONIZADA */
-        if (!document.querySelector(".mobile-bottom-nav")) {
-            const mobileNavHTML = `
-                <nav class="mobile-bottom-nav" aria-label="Navegación móvil">
-                    <a href="Dashboard.html" class="mobile-nav-item" aria-label="Inicio">
-                        <i class="bi bi-house-fill"></i>
-                        <span>Inicio</span>
-                    </a>
-                    <a href="Maquinaria.html" class="mobile-nav-item" aria-label="Maquinaria">
-                        <i class="bi bi-truck-front"></i>
-                        <span>Maquinaria</span>
-                    </a>
-                    <a href="Empleados.html" class="mobile-nav-item" aria-label="Empleados">
-                        <i class="bi bi-people"></i>
-                        <span>Personal</span>
-                    </a>
-                    <a href="Calendario.html" class="mobile-nav-item" aria-label="Calendario">
-                        <i class="bi bi-calendar3"></i>
-                        <span>Agenda</span>
-                    </a>
-                    <a href="Finanzas.html" class="mobile-nav-item" aria-label="Finanzas">
-                        <i class="bi bi-cash-coin"></i>
-                        <span>Finanzas</span>
-                    </a>
-                </nav>
-            `;
-            document.body.insertAdjacentHTML("beforeend", mobileNavHTML);
+
+        /* =========================================
+           CONFIGURAR BOTÓN DE TEMA
+        ========================================= */
+
+        const themeButton = header.querySelector("#adminThemeToggle");
+
+        if (themeButton) {
+
+            // Sincronizar el botón con el tema actual.
+
+            window.sincronizarBotonTema();
+
+            // Evitar registrar eventos duplicados.
+
+            themeButton.addEventListener(
+                "click",
+                window.alternarTemaAdmin
+            );
+
         }
 
-        /* IDENTIFICAR LA PÁGINA ACTUAL (PC Y MÓVIL) */
+
+        /* =========================================
+           INYECTAR BARRA INFERIOR MÓVIL
+        ========================================= */
+
+        if (!document.querySelector(".mobile-bottom-nav")) {
+
+            const mobileNavHTML = `
+
+                <nav class="mobile-bottom-nav"
+                     aria-label="Navegación móvil">
+
+                    <a href="Dashboard.html"
+                       class="mobile-nav-item"
+                       aria-label="Inicio">
+
+                        <i class="bi bi-house-fill"></i>
+                        <span>Inicio</span>
+
+                    </a>
+
+                    <a href="Maquinaria.html"
+                       class="mobile-nav-item"
+                       aria-label="Maquinaria">
+
+                        <i class="bi bi-truck-front"></i>
+                        <span>Maquinaria</span>
+
+                    </a>
+
+                    <a href="Empleados.html"
+                       class="mobile-nav-item"
+                       aria-label="Empleados">
+
+                        <i class="bi bi-people"></i>
+                        <span>Personal</span>
+
+                    </a>
+
+                    <a href="Calendario.html"
+                       class="mobile-nav-item"
+                       aria-label="Calendario">
+
+                        <i class="bi bi-calendar3"></i>
+                        <span>Agenda</span>
+
+                    </a>
+
+                    <a href="Finanzas.html"
+                       class="mobile-nav-item"
+                       aria-label="Finanzas">
+
+                        <i class="bi bi-cash-coin"></i>
+                        <span>Finanzas</span>
+
+                    </a>
+
+                </nav>
+
+            `;
+
+            document.body.insertAdjacentHTML(
+                "beforeend",
+                mobileNavHTML
+            );
+
+        }
+
+
+        /* =========================================
+           IDENTIFICAR PÁGINA ACTUAL
+        ========================================= */
+
         const paginaActual = (
-            window.location.pathname.split("/").pop() || "dashboard.html"
+
+            window.location.pathname.split("/").pop() ||
+            "dashboard.html"
+
         ).toLowerCase();
 
-        // 1. Sincronizar enlaces de PC
+
+        // SINCRONIZAR ENLACES DE PC
+
         if (nav) {
+
             nav.querySelectorAll(".admin-nav-link").forEach(function (link) {
-                const destino = (link.getAttribute("href") || "").toLowerCase();
+
+                const destino = (
+                    link.getAttribute("href") || ""
+                ).toLowerCase();
+
                 const coincide = destino === paginaActual;
 
                 link.classList.toggle("is-active", coincide);
+
                 if (coincide) {
+
                     link.setAttribute("aria-current", "page");
+
                 } else {
+
                     link.removeAttribute("aria-current");
+
                 }
+
             });
+
         }
 
-        // 2. Sincronizar enlaces de Teléfono
-        document.querySelectorAll(".mobile-bottom-nav .mobile-nav-item").forEach(function (link) {
-            const destino = (link.getAttribute("href") || "").toLowerCase();
+
+        // SINCRONIZAR ENLACES DE TELÉFONO
+
+        document.querySelectorAll(
+            ".mobile-bottom-nav .mobile-nav-item"
+        ).forEach(function (link) {
+
+            const destino = (
+                link.getAttribute("href") || ""
+            ).toLowerCase();
+
             const coincide = destino === paginaActual;
 
             link.classList.toggle("active", coincide);
+
             if (coincide) {
+
                 link.setAttribute("aria-current", "page");
+
             } else {
+
                 link.removeAttribute("aria-current");
+
             }
+
         });
 
-        /* CERRAR SESIÓN */
+
+        /* =========================================
+           CERRAR SESIÓN
+        ========================================= */
+
         if (logoutButton) {
-            logoutButton.addEventListener("click", async function (e) {
-                e.preventDefault();
 
-                if (typeof cerrarSesion === "function") {
-                    cerrarSesion();
-                    return;
+            logoutButton.addEventListener(
+                "click",
+                async function (e) {
+
+                    e.preventDefault();
+
+                    if (typeof cerrarSesion === "function") {
+
+                        cerrarSesion();
+
+                        return;
+
+                    }
+
+                    try {
+
+                        await fetch("/api/Auth/salir", {
+                            method: "POST"
+                        });
+
+                    } catch (error) {
+
+                        // Continuar con limpieza local
+                        // si el endpoint no responde.
+
+                    }
+
+                    sessionStorage.clear();
+
+                    localStorage.removeItem("empleados_usuario");
+
+                    window.location.href = "index.html";
+
                 }
+            );
 
-                try {
-                    await fetch("/api/Auth/salir", { method: "POST" });
-                } catch (error) {
-                    // Continuar con limpieza local si el endpoint no responde
-                }
-
-                sessionStorage.clear();
-                localStorage.removeItem("empleados_usuario");
-                window.location.href = "index.html"; 
-            });
         }
+
     }
 
+
     /* =========================================
-       INSERTAR EL HEADER EN LA PÁGINA
+       INSERTAR HEADER EN LA PÁGINA
     ========================================= */
 
     async function cargarLayoutAdmin() {
-        const contenedor = document.getElementById("admin-header-placeholder");
+
+        const contenedor = document.getElementById(
+            "admin-header-placeholder"
+        );
 
         if (!contenedor) {
-            console.error("No existe el elemento #admin-header-placeholder.");
+
+            console.error(
+                "No existe el elemento #admin-header-placeholder."
+            );
+
             return;
+
         }
 
         cargarEstilos();
 
         try {
-            const respuesta = await fetch(HEADER_FILE, { cache: "no-cache" });
+
+            const respuesta = await fetch(
+                HEADER_FILE,
+                { cache: "no-cache" }
+            );
 
             if (!respuesta.ok) {
+
                 throw new Error(
-                    "No se pudo cargar " + HEADER_FILE + ". Código: " + respuesta.status
+                    "No se pudo cargar " +
+                    HEADER_FILE +
+                    ". Código: " +
+                    respuesta.status
                 );
+
             }
 
             const html = await respuesta.text();
+
             contenedor.innerHTML = html;
+
             activarHeader(contenedor);
 
         } catch (error) {
-            console.error("Error al cargar el header:", error);
+
+            console.error(
+                "Error al cargar el header:",
+                error
+            );
+
             contenedor.innerHTML = `
-                <p style="padding: 12px; color: #f4c542; background: #111; font-family: Arial, sans-serif;">
-                    No se pudo cargar el header. Revisa las rutas de los archivos y abre el proyecto desde el servidor local.
+
+                <p style="
+                    padding: 12px;
+                    color: #f4c542;
+                    background: #111;
+                    font-family: Arial, sans-serif;
+                ">
+
+                    No se pudo cargar el header.
+                    Revisa las rutas de los archivos y abre
+                    el proyecto desde el servidor local.
+
                 </p>
+
             `;
+
         }
+
     }
+
 
     /* =========================================
        INICIALIZACIÓN
     ========================================= */
 
     async function inicializar() {
+
         await cargarLayoutAdmin();
+
         await cargarResumenDashboard();
+
     }
 
     if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", inicializar);
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            inicializar
+        );
+
     } else {
+
         inicializar();
+
     }
 
-    /* =========================================
-       FUNCIÓN COMPARTIDA PARA BAJA LÓGICA (CON POP-UP)
-    ========================================= */
-    window.ejecutarBajaLogica = function ({ endpoint, nombreEntidad, urlRedireccion, boton }) {
-        const procesarBaja = async () => {
-            const textoOriginal = boton.innerHTML;
-            try {
-                boton.disabled = true;
-                boton.innerHTML = '<i class="bi bi-hourglass-split"></i> Procesando...';
 
-                const respuesta = await fetch(endpoint, { method: "DELETE" });
-                const resultado = await respuesta.json().catch(() => ({}));
+    /* =========================================
+       FUNCIÓN COMPARTIDA PARA BAJA LÓGICA
+       CON POP-UP
+    ========================================= */
+
+    window.ejecutarBajaLogica = function ({
+        endpoint,
+        nombreEntidad,
+        urlRedireccion,
+        boton
+    }) {
+
+        const procesarBaja = async () => {
+
+            const textoOriginal = boton.innerHTML;
+
+            try {
+
+                boton.disabled = true;
+
+                boton.innerHTML =
+                    '<i class="bi bi-hourglass-split"></i> Procesando...';
+
+                const respuesta = await fetch(endpoint, {
+                    method: "DELETE"
+                });
+
+                const resultado = await respuesta.json().catch(
+                    () => ({})
+                );
 
                 if (respuesta.ok) {
+
                     let redirigido = false;
+
                     const irAlCatalogo = () => {
+
                         if (redirigido) return;
+
                         redirigido = true;
+
                         window.location.href = urlRedireccion;
+
                     };
 
                     mostrarAviso({
+
                         tipo: "exito",
+
                         titulo: "Baja completada",
-                        mensaje: resultado.mensaje || "El registro fue dado de baja correctamente.",
+
+                        mensaje:
+                            resultado.mensaje ||
+                            "El registro fue dado de baja correctamente.",
+
                         alCerrar: irAlCatalogo
+
                     });
 
                     setTimeout(irAlCatalogo, 1600);
+
                 }
+
             } catch (error) {
-                console.error("Error en baja lógica:", error);
+
+                console.error(
+                    "Error en baja lógica:",
+                    error
+                );
+
                 mostrarAviso({
+
                     tipo: "error",
+
                     titulo: "Error de conexión",
-                    mensaje: "No se pudo conectar con el servidor para completar la baja."
+
+                    mensaje:
+                        "No se pudo conectar con el servidor para completar la baja."
+
                 });
+
             } finally {
+
                 boton.disabled = false;
+
                 boton.innerHTML = textoOriginal;
+
             }
+
         };
 
+
         if (typeof window.mostrarAviso === "function") {
+
             window.mostrarAviso({
+
                 tipo: "advertencia",
+
                 titulo: "¿Confirmar baja?",
-                mensaje: `¿Estás seguro de dar de baja a ${nombreEntidad}? Dejará de aparecer en los catálogos, pero su historial se conservará.`,
+
+                mensaje:
+                    `¿Estás seguro de dar de baja a ${nombreEntidad}? ` +
+                    "Dejará de aparecer en los catálogos, pero su historial se conservará.",
+
                 confirmar: true,
+
                 textoConfirmar: "Sí, dar de baja",
+
                 alConfirmar: procesarBaja
+
             });
-        } else if (window.confirm(`¿Estás seguro de dar de baja a ${nombreEntidad}?`)) {
+
+        } else if (
+            window.confirm(
+                `¿Estás seguro de dar de baja a ${nombreEntidad}?`
+            )
+        ) {
+
             procesarBaja();
+
         }
+
     };
 
 })();

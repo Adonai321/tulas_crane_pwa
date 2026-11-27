@@ -41,3 +41,4 @@ C:\Users\adona\OneDrive\Documents\proyecto_pwa\tulas_crane_pwa-develop-fani\MiWe
 C:\Users\adona\OneDrive\Documents\proyecto_pwa\tulas_crane_pwa-develop-fani\MiWebAPI\MiWebAPI\obj\Release\net8.0\MiWebAPI.pdb
 C:\Users\adona\OneDrive\Documents\proyecto_pwa\tulas_crane_pwa-develop-fani\MiWebAPI\MiWebAPI\obj\Release\net8.0\MiWebAPI.genruntimeconfig.cache
 C:\Users\adona\OneDrive\Documents\proyecto_pwa\tulas_crane_pwa-develop-fani\MiWebAPI\MiWebAPI\obj\Release\net8.0\ref\MiWebAPI.dll
+C:\Users\adona\OneDrive\Documents\proyecto_pwa\tulas_crane_pwa-develop-fani\MiWebAPI\MiWebAPI\bin\Release\net8.0\Postman\Coleccion.json
