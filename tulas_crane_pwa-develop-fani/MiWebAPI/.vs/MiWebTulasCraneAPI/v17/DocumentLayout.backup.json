@@ -140,7 +140,8 @@
               "RelativeToolTip": "MiWebAPI\\Data\\MaquinariaData.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAQwJIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-20T19:30:23.35Z"
+              "WhenOpened": "2026-11-20T19:30:23.35Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -176,7 +177,8 @@
               "RelativeToolTip": "MiWebAPI\\Data\\EmpleadoData.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAkwFkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-20T19:12:42.252Z"
+              "WhenOpened": "2026-11-20T19:12:42.252Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

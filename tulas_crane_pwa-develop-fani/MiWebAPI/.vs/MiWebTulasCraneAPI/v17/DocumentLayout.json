@@ -82,15 +82,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MiWebAPI",
+              "Title": "MiWebAPI.csproj",
               "DocumentMoniker": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\MiWebAPI.csproj",
               "RelativeDocumentMoniker": "MiWebAPI\\MiWebAPI.csproj",
               "ToolTip": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\MiWebAPI.csproj",
               "RelativeToolTip": "MiWebAPI\\MiWebAPI.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-11-24T00:04:47.664Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-24T00:04:47.664Z"
             },
             {
               "$type": "Document",
@@ -102,8 +101,7 @@
               "RelativeToolTip": "..\\..\\..\\..\\..\\AppData\\Roaming\\Microsoft\\UserSecrets\\3ea4bfab-c225-4335-8ca3-904f1502c6c9\\secrets.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-11-23T23:14:42.1Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-23T23:14:42.1Z"
             },
             {
               "$type": "Document",
@@ -140,8 +138,7 @@
               "RelativeToolTip": "MiWebAPI\\Data\\MaquinariaData.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAQwJIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-20T19:30:23.35Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-20T19:30:23.35Z"
             },
             {
               "$type": "Document",
@@ -177,8 +174,7 @@
               "RelativeToolTip": "MiWebAPI\\Data\\EmpleadoData.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAkwFkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-20T19:12:42.252Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-20T19:12:42.252Z"
             },
             {
               "$type": "Document",
