@@ -10,6 +10,14 @@
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\adona\\AppData\\Roaming\\Microsoft\\UserSecrets\\3ea4bfab-c225-4335-8ca3-904f1502c6c9\\secrets.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\adona\\onedrive\\documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\miwebapi\\miwebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\adona\\onedrive\\documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\miwebapi\\miwebapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|c:\\users\\adona\\onedrive\\documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\miwebapi\\miwebapi\\wwwroot\\css\\dashboard.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{AD3A25F5-1168-4F9F-B7EB-778DAB0AF1CD}|MiWebAPI\\MiWebAPI.csproj|solutionrelative:miwebapi\\wwwroot\\css\\dashboard.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
@@ -95,7 +103,7 @@
               "RelativeDocumentMoniker": "MiWebAPI\\appsettings.json",
               "ToolTip": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\appsettings.json",
               "RelativeToolTip": "MiWebAPI\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-11-23T23:14:30.255Z",
               "IsPinned": true,
@@ -103,7 +111,45 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "secrets.json",
+              "DocumentMoniker": "C:\\Users\\adona\\AppData\\Roaming\\Microsoft\\UserSecrets\\3ea4bfab-c225-4335-8ca3-904f1502c6c9\\secrets.json",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\AppData\\Roaming\\Microsoft\\UserSecrets\\3ea4bfab-c225-4335-8ca3-904f1502c6c9\\secrets.json",
+              "ToolTip": "C:\\Users\\adona\\AppData\\Roaming\\Microsoft\\UserSecrets\\3ea4bfab-c225-4335-8ca3-904f1502c6c9\\secrets.json",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\AppData\\Roaming\\Microsoft\\UserSecrets\\3ea4bfab-c225-4335-8ca3-904f1502c6c9\\secrets.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAACzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-11-23T23:14:42.1Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "MiWebAPI\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "MiWebAPI\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAkwFcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-27T21:25:30.503Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\Program.cs",
+              "RelativeDocumentMoniker": "MiWebAPI\\Program.cs",
+              "ToolTip": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\Program.cs",
+              "RelativeToolTip": "MiWebAPI\\Program.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAiwEYAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-27T21:22:43.866Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Dashboard.css",
               "DocumentMoniker": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\wwwroot\\css\\Dashboard.css",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\css\\Dashboard.css",
@@ -115,7 +161,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Dashboard.html",
               "DocumentMoniker": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\wwwroot\\Dashboard.html",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\Dashboard.html",
@@ -127,20 +173,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "secrets.json",
-              "DocumentMoniker": "C:\\Users\\adona\\AppData\\Roaming\\Microsoft\\UserSecrets\\3ea4bfab-c225-4335-8ca3-904f1502c6c9\\secrets.json",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\AppData\\Roaming\\Microsoft\\UserSecrets\\3ea4bfab-c225-4335-8ca3-904f1502c6c9\\secrets.json",
-              "ToolTip": "C:\\Users\\adona\\AppData\\Roaming\\Microsoft\\UserSecrets\\3ea4bfab-c225-4335-8ca3-904f1502c6c9\\secrets.json",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\AppData\\Roaming\\Microsoft\\UserSecrets\\3ea4bfab-c225-4335-8ca3-904f1502c6c9\\secrets.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-11-23T23:14:42.1Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "MiWebAPI.csproj",
               "DocumentMoniker": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\MiWebAPI.csproj",
               "RelativeDocumentMoniker": "MiWebAPI\\MiWebAPI.csproj",
@@ -152,7 +185,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Layout_Admin.js",
               "DocumentMoniker": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\wwwroot\\js\\Layout_Admin.js",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\js\\Layout_Admin.js",
@@ -164,7 +197,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "MaquinariaData.cs",
               "DocumentMoniker": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\Data\\MaquinariaData.cs",
               "RelativeDocumentMoniker": "MiWebAPI\\Data\\MaquinariaData.cs",
@@ -172,11 +205,12 @@
               "RelativeToolTip": "MiWebAPI\\Data\\MaquinariaData.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAQwJIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-20T19:30:23.35Z"
+              "WhenOpened": "2026-11-20T19:30:23.35Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "ExpedienteEmpleado.css",
               "DocumentMoniker": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\wwwroot\\css\\ExpedienteEmpleado.css",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\css\\ExpedienteEmpleado.css",
@@ -188,7 +222,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "EmpleadosController.cs",
               "DocumentMoniker": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\Controllers\\EmpleadosController.cs",
               "RelativeDocumentMoniker": "MiWebAPI\\Controllers\\EmpleadosController.cs",
@@ -200,7 +234,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "EmpleadoData.cs",
               "DocumentMoniker": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\Data\\EmpleadoData.cs",
               "RelativeDocumentMoniker": "MiWebAPI\\Data\\EmpleadoData.cs",
@@ -208,11 +242,12 @@
               "RelativeToolTip": "MiWebAPI\\Data\\EmpleadoData.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAA5wFkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-20T19:12:42.252Z"
+              "WhenOpened": "2026-11-20T19:12:42.252Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "ExpedienteEmpleado.html",
               "DocumentMoniker": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\wwwroot\\ExpedienteEmpleado.html",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\ExpedienteEmpleado.html",
@@ -224,7 +259,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "EmpleadoDetalle.js",
               "DocumentMoniker": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\wwwroot\\js\\EmpleadoDetalle.js",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\js\\EmpleadoDetalle.js",
@@ -236,7 +271,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "Maquinaria.html",
               "DocumentMoniker": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\wwwroot\\Maquinaria.html",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\Maquinaria.html",
@@ -248,7 +283,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "MaquinariaModel.cs",
               "DocumentMoniker": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\Models\\MaquinariaModel.cs",
               "RelativeDocumentMoniker": "MiWebAPI\\Models\\MaquinariaModel.cs",
@@ -260,7 +295,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "RegistrarMaquinaria.js",
               "DocumentMoniker": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\wwwroot\\js\\RegistrarMaquinaria.js",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\js\\RegistrarMaquinaria.js",
@@ -272,7 +307,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "RegistrarMaquinaria.html",
               "DocumentMoniker": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\wwwroot\\RegistrarMaquinaria.html",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\RegistrarMaquinaria.html",
@@ -284,7 +319,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "AlertaPopup.js",
               "DocumentMoniker": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\wwwroot\\js\\AlertaPopup.js",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\js\\AlertaPopup.js",
@@ -296,7 +331,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "Dise\u00F1oAdmin.css",
               "DocumentMoniker": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\wwwroot\\css\\Dise\u00F1oAdmin.css",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\css\\Dise\u00F1oAdmin.css",
@@ -308,7 +343,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "Dise\u00F1oAdmin.html",
               "DocumentMoniker": "C:\\Users\\adona\\OneDrive\\Documents\\proyecto_pwa\\tulas_crane_pwa-develop-fani\\MiWebAPI\\MiWebAPI\\wwwroot\\Dise\u00F1oAdmin.html",
               "RelativeDocumentMoniker": "MiWebAPI\\wwwroot\\Dise\u00F1oAdmin.html",

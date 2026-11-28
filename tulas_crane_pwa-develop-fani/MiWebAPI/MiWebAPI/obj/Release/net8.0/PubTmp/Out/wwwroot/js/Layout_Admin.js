@@ -286,14 +286,7 @@
 
                     </a>
 
-                    <a href="Finanzas.html"
-                       class="mobile-nav-item"
-                       aria-label="Finanzas">
-
-                        <i class="bi bi-cash-coin"></i>
-                        <span>Finanzas</span>
-
-                    </a>
+                    /*FInanzas*/
 
                 </nav>
 

@@ -4,7 +4,7 @@ wwwroot\css\Calendario.css
 wwwroot\login.html
 wwwroot\js\RegistrarMaquinaria.js
 wwwroot\js\RegistrarEmpleado.js
-wwwroot\js\Layout_Admin.js
+wwwroot\css\Dashboard.css
 wwwroot\js\login.js
 wwwroot\css\DiseñoAdmin.css
 wwwroot\js\Layout.js
@@ -33,13 +33,13 @@ wwwroot\css\login.css
 wwwroot\css\Maquinaria.css
 wwwroot\css\RegistrarEmpleado.css
 wwwroot\css\RegistrarMaquinaria.css
-wwwroot\DiseñoAdmin.html
-wwwroot\css\Dashboard.css
+wwwroot\Dashboard.html
+wwwroot\js\Layout_Admin.js
 wwwroot\empleados.html
 wwwroot\js\Calendario.js
 wwwroot\js\Empleados.js
 wwwroot\css\DiseñoGeneral.css
-wwwroot\Dashboard.html
+wwwroot\DiseñoAdmin.html
 wwwroot\js\Maquinaria.js
 wwwroot\Maquinaria.html
 wwwroot\RegistrarEmpleado.html
